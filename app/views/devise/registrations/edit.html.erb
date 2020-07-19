@@ -1,0 +1,61 @@
+<% provide(:title, "ユーザー情報変更") %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-xs-12 bg-white rounded">
+      <h2 class="h2">ユーザー情報変更</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %><i>（変更した場合、確認メールが送信されます）</i><br />
+          <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :password %> 
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上)</em>
+          <% end %>
+          <br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :release %>
+          <div class="switchArea">
+            <%= f.check_box :release, autocomplete: "release", id: 'switch1' %>
+            <label for="switch1"><span></span></label>
+            <div id="swImg"></div>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "ユーザー情報更新", class: "btn btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-lg-6 col-xs-12 bg-white rounded">
+      <h2 class='h2'>ユーザー情報削除</h2>
+
+      <p>ユーザー情報を削除する場合はこちら <%= button_to "ユーザー情報削除", registration_path(resource_name), data: { confirm: "ユーザー情報と登録した全てのデータを削除しますか?" }, method: :delete , class: "btn btn-info"%></p>
+    </div>
+  </div>
+</div>
+
+<%= link_to "戻る", :back, class: 'text-light' %>

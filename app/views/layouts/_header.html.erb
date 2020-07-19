@@ -1,12 +1,32 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "logo", '#', id: "logo" %>
-        <nav class"navbar-light">
-          <ul class="nav">
-            <li class="nav-item"><%= link_to "ホーム",   root_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "NAGASAKI Eeeeetsについて",  about_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "ログイン", '#', class: "nav-link" %></li>
-          </ul>
-        </nav>
+<header>
+  <div class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <%= link_to "Nagasaki Eeeats", root_url, id: "logo", class: "text-light"%>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+        <%= link_to 'プロフィール変更', edit_user_registration_path, class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+        <%= link_to "NAGASAKI Eeetsについて",  about_path, class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+        <%= link_to 'ユーザー登録', new_user_registration_path, class: "nav-link text-light" %>
+          </li>
+          <li class="nav-item">
+        <%= link_to 'ログイン', new_user_session_path, class: "nav-link text-light" %>
+          </li>
+        <% end %>
+      </ul>
       </div>
+    </nav>
+  </div>
 </header>

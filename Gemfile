@@ -27,12 +27,15 @@ gem 'jbuilder',   '2.9.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap',   '1.4.5', require: false
 
+#sing up function
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.4.1'
+  gem 'pry'
 end
 
 group :development do
