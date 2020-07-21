@@ -9,6 +9,7 @@
 
         <div class="field">
           <%= f.label :name %>
+          <em>  <%= User::NAME_MAXMUM %>文字以下</em>
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
         </div>
 

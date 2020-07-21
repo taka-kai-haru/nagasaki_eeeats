@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  NAME_MAXMUM = 15
+  validates :name, presence: true, length: { maximum: NAME_MAXMUM }, uniqueness: true
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise  :database_authenticatable, :registerable, :confirmable,

@@ -48,6 +48,10 @@ ja:
               confirmation: "が内容とあっていません。"
             password_confirmation:
               confirmation: "が内容とあっていません。"
+            name:
+              blank: "が入力されていません。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              taken: "は既に使用されています。"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
