@@ -1,0 +1,3 @@
+<% if resource.errors.include?(target) %>
+  <p style="color: red;"><%= resource.errors.full_messages_for(target).first %>
+<% end %>

@@ -11,11 +11,13 @@
           <%= f.label :name %>
           <em>  <%= User::NAME_MAXMUM %>文字以下</em>
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :name} %>
         </div>
 
         <div class="field">
           <%= f.label :email %>
           <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :email} %>
         </div>
 
         <div class="field">
@@ -24,11 +26,13 @@
             <em>(<%= @minimum_password_length %> 文字以上)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password} %>
         </div>
 
         <div class="field">
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password_confirmation} %>
         </div>
 
         <div class="field">

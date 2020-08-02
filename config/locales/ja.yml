@@ -27,6 +27,13 @@ ja:
         updated_at: 更新日
         name: 名前(ニックネーム)
         release: 一般公開
+      restaurant:
+        name: お店の名前
+        restaurant_type_id: ジャンル
+        area_id: 地域
+        tel: 電話番号
+        url: お店のURL
+        address: 住所
     models:
       user: ユーザ
     errors:
@@ -47,11 +54,26 @@ ja:
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
             password_confirmation:
-              confirmation: "が内容とあっていません。"
+              confirmation: "がパスワードとあっていません。"
             name:
               blank: "が入力されていません。"
               too_long: "は%{count}文字以下に設定して下さい。"
               taken: "は既に使用されています。"
+        restaurant:
+          attributes:
+            area_id:
+              blank: "が選択されていません。"
+            restaurant_type_id:
+              blank: "が選択されていません。"
+            name:
+              blank: "が入力されていません。"
+              taken: "はすでに存在します。"
+            tel:
+              blank: "が入力されていません。"
+              invalid: "は有効でありません。"
+              taken: "はすでに存在します。"
+            address:
+              blank: "が入力されていません。"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

@@ -1,2 +1,31 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<% provide(:title, "お店一覧") %>
+
+<% if user_signed_in? %>
+  <%= link_to "+新規登録", new_restaurant_path, class: "btn  btn-info" %>
+<% end %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-xs-12 rounded">
+      <div class="card-deck">
+        <% @restaurants.each do |restaurant|%>
+        <div class="card h-100" style="min-width: 250px; max-width: 250px;">
+          <a href="/restaurants/<%= restaurant.id%>" class="text-dark">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+            <div class="card-body">
+              <h5 class="card-title"><%= restaurant.name %></h5>
+                <p class="card-text"><%= restaurant.restaurant_type.name %></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-6 col-xs-12 rounded">
+    <%# マップ %>
+    </div>
+  </div>
+</div>

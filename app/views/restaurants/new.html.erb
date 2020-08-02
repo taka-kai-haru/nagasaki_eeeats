@@ -1,2 +1,53 @@
-<h1>Restaurants#new</h1>
-<p>Find me in app/views/restaurants/new.html.erb</p>
+<% provide(:title, "お店の登録") %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-xs-12 bg-white rounded">
+      <h2 class="h2">お店の登録</h2>
+      <%= form_with(model: @restaurant, local: true ) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :name} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :restaurant_type_id %>
+          <%= f.collection_select(:restaurant_type_id, RestaurantType.all, :id, :name,{prompt: "選択してください"}, {class: 'form-control'}) %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :restaurant_type_id} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :area_id %>
+          <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{prompt: "選択してください"}, {class: 'form-control'}) %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :area_id} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :tel %> <em>(ハイフン不要)  ※必須</em>
+          <%= f.text_field :tel, autocomplete: "tel", class: 'form-control' %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :tel} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :url %>
+          <%= f.text_field :url, autocomplete: "url", class: 'form-control' %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :url} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address %>
+          <%= f.text_field :address, autocomplete: "address", class: 'form-control' %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "お店の登録", class: "btn btn-info" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to "戻る", :back, class: 'text-light' %>

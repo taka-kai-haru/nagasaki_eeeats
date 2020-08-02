@@ -7,11 +7,13 @@
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'  %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :email} %>
         </div>
 
         <div class="field">
           <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password", class: 'form-control'  %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password} %>
         </div>
 
         <% if devise_mapping.rememberable? %>

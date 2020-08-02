@@ -15,6 +15,11 @@ $gray: #999999;
 
 /* forms */
 
+.navbar{
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
 /* 背景設定*/
 body.jumbotron {
   background:url("/assets/backgrund.jpg") center no-repeat; 
@@ -75,7 +80,7 @@ label.custom-control-label{
 }
 
 .field_with_errors {
-  input {@extend .is-invalid;
+  input,select {@extend .is-invalid;
   }
 }
 
@@ -90,11 +95,17 @@ label.custom-control-label{
   }
 }
 
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* トグルアイコン */
 .navbar-toggler {
   border-color: rgb(255, 255, 255);
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 4 30 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='3' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+
 
 
 /* miscellaneous */

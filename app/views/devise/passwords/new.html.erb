@@ -11,6 +11,7 @@
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :email} %>
         </div>
 
         <div class="actions">

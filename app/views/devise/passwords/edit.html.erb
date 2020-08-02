@@ -16,11 +16,13 @@
           <% end %>
           <br />
           <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control' %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password} %>
         </div>
 
         <div class="field">
           <%= f.label :password_confirmation, "新しいパスワード（確認用）" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password_confirmation} %>
         </div>
 
         <div class="actions">
