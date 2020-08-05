@@ -6,15 +6,9 @@
       <h1 class="display-1 text-light text-center">Eeeats</h1>
       <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-info" %>
       <%= link_to "長崎県すべて" , restaurants_path, class: "p-3 text-light" %>
-      <%= link_to "長崎市" ,   "#", class: "p-3 text-light" %>
-      <%= link_to "佐世保市" , "#", class: "p-3 text-light" %>
-      <%= link_to "時津・長与・西海" , "#", class: "p-3 text-light" %>
-      <%= link_to "大村・諫早" , "#", class: "p-3 text-light" %>
-      <%= link_to "雲仙・島原・南島原" , "#", class: "p-3 text-light" %>
-      <%= link_to "平戸・松浦" , "#", class: "p-3 text-light" %>
-      <%= link_to "波佐見・川棚" , "#", class: "p-3 text-light" %>
-      <%= link_to "五島" , "#", class: "p-3 text-light" %>
-      <%= link_to "壱岐・対馬" , "#", class: "p-3 text-light" %>
+      <% @areas.each do |area| %>
+      <%= link_to area.areas_name, restaurants_path(area_id: area.id), class: "p-3 text-light" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -2,7 +2,12 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only:[:new,:edit,:create]
   
   def index
-    @restaurants = Restaurant.includes(:restaurant_type)
+    binding.pry
+    if params[:area_id].nil?
+      @restaurants = Restaurant.includes(:restaurant_type)
+    else
+      @restaurants = Restaurant.includes(:restaurant_type).where(area_id: params[:area_id])
+    end
   end
 
   def show

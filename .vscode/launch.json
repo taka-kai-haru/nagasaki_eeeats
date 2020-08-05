@@ -10,11 +10,8 @@
       "request": "launch",
       "cwd": "${workspaceRoot}",
       "program": "${workspaceRoot}/bin/rails",
-      "args": [
-        "server",
-        "-b",
-        "0.0.0.0"
-      ],
+      "args": ["server", "-b", "0.0.0.0"],
+      "showDebuggerOutput": true,
       "useBundler": true
     }
   ]
