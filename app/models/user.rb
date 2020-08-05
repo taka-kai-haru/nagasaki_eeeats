@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :posts
   NAME_MAXMUM = 15
   validates :name, presence: true, length: { maximum: NAME_MAXMUM }, uniqueness: true
   

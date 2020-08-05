@@ -1,0 +1,30 @@
+<% provide(:title, "コメント登録") %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-xs-12 bg-white rounded">
+      <h2 class="h2">コメントの登録</h2>
+      <%= form_with(model: @restaurant, local: true ) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="field">
+          <%= f.label :evaluation_type_id %>
+          <%= f.range_field :evaluation_type_id, :score, in: 1..5 class: 'form-control' %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :name} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :comment %>
+          <%= f.text_area :comment, autocomplete: "comment", class: 'form-control' %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :comment} %>
+        </div>
+
+
+        <div class="actions">
+          <%= f.submit "コメントの登録", class: "btn btn-info" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to "戻る", :back, class: 'text-light' %>

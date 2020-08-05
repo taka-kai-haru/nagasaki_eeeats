@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
   belongs_to :area
   belongs_to :restaurant_type
+  has_many :posts
 
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   validates :name, presence: true, uniqueness: true

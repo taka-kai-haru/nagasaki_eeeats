@@ -27,13 +27,13 @@
 
         <div class="field">
           <%= f.label :tel %> <em>(ハイフン不要)  ※必須</em>
-          <%= f.text_field :tel, autocomplete: "tel", class: 'form-control' %>
+          <%= f.telephone_field :tel, autocomplete: "tel", class: 'form-control' %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :tel} %>
         </div>
 
         <div class="field">
           <%= f.label :url %>
-          <%= f.text_field :url, autocomplete: "url", class: 'form-control' %>
+          <%= f.url_field :url, autocomplete: "url", class: 'form-control' %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :url} %>
         </div>
 

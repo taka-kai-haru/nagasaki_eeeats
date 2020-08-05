@@ -2,6 +2,7 @@
 
 <% if user_signed_in? %>
   <%= link_to "変更", edit_restaurant_path, class: "btn  btn-info" %>
+  <%= link_to "+新規登録", post_path, restaurant_id: @restaurant.id, class: "btn  btn-info" %>
 <% end %>
 
 <div class="container-fluid">
