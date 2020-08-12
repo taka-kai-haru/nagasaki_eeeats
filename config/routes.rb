@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'posts/new'
-  get 'posts/edit'
+  # get 'posts/new'
+  # get 'posts/edit'
   # devise_for :users, :controllers => {
   #   :registrations => 'users/registrations',
   #   :sessions => 'users/sessions',
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => 'users/registrations' } 
   resources :restaurants
+  resources :posts
   root 'static_pages#home'
   get  '/about', to: 'static_pages#about'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_190146) do
+ActiveRecord::Schema.define(version: 2020_08_06_042743) do
 
   create_table "areas", force: :cascade do |t|
     t.string "areas_name"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2020_08_03_190146) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "atmosphere", default: 3, null: false
+    t.integer "accessibility", default: 3, null: false
+    t.integer "cost_performance", default: 3, null: false
+    t.integer "assortment", default: 3, null: false
+    t.integer "service", default: 3, null: false
+    t.integer "delicious", default: 3, null: false
     t.index ["restaurant_id"], name: "index_posts_on_restaurant_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

@@ -2,18 +2,20 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only:[:new,:edit,:create]
   
   def index
-    binding.pry
-    if params[:area_id].nil?
-      @restaurants = Restaurant.includes(:restaurant_type)
-    else
-      @restaurants = Restaurant.includes(:restaurant_type).where(area_id: params[:area_id])
-    end
+
+    @search_params = restaurant_serch_params
+    # binding.pry
+    #homeからのパラメーターセット
+    @search_params[:area_id] = params[:area_id] if !params[:area_id].nil?
+    # binding.pry
+    @restaurants = Restaurant.search(@search_params).includes(:restaurant_type)
+
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @restaurant_type = RestaurantType.find(@restaurant.restaurant_type_id)
-    @area = Area.find(@restaurant.area_id)
+    # @restaurant_type = RestaurantType.find(@restaurant.restaurant_type_id)
+    # @area = Area.find(@restaurant.area_id)
   end
 
   def new
@@ -53,4 +55,9 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name, :restaurant_type_id, :area_id, :tel, :url, :address)
   end
+
+  def restaurant_serch_params
+    params.fetch(:search, {}).permit(:area_id, :restaurant_type_id, :name)
+  end
+
 end

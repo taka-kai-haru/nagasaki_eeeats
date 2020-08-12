@@ -5,47 +5,45 @@
   <%= form_with(model: @post, local: true ) do |f| %>
 
   <div class="row">
-    <%= render 'shared/error_messages', object: f.object %>
     <div class="col-lg-6 col-xs-6 ">
       <h2 class="h2">コメントの登録</h2>
 
       <h5 class="h5">お店の名前</h5>
       <%= Restaurant.find_by(id: @post.restaurant_id).name%>
-      <%= f.hidden_field :restaurant_id, value: @post.restaurant_id %>
 
       <div class="field">
         <%= f.label :delicious %>
-        <%= f.range_field :delicious, in: 1..5, id: :delicious %>
+        <%= f.range_field :delicious, in: 1..5, id: :delicious, disabled: true %>
         <span id="delicious_score"></span>
       </div>
 
       <div class="field">
         <%= f.label :atmosphere %>
-        <%= f.range_field :atmosphere, in: 1..5, id: :atmosphere %>
+        <%= f.range_field :atmosphere, in: 1..5, id: :atmosphere, disabled: true %>
         <span id="atmosphere_score"></span>
       </div>
 
       <div class="field">
         <%= f.label :accessibility %>
-        <%= f.range_field :accessibility, in: 1..5, id: :accessibility %>
+        <%= f.range_field :accessibility, in: 1..5, id: :accessibility, disabled: true %>
         <span id="accessibility_score"></span>
       </div>
 
       <div class="field">
         <%= f.label :cost_performance %>
-        <%= f.range_field :cost_performance, in: 1..5, id: :cost_performance %>
+        <%= f.range_field :cost_performance, in: 1..5, id: :cost_performance, disabled: true %>
         <span id="cost_performance_score"></span>
       </div>
 
       <div class="field">
         <%= f.label :assortment %>
-        <%= f.range_field :assortment, in: 1..5, id: :assortment %>
+        <%= f.range_field :assortment, in: 1..5, id: :assortment, disabled: true %>
         <span id="assortment_score"></span>
       </div>
 
       <div class="field">
         <%= f.label :service %>
-        <%= f.range_field :service, in: 1..5, id: :service %>
+        <%= f.range_field :service, in: 1..5, id: :service, disabled: true %>
         <span id="service_score"></span>
       </div>
     </div>
@@ -62,13 +60,9 @@
     <div class="field">
       <%= f.label :comment %>
       <%= f.text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
-      <%= render 'shared/error_message_detail',{object: f.object, target: :comment} %>
     </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "コメントの登録", class: "btn btn-info" %>
-  </div>
 </div>
 <% end %>
 </div>

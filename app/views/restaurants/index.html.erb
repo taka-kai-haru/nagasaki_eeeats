@@ -7,6 +7,23 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-6 col-xs-12 rounded">
+      <div class="bg-white rounded">
+        <%= form_with(scope: :search, url: restaurants_path, method: :get, local: true) do |f| %>
+          <div class="field">
+            <%= f.label :area_id, "地域" %>
+            <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{selected: @search_params[:area_id], include_blank: "指定なし"}, {class: 'form-control'}) %>
+          </div>
+          <div class="field">
+            <%= f.label :restaurant_type_id, "ジャンル" %>
+            <%= f.collection_select(:restaurant_type_id, RestaurantType.all, :id, :name,{selected: @search_params[:restaurant_type_id], include_blank: "指定なし"}, {class: 'form-control'}) %>
+          </div>
+          <div class="field">
+            <%= f.label :name, "お店の名前" %>
+            <%= f.text_field :name, value: @search_params[:name], autocomplete: "name", class: 'form-control' %>
+          </div>
+          <%= f.submit "検索", class: "btn btn-info" %>
+        <% end %>
+      </div>
       <div class="card-deck">
         <% @restaurants.each do |restaurant|%>
         <div class="card h-100" style="min-width: 250px; max-width: 250px;">

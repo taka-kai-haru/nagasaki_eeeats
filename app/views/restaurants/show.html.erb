@@ -2,7 +2,7 @@
 
 <% if user_signed_in? %>
   <%= link_to "変更", edit_restaurant_path, class: "btn  btn-info" %>
-  <%= link_to "+新規登録", post_path, restaurant_id: @restaurant.id, class: "btn  btn-info" %>
+  <%= link_to "+新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info" %>
 <% end %>
 
 <div class="container-fluid">
@@ -11,15 +11,21 @@
       <h3 class="h3">お店の名前</h3>
       <p><%= @restaurant.name%></p>
       <h3 class="h3">ジャンル</h3>
-      <p><%= @restaurant_type.name%></p>
+      <p><%= @restaurant.restaurant_type.name%></p>
       <h3 class="h3">電話番号</h3>
       <p><%= @restaurant.tel%></p>
       <h3 class="h3">URL</h3>
       <p><%= @restaurant.url%></p>
       <h3 class="h3">地域</h3>
-      <p><%= @area.areas_name%></p>
+      <p><%= @restaurant.area.areas_name%></p>
       <h3 class="h3">住所</h3>
       <p><%= @restaurant.address%></p>
+      <% @restaurant.posts.each do |post| %>
+      <%= link_to post.user.name, post_path(post_id: post.id)%>
+      <p><%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></p>
+      <p><%= post.comment%></p>
+      <%= link_to "変更", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
+      <% end %>
     </div>
   </div>
 </div>
