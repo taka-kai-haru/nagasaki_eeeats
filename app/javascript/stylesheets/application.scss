@@ -1,37 +1,40 @@
 @import '~bootstrap/scss/bootstrap';
 
-
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 $info: #17a2b8;
-$gray: #999999; 
+$gray: #999999;
 
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 /* forms */
 
-.navbar{
+.navbar {
   background: rgba(0, 0, 0, 0.3);
 }
 
-
 /* 背景設定*/
 body.jumbotron {
-  background:url("/assets/backgrund.jpg") center no-repeat; 
+  background: url('/assets/backgrund.jpg') center no-repeat;
   background-size: cover;
   position: relative;
   height: 100vh;
   margin-top: 32px;
   margin-bottom: 0px;
-  }
+}
 
 /* typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
 }
 
@@ -55,7 +58,10 @@ p {
   line-height: 1.7em;
 }
 
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -66,7 +72,7 @@ input {
   height: auto !important;
 }
 
-label.custom-control-label{
+label.custom-control-label {
   margin-bottom: 15px;
 }
 
@@ -80,24 +86,61 @@ label.custom-control-label{
 }
 
 .field_with_errors {
-  input,select {@extend .is-invalid;
+  input,
+  select {
+    @extend .is-invalid;
   }
 }
 
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
-  
+
   > .col,
-  > [class*="col-"] {
+  > [class*='col-'] {
     padding-right: 0;
     padding-left: 0;
   }
 }
 
-.card {
-  margin-top: 20px;
+// .card {
+//   //   // position: relative;
+//   //   // display: -ms-flexbox;
+//   //   // display: flex;
+//   //   // -ms-flex-direction: column;
+//   //   // flex-direction: column;
+//   //   // min-width: 0;
+//   //   // word-wrap: break-word;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+//   //   margin-left: 20px;
+//   //   margin-right: 20px;
+// }
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-20 {
   margin-bottom: 20px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.pd-10 {
+  padding: 10px;
+}
+.pd-20 {
+  padding: 20px;
 }
 
 /* トグルアイコン */
@@ -108,7 +151,7 @@ label.custom-control-label{
 
 /*rangeスライダー*/
 
-input[type="range"] {
+input[type='range'] {
   -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
   appearance: none;
   cursor: pointer; /* カーソルを分かりやすく */
@@ -120,7 +163,7 @@ input[type="range"] {
   border: solid 3px #dff1ff; /* バー周囲の線 */
 }
 /* WebKit向けのつまみ */
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none; /*  🚩デフォルトのつまみのスタイルを解除 */
   background: #53aeff; /* 背景色 */
   width: 24px; /* 幅 */
@@ -129,7 +172,7 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15); /* 影 */
 }
 /* Moz向けのつまみ */
-input[type="range"]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   background: #53aeff; /* 背景色 */
   width: 24px; /* 幅 */
   height: 24px; /* 高さ */
@@ -138,11 +181,11 @@ input[type="range"]::-moz-range-thumb {
   border: none; /* デフォルトの線を消す */
 }
 /* Firefoxで点線が周りに表示されてしまう問題の解消 */
-input[type="range"]::-moz-focus-outer {
+input[type='range']::-moz-focus-outer {
   border: 0;
 }
 /* つまみをドラッグしているときのスタイル */
-input[type="range"]:active::-webkit-slider-thumb {
+input[type='range']:active::-webkit-slider-thumb {
   box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
 }
 
@@ -157,67 +200,66 @@ input[type="range"]:active::-webkit-slider-thumb {
   @include box_sizing;
 }
 
-
- /* === ボタンを表示するエリア ============================== */
+/* === ボタンを表示するエリア ============================== */
 .switchArea {
-  line-height    : 32px;                /* 1行の高さ          */
-  letter-spacing : 0;                   /* 文字間             */
-  text-align     : center;              /* 文字位置は中央     */
-  font-size      : 15px;                /* 文字サイズ         */
+  line-height: 32px; /* 1行の高さ          */
+  letter-spacing: 0; /* 文字間             */
+  text-align: center; /* 文字位置は中央     */
+  font-size: 15px; /* 文字サイズ         */
 
-  position       : relative;            /* 親要素が基点       */
+  position: relative; /* 親要素が基点       */
   // margin         : auto;                /* 中央寄せ           */
-  width          : 88px;               /* ボタンの横幅       */
-  background     : #fff;                /* デフォルト背景色   */
+  width: 88px; /* ボタンの横幅       */
+  background: #fff; /* デフォルト背景色   */
 }
 
- /* === チェックボックス ==================================== */
-.switchArea input[type="checkbox"] {
-  display        : none;            /* チェックボックス非表示 */
+/* === チェックボックス ==================================== */
+.switchArea input[type='checkbox'] {
+  display: none; /* チェックボックス非表示 */
 }
 
- /* === チェックボックスのラベル（標準） ==================== */
+/* === チェックボックスのラベル（標準） ==================== */
 .switchArea label {
-  display        : block;               /* ボックス要素に変更 */
-  box-sizing     : border-box;          /* 枠線を含んだサイズ */
-  height         : 32px;                /* ボタンの高さ       */
-  border         : 2px solid $gray;   /* 未選択タブのの枠線 */
-  border-radius  : 16px;                /* 角丸               */
+  display: block; /* ボックス要素に変更 */
+  box-sizing: border-box; /* 枠線を含んだサイズ */
+  height: 32px; /* ボタンの高さ       */
+  border: 2px solid $gray; /* 未選択タブのの枠線 */
+  border-radius: 16px; /* 角丸               */
 }
 
- /* === チェックボックスのラベル（ONのとき） ================ */
-.switchArea input[type="checkbox"]:checked +label {
-  border-color   : $info;             /* 選択タブの枠線     */
+/* === チェックボックスのラベル（ONのとき） ================ */
+.switchArea input[type='checkbox']:checked + label {
+  border-color: $info; /* 選択タブの枠線     */
 }
 
- /* === 表示する文字（標準） ================================ */
-.switchArea label span:after{
-  content        : "非公開";               /* 表示する文字       */
-  padding        : 0 0 0 19px;          /* 表示する位置       */
-  color          : $gray;             /* 文字色             */
+/* === 表示する文字（標準） ================================ */
+.switchArea label span:after {
+  content: '非公開'; /* 表示する文字       */
+  padding: 0 0 0 19px; /* 表示する位置       */
+  color: $gray; /* 文字色             */
 }
 
- /* === 表示する文字（ONのとき） ============================ */
-.switchArea  input[type="checkbox"]:checked + label span:after{
-  content        : "公開";                /* 表示する文字       */
-  padding        : 0 19px 0 0;          /* 表示する位置       */
-  color          : $info;             /* 文字色             */
+/* === 表示する文字（ONのとき） ============================ */
+.switchArea input[type='checkbox']:checked + label span:after {
+  content: '公開'; /* 表示する文字       */
+  padding: 0 19px 0 0; /* 表示する位置       */
+  color: $info; /* 文字色             */
 }
 
- /* === 丸部分のSTYLE（標準） =============================== */
+/* === 丸部分のSTYLE（標準） =============================== */
 .switchArea #swImg {
-  position       : absolute;            /* 親要素からの相対位置*/
-  width          : 24px;                /* 丸の横幅           */
-  height         : 24px;                /* 丸の高さ           */
-  background     : $gray;             /* カーソルタブの背景 */
-  top            : 4px;                 /* 親要素からの位置   */
-  left           : 4px;                 /* 親要素からの位置   */
-  border-radius  : 12px;                /* 角丸               */
-  transition     : .2s;                 /* 滑らか変化         */
+  position: absolute; /* 親要素からの相対位置*/
+  width: 24px; /* 丸の横幅           */
+  height: 24px; /* 丸の高さ           */
+  background: $gray; /* カーソルタブの背景 */
+  top: 4px; /* 親要素からの位置   */
+  left: 4px; /* 親要素からの位置   */
+  border-radius: 12px; /* 角丸               */
+  transition: 0.2s; /* 滑らか変化         */
 }
 
- /* === 丸部分のSTYLE（ONのとき） =========================== */
-.switchArea input[type="checkbox"]:checked ~ #swImg {
-  transform      : translateX(56px);    /* 丸も右へ移動       */
-  background     : $info;             /* カーソルタブの背景 */
+/* === 丸部分のSTYLE（ONのとき） =========================== */
+.switchArea input[type='checkbox']:checked ~ #swImg {
+  transform: translateX(56px); /* 丸も右へ移動       */
+  background: $info; /* カーソルタブの背景 */
 }

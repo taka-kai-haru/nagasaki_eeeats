@@ -6,26 +6,38 @@
 <% end %>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="bg-white rounded">
-      <h3 class="h3">お店の名前</h3>
-      <p><%= @restaurant.name%></p>
-      <h3 class="h3">ジャンル</h3>
-      <p><%= @restaurant.restaurant_type.name%></p>
-      <h3 class="h3">電話番号</h3>
-      <p><%= @restaurant.tel%></p>
-      <h3 class="h3">URL</h3>
-      <p><%= @restaurant.url%></p>
-      <h3 class="h3">地域</h3>
-      <p><%= @restaurant.area.areas_name%></p>
-      <h3 class="h3">住所</h3>
-      <p><%= @restaurant.address%></p>
-      <% @restaurant.posts.each do |post| %>
-      <%= link_to post.user.name, post_path(post_id: post.id)%>
-      <p><%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></p>
-      <p><%= post.comment%></p>
-      <%= link_to "変更", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
-      <% end %>
+  <div class="row mt-20">
+    <div class="col-lg-6 col-xs-12">
+      <div class="bg-white rounded pd-20">
+        <h3 class="h3">お店の名前</h3>
+        <p><%= @restaurant.name%></p>
+        <h3 class="h3">ジャンル</h3>
+        <p><%= @restaurant.restaurant_type.name%></p>
+        <h3 class="h3">電話番号</h3>
+        <p><%= @restaurant.tel%></p>
+        <h3 class="h3">URL</h3>
+        <p><%= @restaurant.url%></p>
+        <h3 class="h3">地域</h3>
+        <p><%= @restaurant.area.areas_name%></p>
+        <h3 class="h3">住所</h3>
+        <p><%= @restaurant.address%></p>
+      </div>
+    </div>
+    <div class="col-lg-6 col-xs-12">
+    <%# マップ %>
+    </div>
+  </div>
+  <div class="row mt-20">
+    <div class="col-xl-12">
+      <div class="bg-white rounded pd-20">
+        <% @restaurant.posts.each do |post| %>
+        <%= link_to post.user.name, post_path(post_id: post.id)%>
+        <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
+        <p><%= post.comment%></p>
+        <% if current_user.id = post.user_id %>
+          <%= link_to "変更", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
