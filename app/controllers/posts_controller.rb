@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     # binding.pry
     if @post.save
-      flash[:info] = "登録しました。"
+      flash[:info] = "コメントの登録しました。"
       redirect_to "/restaurants/#{@post.restaurant_id}"
     else
       render :new
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     restaurant_id = @post.restaurant_id
     if @post = Post.update(post_params)
-      flash[:info] = "変更しました。"
+      flash[:info] = "コメントの更新をしました。"
       redirect_to "/restaurants/#{restaurant_id}"
     else
       render :edit

@@ -1,14 +1,13 @@
 <% provide(:title, "お店一覧") %>
 
 <% if user_signed_in? %>
-  <%= link_to "変更", edit_restaurant_path, class: "btn  btn-info" %>
-  <%= link_to "+新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info" %>
+  <%= link_to "お店情報の変更", edit_restaurant_path, class: "btn  btn-info" %>
 <% end %>
 
 <div class="container-fluid">
   <div class="row mt-20">
     <div class="col-lg-6 col-xs-12">
-      <div class="bg-white rounded pd-20">
+      <div class="bg-white rounded pd-20 mb-20">
         <h3 class="h3">お店の名前</h3>
         <p><%= @restaurant.name%></p>
         <h3 class="h3">ジャンル</h3>
@@ -16,7 +15,7 @@
         <h3 class="h3">電話番号</h3>
         <p><%= @restaurant.tel%></p>
         <h3 class="h3">URL</h3>
-        <p><%= @restaurant.url%></p>
+        <%= link_to @restaurant.url, @restaurant.url, target: :_blank %>
         <h3 class="h3">地域</h3>
         <p><%= @restaurant.area.areas_name%></p>
         <h3 class="h3">住所</h3>
@@ -27,17 +26,34 @@
     <%# マップ %>
     </div>
   </div>
-  <div class="row mt-20">
-    <div class="col-xl-12">
-      <div class="bg-white rounded pd-20">
-        <% @restaurant.posts.each do |post| %>
-        <%= link_to post.user.name, post_path(post_id: post.id)%>
-        <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-        <p><%= post.comment%></p>
-        <% if current_user.id = post.user_id %>
-          <%= link_to "変更", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
-        <% end %>
+  <% if user_signed_in? && !@restaurant.posts.exists?(user_id: current_user.id) %>
+      <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info" %>
+  <% end %>
+  <% @restaurant.posts.each do |post| %>
+    <% if current_user.id = post.user_id %>
+      <div class="row mt-20">
+        <div class="col-xl-12">
+          <div class="bg-white rounded pd-20 mb-5">
+            <%= link_to post.user.name, post_path(post_id: post.id)%>
+            <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
+            <p><%= post.comment%></p>
+            <%= link_to "コメントの編集", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    <% end %>
+  <% end %>
+  <% @restaurant.posts.each do |post| %>
+    <% if post.user.release = true && current_user.id != post.user_id %>
+      <div class="row mt-20">
+        <div class="col-xl-12">
+          <div class="bg-white rounded pd-20 mb-5">
+            <%= link_to post.user.name, post_path(post_id: post.id)%>
+            <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
+            <p><%= post.comment%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

@@ -1,56 +1,70 @@
-<% provide(:title, "コメント登録") %>
+<% provide(:title, "コメント内容") %>
 
-<div class="container-fluid bg-white rounded">
+<h4 class="display-4 text-light text-center">コメント内容</h4>
+
+<div class="container-fluid bg-white rounded pd-20">
 
   <%= form_with(model: @post, local: true ) do |f| %>
 
   <div class="row">
     <div class="col-lg-6 col-xs-6 ">
-      <h2 class="h2">コメントの登録</h2>
-
       <h5 class="h5">お店の名前</h5>
       <%= Restaurant.find_by(id: @post.restaurant_id).name%>
 
-      <div class="field">
-        <%= f.label :delicious %>
-        <%= f.range_field :delicious, in: 1..5, id: :delicious, disabled: true %>
-        <span id="delicious_score"></span>
+      <div class="field range">
+          <%= f.label :delicious %>　　
+          <%= f.range_field :delicious, in: 1..5, id: :delicious, disabled: true %>
+          <div class="alert alert-primary" role="alert">
+            <span id="delicious_score" class="individual_score"></span>
+          </div>
       </div>
 
-      <div class="field">
+      <div class="field range">
         <%= f.label :atmosphere %>
         <%= f.range_field :atmosphere, in: 1..5, id: :atmosphere, disabled: true %>
-        <span id="atmosphere_score"></span>
+        <div class="alert alert-primary" role="alert">
+          <span id="atmosphere_score" class="individual_score"></span>
+        </div>
       </div>
 
-      <div class="field">
+      <div class="field range">
         <%= f.label :accessibility %>
         <%= f.range_field :accessibility, in: 1..5, id: :accessibility, disabled: true %>
-        <span id="accessibility_score"></span>
+        <div class="alert alert-primary" role="alert">
+          <span id="accessibility_score" class="individual_score"></span>
+        </div>
       </div>
 
-      <div class="field">
+      <div class="field range">
         <%= f.label :cost_performance %>
         <%= f.range_field :cost_performance, in: 1..5, id: :cost_performance, disabled: true %>
-        <span id="cost_performance_score"></span>
+        <div class="alert alert-primary" role="alert">
+          <span id="cost_performance_score" class="individual_score"></span>
+        </div>
       </div>
 
-      <div class="field">
+      <div class="field range">
         <%= f.label :assortment %>
         <%= f.range_field :assortment, in: 1..5, id: :assortment, disabled: true %>
-        <span id="assortment_score"></span>
+        <div class="alert alert-primary" role="alert">
+          <span id="assortment_score" class="individual_score"></span>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :service %>
+      <div class="field range">
+        <%= f.label :service %>　
         <%= f.range_field :service, in: 1..5, id: :service, disabled: true %>
-        <span id="service_score"></span>
+        <div class="alert alert-primary" role="alert">
+          <span id="service_score" class="individual_score"></span>
+        </div>
       </div>
     </div>
 
     <div class="col-lg-6 col-xs-6 ">
-      <span>評価：</span>
-      <span id="chart_score_ave"></span>
+      <div class="alert alert-primary text-center" role="alert">
+        <span class="individual_score">評価：</span>
+        <span id="chart_score_ave" class="individual_score"></span>
+      </div>
       <%= render 'posts/chartjs'%>
     </div>
   </div>

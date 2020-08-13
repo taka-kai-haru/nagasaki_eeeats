@@ -1,9 +1,8 @@
-<% provide(:title, "お店の登録") %>
-
+<% provide(:title, "お店の情報登録") %>
+<h4 class="display-4 text-light text-center">お店の情報登録</h4>
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-6 col-xs-12 bg-white rounded">
-      <h2 class="h2">お店の登録</h2>
       <%= form_with(model: @restaurant, local: true ) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
@@ -44,7 +43,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "お店の登録", class: "btn btn-info" %>
+          <%= f.submit "お店の情報登録", class: "btn btn-info" %>
         </div>
         <% end %>
     </div>

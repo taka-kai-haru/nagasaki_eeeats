@@ -5,6 +5,17 @@
 $gray-medium-light: #eaeaea;
 $info: #17a2b8;
 $gray: #999999;
+$font-family-sans-serif: 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3',
+  Hiragino Kaku Gothic Pro, 'ＭＳ Ｐゴシック', sans-serif;
+$headings-line-height: 1.5;
+$line-height-base: 1.65;
+$modal-inner-padding: 30px;
+$modal-title-padding: 30px;
+
+* {
+  letter-spacing: 0.1em;
+  text-align: justify;
+}
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -68,12 +79,20 @@ select,
   @include box_sizing;
 }
 
+label {
+  white-space: nowrap;
+}
+
 input {
   height: auto !important;
 }
 
 label.custom-control-label {
   margin-bottom: 15px;
+}
+
+.text-center{
+  text-align: center;
 }
 
 /* エラー時の表示設定*/
@@ -117,6 +136,9 @@ label.custom-control-label {
 //   //   margin-right: 20px;
 // }
 
+.mb-5 {
+  margin-bottom: 5px;
+}
 .mb-10 {
   margin-bottom: 10px;
 }
@@ -149,6 +171,16 @@ label.custom-control-label {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 4 30 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='3' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+.range {
+  display: flex;
+  justify-content: center; /*左右中央揃え*/
+  align-items: center; /*上下中央揃え*/
+}
+
+.individual_score {
+  font-size: x-large;
+}
+
 /*rangeスライダー*/
 
 input[type='range'] {
@@ -161,6 +193,11 @@ input[type='range'] {
   background: #8acdff; /* バーの背景色 */
   border-radius: 10px; /* バーの両端の丸み */
   border: solid 3px #dff1ff; /* バー周囲の線 */
+  margin: auto;
+  // position: relative;
+  // top: 50%;
+  // -webkit-transform: translateY(-50%); /* Safari用 */
+  // transform: translateY(-50%);
 }
 /* WebKit向けのつまみ */
 input[type='range']::-webkit-slider-thumb {

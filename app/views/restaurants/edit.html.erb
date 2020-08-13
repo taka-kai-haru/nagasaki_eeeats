@@ -1,9 +1,8 @@
-<% provide(:title, "お店の編集") %>
-
+<% provide(:title, "お店の情報編集") %>
+<h4 class="display-4 text-light text-center">お店の情報編集</h4>
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-6 col-xs-12 bg-white rounded">
-      <h2 class="h2">お店情報の変更</h2>
       <%= form_with(model: @restaurant, local: true ) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
