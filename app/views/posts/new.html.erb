@@ -1,90 +1,119 @@
 <% provide(:title, "コメントの登録") %>
 
+
+
 <h4 class="display-4 text-light text-center">コメントの登録</h4>
 
-<div class="container-fluid bg-white rounded  pd-20">
+<%= form_with(model: @post, local: true ) do |f| %>
 
-  <%= form_with(model: @post, local: true ) do |f| %>
-
-  <div class="row">
-    <%= render 'shared/error_messages', object: f.object %>
-    <div class="col-lg-6 col-xs-6 ">
-
-      <h5 class="h5">お店の名前</h5>
-      <%= Restaurant.find_by(id: @post.restaurant_id).name%>
-      <%= f.hidden_field :restaurant_id, value: @post.restaurant_id %>
-
-      <div class="field range">
-        <%= f.label :delicious %>　　
-        <%= f.range_field :delicious, in: 1..5, id: :delicious %>
-        <div class="alert alert-primary" role="alert">
-          <span id="delicious_score" class="individual_score"></span>
-        </div>
+  <div class="container-fluid bg-white rounded  pd-20 mb-10">
+    <div class="row">
+      <div class="col-lg-12 col-xs-12 mb-10">
+        <h5 class="h5">お店の名前</h5>
+        <%= Restaurant.find_by(id: @post.restaurant_id).name%>
+        <%= f.hidden_field :restaurant_id, value: @post.restaurant_id %>
       </div>
-
-      <div class="field range">
-        <%= f.label :atmosphere %>
-        <%= f.range_field :atmosphere, in: 1..5, id: :atmosphere %>
-        <div class="alert alert-primary" role="alert">
-          <span id="atmosphere_score" class="individual_score"></span>
-        </div>
-      </div>
-
-      <div class="field range">
-        <%= f.label :accessibility %>
-        <%= f.range_field :accessibility, in: 1..5, id: :accessibility %>
-        <div class="alert alert-primary" role="alert">
-          <span id="accessibility_score" class="individual_score"></span>
-        </div>
-      </div>
-
-      <div class="field range">
-        <%= f.label :cost_performance %>
-        <%= f.range_field :cost_performance, in: 1..5, id: :cost_performance %>
-        <div class="alert alert-primary" role="alert">
-          <span id="cost_performance_score" class="individual_score"></span>
-        </div>
-      </div>
-
-      <div class="field range">
-        <%= f.label :assortment %>
-        <%= f.range_field :assortment, in: 1..5, id: :assortment %>
-        <div class="alert alert-primary" role="alert">
-          <span id="assortment_score" class="individual_score"></span>
-        </div>
-      </div>
-
-      <div class="field range">
-        <%= f.label :service %>　
-        <%= f.range_field :service, in: 1..5, id: :service %>
-        <div class="alert alert-primary" role="alert">
-          <span id="service_score" class="individual_score"></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-6 col-xs-6 ">
-    <div class="alert alert-primary text-center" role="alert">
-      <span class="individual_score">評価：</span>
-      <span id="chart_score_ave" class="individual_score"></span>
-    </div>
-      <%= render 'posts/chartjs'%>
     </div>
   </div>
 
-  <div class="row">
-  <div class="col-lg-12 col-xs-12 ">
-    <div class="field">
-      <%= f.label :comment %>
-      <%= f.text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
-      <%= render 'shared/error_message_detail',{object: f.object, target: :comment} %>
+  <div class="container-fluid bg-white rounded  pd-20 mb-10">
+    <div class="row">
+      <div class="col-lg-12 col-xs-12 mb-10">
+        <span class="image"></span>
+        <%= f.label :images %><em>(<%= Post::IMAGE_MAX_SAVE %> 枚以内)</em>
+      </div>
     </div>
+      <div id="image-box-1">
+        <div class="row">
+          <div class="item-num-0" id="image-box__container">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 " id="image_select">
+              <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file" %>
+            </div>
+        </div>
+      </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "コメントの登録", class: "btn btn-info" %>
+  <%= render 'posts/imagejs'%>
+
+  <div class="container-fluid bg-white rounded  pd-20">
+    <div class="row">
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="col-lg-6 col-xs-6 ">
+
+        <div class="field range">
+          <%= f.label :delicious %>　　
+          <%= f.range_field :delicious, in: 1..5, id: :delicious %>
+          <div class="alert alert-primary" role="alert">
+            <span id="delicious_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :atmosphere %>
+          <%= f.range_field :atmosphere, in: 1..5, id: :atmosphere %>
+          <div class="alert alert-primary" role="alert">
+            <span id="atmosphere_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :accessibility %>
+          <%= f.range_field :accessibility, in: 1..5, id: :accessibility %>
+          <div class="alert alert-primary" role="alert">
+            <span id="accessibility_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :cost_performance %>
+          <%= f.range_field :cost_performance, in: 1..5, id: :cost_performance %>
+          <div class="alert alert-primary" role="alert">
+            <span id="cost_performance_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :assortment %>
+          <%= f.range_field :assortment, in: 1..5, id: :assortment %>
+          <div class="alert alert-primary" role="alert">
+            <span id="assortment_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :service %>　
+          <%= f.range_field :service, in: 1..5, id: :service %>
+          <div class="alert alert-primary" role="alert">
+            <span id="service_score" class="individual_score"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-xs-6 ">
+      <div class="alert alert-primary text-center" role="alert">
+        <span class="individual_score">評価：</span>
+        <span id="chart_score_ave" class="individual_score"></span>
+      </div>
+        <%= render 'posts/chartjs'%>
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="col-lg-12 col-xs-12 ">
+      <div class="field">
+        <%= f.label :comment %>
+        <%= f.text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
+        <%= render 'shared/error_message_detail',{object: f.object, target: :comment} %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "コメントの登録", class: "btn btn-info" %>
+    </div>
   </div>
-</div>
 <% end %>
 </div>
 <%= link_to "戻る", :back, class: 'text-light' %>

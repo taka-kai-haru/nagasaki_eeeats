@@ -30,6 +30,13 @@ gem 'bootsnap',   '1.4.5', require: false
 #sing up function
 gem 'devise'
 
+#active strage validation
+gem 'active_storage_validations', '0.8.2'
+# image size control
+gem 'image_processing',           '1.9.3'
+gem 'mini_magick',                '4.9.5'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]

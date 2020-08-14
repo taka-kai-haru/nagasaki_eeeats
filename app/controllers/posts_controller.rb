@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    # @post.images.attach(params[:post][:images])
     # binding.pry
     if @post.save
       flash[:info] = "コメントの登録しました。"
@@ -35,6 +36,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     restaurant_id = @post.restaurant_id
+    @post.images.detach #image紐づけ解除
     if @post = Post.update(post_params)
       flash[:info] = "コメントの更新をしました。"
       redirect_to "/restaurants/#{restaurant_id}"
@@ -42,6 +44,16 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    restaurant_id = @post.restaurant_id
+    @post.destroy
+    flash[:info] = "コメントの削除をしました。"
+    redirect_to "/restaurants/#{restaurant_id}"
+  end
+
+  private
 
   def params_check
     if params[:restaurant_id].nil?
@@ -51,7 +63,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:restaurant_id, :delicious, :atmosphere, :accessibility, :cost_performance, :assortment, :service, :comment)
+    params.require(:post).permit(:restaurant_id, :delicious, :atmosphere, :accessibility, :cost_performance, :assortment, :service, :comment, images: [])
   end
 
 end

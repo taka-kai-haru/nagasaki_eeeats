@@ -33,31 +33,35 @@
     </div>
   </div>
   <div class="bg-white rounded col-xl-6 col-xs-12 pd-20">
-    <div class="row row-cols-1 row-cols-md-2">
-      <% @restaurants.each do |restaurant|%>
-      <div class="col mb-4">
-        <div class="card h-100">
-          <a href="/restaurants/<%= restaurant.id%>" class="text-dark">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
-            <div class="card-body">
-              <h5 class="card-title"><%= restaurant.name %></h5>
-              <p class="card-text"><%= restaurant.restaurant_type.name %></p>
-              <% if restaurant.posts.count > 0 %>
-                <h5><span class="badge badge-success">評価：<%= score_average(restaurant.posts.sum(:atmosphere),restaurant.posts.sum(:accessibility),restaurant.posts.sum(:cost_performance),restaurant.posts.sum(:assortment),restaurant.posts.sum(:service),restaurant.posts.sum(:delicious)) %>  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
-              <% else %>
-                <h5><span class="badge badge-success">評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
-              <% end %>
+    <% if @restaurants.count > 0 %>
+      <div class="row row-cols-1 row-cols-md-2">
+        <% @restaurants.each do |restaurant|%>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <a href="/restaurants/<%= restaurant.id%>" class="text-dark">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+                <div class="card-body">
+                  <h5 class="card-title"><%= restaurant.name %></h5>
+                  <p class="card-text"><%= restaurant.restaurant_type.name %></p>
+                  <% if restaurant.posts.count > 0 %>
+                    <h5><span class="badge badge-success">評価：<%= score_average(restaurant.posts.sum(:atmosphere),restaurant.posts.sum(:accessibility),restaurant.posts.sum(:cost_performance),restaurant.posts.sum(:assortment),restaurant.posts.sum(:service),restaurant.posts.sum(:delicious)) %>  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
+                  <% else %>
+                    <h5><span class="badge badge-success">評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
+                  <% end %>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted"><%= restaurant.area.areas_name %></small>
+                </div>
+              </a>
             </div>
-            <div class="card-footer">
-              <small class="text-muted"><%= restaurant.area.areas_name %></small>
-            </div>
-          </a>
-        </div>
+          </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    <div class="col-lg-6 col-xs-12 rounded">
-    <%# マップ %>
-    </div>
+    <% else %>
+      <h5 class="text-center">条件に合うお店がありません。</h5>
+    <% end %>
+  </div>
+  <div class="col-lg-6 col-xs-12 rounded">
+  <%# マップ %>
   </div>
 </div>

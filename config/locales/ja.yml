@@ -35,6 +35,7 @@ ja:
         url: お店のURL
         address: 住所
       post:
+        images: 画像
         delicious: 味
         atmosphere: 雰囲気
         accessibility: 利便性
