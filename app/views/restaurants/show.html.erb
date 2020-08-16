@@ -25,9 +25,41 @@
       </div>
     </div>
     <div class="col-lg-6 col-xs-12">
-    <%# マップ %>
+      <div class="bg-white rounded pd-20 mb-20">
+
+        <% index = 0 %>
+        <% @restaurant.posts.each_with_index do |post| %>
+          <% next if post.user.release = false%>
+          <% if post.images.count > 0 %>
+            <% if index == 0 %>
+              <div id="carouselExampleFade" class="carousel slide carousel-fade w-75 mx-auto" data-ride="carousel">
+                <div class="carousel-inner">
+            <% end%>
+              <% post.images.each do |image|%>
+                <% if index == 0%>
+                  <div class="carousel-item active">
+                <% else %>
+                  <div class="carousel-item">
+                <% end %>
+                <%= image_tag image , class: "d-block w-100", alt: "#{index} slide" %>
+                <% index += 1%>
+                  </div>
+              <% end %>
+          <% end %>
+        <% end %>
+        <% if index != 0 %>
+                </div>
+              </div>
+        <% else %>
+          <h5 class="h5 text-center">画像がありません。</h5>
+        <% end %>
+
+
+      </div>
     </div>
   </div>
+  <%# マップ %>
+  
   <% if user_signed_in? && !@restaurant.posts.exists?(user_id: current_user.id) %>
       <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info" %>
   <% end %>
@@ -39,7 +71,7 @@
             <div class="bg-white rounded pd-20 mb-5">
               <%= link_to post.user.name, post_path(post_id: post.id)%>
               <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-              <p><%= post.comment%></p>
+              <p><%=post.comment.truncate(100, omission: '...')%></p>
               <%= link_to "コメントの編集", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
               <%= link_to "コメントの削除", post_path(post_id: post.id), method: :delete,
                                             data: { confirm: "コメントの削除をしてよいですか？" }, class: "btn  btn-info" %>
@@ -55,7 +87,7 @@
             <div class="bg-white rounded pd-20 mb-5">
               <%= link_to post.user.name, post_path(post_id: post.id)%>
               <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-              <p><%= post.comment%></p>
+              <p><%=post.comment.truncate(100, omission: '...')%></p>
             </div>
           </div>
         </div>
@@ -63,16 +95,18 @@
     <% end %>
   <% else %>
     <% @restaurant.posts.each do |post| %>
-      <div class="row mt-20">
-        <div class="col-xl-12">
-          <div class="bg-white rounded pd-20 mb-5">
-            <%= link_to post.user.name, post_path(post_id: post.id)%>
-            <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-            <p><%= post.comment%></p>
+      <% if post.user.release = true%>
+        <div class="row mt-20">
+          <div class="col-xl-12">
+            <div class="bg-white rounded pd-20 mb-5">
+              <%= link_to post.user.name, post_path(post_id: post.id)%>
+              <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
+              <p><%=post.comment.truncate(100, omission: '...')%></p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
-<%= link_to "戻る", :back, class: 'text-light' %>
+<%= link_to "戻る", restaurants_path, class: 'text-light' %>

@@ -8,6 +8,18 @@
   $('#img-file').change(function(){
     //選択したfileのオブジェクトをpropで取得
     var files = $('input[type="file"]').prop('files')[0];
+
+    var size_in_megabytes = files.size/1024/1024;
+
+    if (size_in_megabytes > 1) {
+      alert("登録できる画像サイズは最大5MBです。ファイルサイズが少ない画像を選択してください。");
+      $("#img-file").val(null);
+      return;
+      };
+
+      console.log(file_field.files.length)
+
+
     $.each(this.files, function(i, file){
       //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
       var fileReader = new FileReader();

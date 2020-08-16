@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
     # binding.pry
     if @restaurant.save
       flash[:info] = "お店の登録をしました。"
-      redirect_to restaurants_path
+      redirect_to new_post_path(restaurant_id: @restaurant.id)
     else
       # binding.pry
       render :new

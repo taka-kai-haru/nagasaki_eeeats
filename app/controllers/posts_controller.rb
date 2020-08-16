@@ -34,10 +34,12 @@ class PostsController < ApplicationController
   end
 
   def update
+    # binding.pry
     @post = Post.find(params[:id])
+    # binding.pry
     restaurant_id = @post.restaurant_id
-    @post.images.detach #image紐づけ解除
-    if @post = Post.update(post_params)
+    # @post.images.detach #image紐づけ解除
+    if @post = @post.update(post_params)
       flash[:info] = "コメントの更新をしました。"
       redirect_to "/restaurants/#{restaurant_id}"
     else
