@@ -226,6 +226,31 @@ input[type='range']:active::-webkit-slider-thumb {
   box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
 }
 
+.pagination {
+  justify-content: center;
+}
+
+
+
+/*ページネーション自体のデザイン*/
+// .pagination>li>a {          
+  // border: none;     /*枠線をなくす*/
+  // color: #696969;   /*文字の色を変える*/
+  // border-radius: 20px;    /*角を丸くする*/
+// }
+
+/* 表示しているページ番号のデザイン */
+// .pagination>.active>a {     
+//   background: #93c9ff;     /*背景の色を変える*/
+  // border-radius: 20px;     /*角を丸くする*/
+// }
+
+/*ホバー時のデザイン*/
+// .pagination>li>a:hover {        
+//   border-radius: 20px;    /*角を丸くする*/
+// }
+
+
 /* miscellaneous */
 
 .debug_dump {

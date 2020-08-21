@@ -35,6 +35,9 @@ gem 'active_storage_validations', '0.8.2'
 # image size control
 gem 'image_processing',           '1.9.3'
 gem 'mini_magick',                '4.9.5'
+gem 'kaminari'
+
+gem 'aws-sdk-s3',              '1.46.0', require: false
 
 
 group :development, :test do

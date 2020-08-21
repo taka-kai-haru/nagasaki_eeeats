@@ -65,6 +65,7 @@
             </div>
           </div>
         <% end %>
+        
       </div>
     <% else %>
       <h5 class="text-center">条件に合うお店がありません。</h5>
@@ -73,4 +74,5 @@
   <div class="col-lg-6 col-xs-12 rounded">
   <%# マップ %>
   </div>
+  <%= paginate @restaurants %>
 </div>
