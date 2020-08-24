@@ -38,9 +38,191 @@
 
         <div class="field">
           <%= f.label :address %>
-          <%= f.text_field :address, autocomplete: "address", class: 'form-control' %>
+          <%= f.text_field :address, autocomplete: "address", class: 'form-control', id:"address" %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
         </div>
+
+          <div class="form-check">
+            <label class="form-check-label" for="textimput">
+            <input class="form-check-input" type=”radio” name="address_select" id="textimput" checked>
+                住所を入力して登録
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="present_ocation">
+            <input class="form-check-input" type=”radio” name="address_select" id="present_ocation" >
+                現在地から登録
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="google_map">
+            <input class="form-check-input" type=”radio” name="address_select" id="google_map" >
+                マップから登録
+            </label>
+          </div>
+          
+          <%= f.hidden_field :gmap_def_lat, value: Restaurant::GMAP_DEF_LAT ,id: "gmap_def_lat" %>
+          <%= f.hidden_field :gmap_def_lng, value: Restaurant::GMAP_DEF_LNG ,id: "gmap_def_lng" %>
+          <div class="gmap ">
+            <div id="target"></div>
+          </div>
+          <script
+            src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCi_3RzETS7tHokVtKrb2wpoHC7ovon2IE&callback=initMap"
+            async defer>
+          </script>
+          <script>
+            function initMap() {
+                "use strict";
+                var target = document.getElementById("target");
+                var geocoder = new google.maps.Geocoder();
+
+                // Map初期設定
+                  let def_lat = Number(document.getElementById("gmap_def_lat").value);
+                  let def_lng = Number(document.getElementById("gmap_def_lng").value);
+                  let restaurantmap = new google.maps.Map(target, {
+                      center: {
+                        lat: def_lat,
+                        lng: def_lng
+                      },
+                      zoom: 17
+                    });
+
+                //　住所があればGoogleMap表示
+                if (document.getElementById("address").value !== "") {
+                  getAddressToMove();
+                };
+
+                // Mapクリックイベント
+                restaurantmap.addListener('click', function(e) {
+                geocoder.geocode({
+                  location: e.latLng
+                }, function(results, status) {
+                  if (status !== 'OK') {
+                    alert('マップの取得に失敗しました。: ' + status);
+                    document.getElementById('target').innerText ="地図情報が取得できません。1";
+                    return;
+                  }
+                  // results[0].formatted_address
+                  if (results[0]) {
+                    new google.maps.Marker({
+                      position: e.latLng,
+                      map: restaurantmap,
+                      title: results[0].formatted_address,
+                      animation: google.maps.Animation.DROP
+                    });
+                    document.getElementById('address').innerText = results[0].formatted_address;
+                  } else {
+                    arert("マップが見つかりませんでした。");
+                    document.getElementById('target').innerText ="地図情報が取得できません。2";
+                    return;
+                  }
+                });
+              });
+
+
+                //RadioButtonChangeイベント
+                function RadioButtonChanged(){
+                  let textimput = document.getElementById("textimput").checked
+                  let present_ocation = document.getElementById("present_ocation").checked
+                  let google_map = document.getElementById("google_map").checked
+                  // textエリア選択時
+                  if (textimput){
+                      document.getElementById("address").disabled = false;
+                  };
+                  //現在地選択時
+                  if (present_ocation){
+                    if (!navigator.geolocation) {
+                      alert('GoogleのGeolocationサービスが使用できません。');
+                      textimput.checked = true;
+                      return;
+                    }
+                      document.getElementById("address").disabled = true;
+                      getPresentOcation(); //現在地を取得
+                  };
+                  // GoogleMap選択時
+                  if (google_map){
+                      document.getElementById("address").disabled = true;
+                      if (document.getElementById("address").value !== "") {
+                        getAddressToMove(); //入力された住所へ移動
+                      };
+                  };
+
+                }
+
+                // 現在地を取得
+                function getPresentOcation(){
+                  navigator.geolocation.getCurrentPosition(function(position) {
+                    let lat = position.coords.latitude;
+                    let lng =  position.coords.longitude;
+                    let latlng = {lat: lat, lng: lng};
+                    
+                    // let restaurantmap = new google.maps.Map(target, {
+                    //   center: {
+                    //     lat: lat,
+                    //     lng: lng
+                    //   },
+                    //   zoom: 17
+                    // });
+                    restaurantmap.setCenter(new GLatLng(lat,lng))
+                    var marker = new google.maps.Marker({
+                          position: latlng,
+                          map: restaurantmap,
+                          animation: google.maps.Animation.DROP
+                          });
+                  }, function() {
+                    alert('現在地が取得できませんでした。');
+                    present_ocation.checked = false;
+                    textimput.checked = true;
+                    document.getElementById("address").disabled = false;
+                    return;
+                  });
+
+                }
+
+                // 住所からGoogoleMap更新
+                function getAddressToMove(){
+                  geocoder.geocode(
+                    {
+                      address: document.getElementById("address").value
+                    },
+                    function (results, status) {
+                      if (status !== "OK") {
+                        alert("マップの取得に失敗しました。: " + status);
+                        document.getElementById('target').innerText ="地図情報が取得できません。3";
+                        return;
+                      }
+                      // results[0].geometry.locationに緯度経度の情報が入ってくる
+                      if (results[0]) {
+                        let location = results[0].geometry.location;
+                        // let restaurantmap = new google.maps.Map(target, {
+                        //   center: location,
+                        //   zoom: 17,
+                        // });
+                        // 緯度経度の情報をハッシュに変換
+                        let lat = location.lat();
+                        let lng =  location.lng();
+                        let latlng = {lat: lat, lng: lng};
+                        
+                        restaurantmap.setCenter(new GLatLng(lat,lng))
+                        var marker = new google.maps.Marker({
+                          position: latlng,
+                          map: restaurantmap,
+                          animation: google.maps.Animation.DROP
+                          });
+
+                      } else {
+                        arert("マップが見つかりませんでした。");
+                        document.getElementById('target').innerText ="地図情報が取得できません。4";
+                        return;
+                      }
+                    }
+                  );
+                };
+            };
+          </script>
+
+
+
 
         <div class="actions">
           <%= f.submit "お店の情報登録", class: "btn btn-info" %>

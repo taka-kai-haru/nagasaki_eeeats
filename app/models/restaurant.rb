@@ -10,6 +10,10 @@ class Restaurant < ApplicationRecord
   validates :restaurant_type_id, presence: true
   validates :area_id, presence: true
 
+  # GoogleMapデフォルト位置
+  GMAP_DEF_LAT = 32.752443
+  GMAP_DEF_LNG = 129.870812
+
   #検索用seachメソッド
   scope :search, -> (search_params) do  
     return if search_params.blank?

@@ -11,7 +11,7 @@
     <div class="col-lg-6 col-xs-12">
       <div class="bg-white rounded pd-20 mb-20">
         <h3 class="h3">お店の名前</h3>
-        <p><%= @restaurant.name%></p>
+        <p id="restaurant_name"><%= @restaurant.name%></p>
         <h3 class="h3">ジャンル</h3>
         <p><%= @restaurant.restaurant_type.name%></p>
         <h3 class="h3">電話番号</h3>
@@ -21,7 +21,7 @@
         <h3 class="h3">地域</h3>
         <p><%= @restaurant.area.areas_name%></p>
         <h3 class="h3">住所</h3>
-        <p><%= @restaurant.address%></p>
+        <p id="address"><%= @restaurant.address%></p>
       </div>
     </div>
     <div class="col-lg-6 col-xs-12">
@@ -58,7 +58,16 @@
       </div>
     </div>
   </div>
-  <%# マップ %>
+  <div class="row mt-20">
+    <div class="col-xl-12">
+        <div class="bg-white rounded pd-20 mb-5">
+          <div class="gmap ">
+            <div id="target"></div>
+          </div>
+          <%= render 'restaurants/mapshowjs'%>
+      </div>
+    </div>
+  </div>
   
   <% if user_signed_in? && !@restaurant.posts.exists?(user_id: current_user.id) %>
       <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info" %>

@@ -230,7 +230,40 @@ input[type='range']:active::-webkit-slider-thumb {
   justify-content: center;
 }
 
+// #target {
+//   width: 1020px;
+//   height: 510px;
+// }
 
+html body {
+  height: 100%;
+}
+
+#target{
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+  width:100%;
+}
+
+.gmap {
+  height: 50vh;
+}
+
+// .gmap {
+//   height: 0;
+//   overflow: hidden;
+//   padding-bottom: 56.25%;
+//   position: relative;
+//   }
+//   .gmap iframe {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   height: 100%;
+//   width: 100%;
+//   }
 
 /*ページネーション自体のデザイン*/
 // .pagination>li>a {          
