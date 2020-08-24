@@ -69,7 +69,7 @@ p {
   line-height: 1.7em;
 }
 
-input,
+input[type='text'],
 textarea,
 select,
 .uneditable-input {
@@ -91,7 +91,7 @@ label.custom-control-label {
   margin-bottom: 15px;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
@@ -239,12 +239,12 @@ html body {
   height: 100%;
 }
 
-#target{
+#target {
   height: 100%;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:left;
-  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 100%;
 }
 
 .gmap {
@@ -266,23 +266,22 @@ html body {
 //   }
 
 /*ページネーション自体のデザイン*/
-// .pagination>li>a {          
-  // border: none;     /*枠線をなくす*/
-  // color: #696969;   /*文字の色を変える*/
-  // border-radius: 20px;    /*角を丸くする*/
+// .pagination>li>a {
+// border: none;     /*枠線をなくす*/
+// color: #696969;   /*文字の色を変える*/
+// border-radius: 20px;    /*角を丸くする*/
 // }
 
 /* 表示しているページ番号のデザイン */
-// .pagination>.active>a {     
+// .pagination>.active>a {
 //   background: #93c9ff;     /*背景の色を変える*/
-  // border-radius: 20px;     /*角を丸くする*/
+// border-radius: 20px;     /*角を丸くする*/
 // }
 
 /*ホバー時のデザイン*/
-// .pagination>li>a:hover {        
+// .pagination>li>a:hover {
 //   border-radius: 20px;    /*角を丸くする*/
 // }
-
 
 /* miscellaneous */
 

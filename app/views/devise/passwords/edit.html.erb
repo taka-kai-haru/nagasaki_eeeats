@@ -1,7 +1,7 @@
 <% provide(:title, "パスワード再登録") %>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6 col-xs-12 bg-white rounded">
+    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
 
       <h2 class="h2">パスワード再登録</h2>
 
@@ -25,7 +25,7 @@
           <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password_confirmation} %>
         </div>
 
-        <div class="actions">
+        <div class="actions text-center">
           <%= f.submit "パスワード変更", class: "btn btn-info" %>
         </div>
       <% end %>

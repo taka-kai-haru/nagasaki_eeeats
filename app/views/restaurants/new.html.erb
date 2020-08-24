@@ -2,7 +2,7 @@
 <h4 class="display-4 text-light text-center">お店の情報登録</h4>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6 col-xs-12 bg-white rounded">
+    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
       <%= form_with(model: @restaurant, local: true ) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
@@ -38,28 +38,38 @@
 
         <div class="field">
           <%= f.label :address %>
+            <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
+              <label class="btn btn-outline-secondary active" style="width:30%">
+                <%= f.radio_button :address_select, 0, {checked: true ,id: "textimput", onchange: "RadioButtonChanged()"}%> 住所を入力
+              </label>
+              <label class="btn btn-outline-secondary" style="width:30%">
+                <%= f.radio_button :address_select, 1, {id: "present_ocation", onchange: "RadioButtonChanged()"} %> 現在地から登録
+              </label>
+              <label class="btn btn-outline-secondary" style="width:30%">
+                <%= f.radio_button :address_select, 2, {id: "google_maptimput", onchange: "RadioButtonChanged()"} %> マップから登録
+              </label>
+            </div>          
           <%= f.text_field :address, autocomplete: "address", class: 'form-control', id:"address" %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
         </div>
-
-          <div class="form-check">
-            <label class="form-check-label" for="textimput">
+          <%# <div class="form-check">
             <input class="form-check-input" type=”radio” name="address_select" id="textimput" checked>
+            <label class="form-check-label" for="textimput">
                 住所を入力して登録
             </label>
           </div>
           <div class="form-check">
-            <label class="form-check-label" for="present_ocation">
             <input class="form-check-input" type=”radio” name="address_select" id="present_ocation" >
+            <label class="form-check-label" for="present_ocation">
                 現在地から登録
             </label>
           </div>
           <div class="form-check">
-            <label class="form-check-label" for="google_map">
             <input class="form-check-input" type=”radio” name="address_select" id="google_map" >
+            <label class="form-check-label" for="google_map">
                 マップから登録
             </label>
-          </div>
+          </div> %>
           
           <%= f.hidden_field :gmap_def_lat, value: Restaurant::GMAP_DEF_LAT ,id: "gmap_def_lat" %>
           <%= f.hidden_field :gmap_def_lng, value: Restaurant::GMAP_DEF_LNG ,id: "gmap_def_lng" %>
@@ -79,6 +89,7 @@
                 // Map初期設定
                   let def_lat = Number(document.getElementById("gmap_def_lat").value);
                   let def_lng = Number(document.getElementById("gmap_def_lng").value);
+                  console.log(restaurantmap);
                   let restaurantmap = new google.maps.Map(target, {
                       center: {
                         lat: def_lat,
@@ -86,6 +97,7 @@
                       },
                       zoom: 17
                     });
+                  console.log(restaurantmap);
 
                 //　住所があればGoogleMap表示
                 if (document.getElementById("address").value !== "") {
@@ -122,15 +134,18 @@
 
                 //RadioButtonChangeイベント
                 function RadioButtonChanged(){
-                  let textimput = document.getElementById("textimput").checked
-                  let present_ocation = document.getElementById("present_ocation").checked
-                  let google_map = document.getElementById("google_map").checked
+                  let textimput = document.getElementById("textimput");
+                  let present_ocation = document.getElementById("present_ocation");
+                  let google_map = document.getElementById("google_map");
                   // textエリア選択時
-                  if (textimput){
+                  console.log("0");
+                  if (textimput.checked){
+                      console.log("1");
                       document.getElementById("address").disabled = false;
                   };
                   //現在地選択時
-                  if (present_ocation){
+                  if (present_ocation.checked){
+                    console.log("2");
                     if (!navigator.geolocation) {
                       alert('GoogleのGeolocationサービスが使用できません。');
                       textimput.checked = true;
@@ -140,7 +155,8 @@
                       getPresentOcation(); //現在地を取得
                   };
                   // GoogleMap選択時
-                  if (google_map){
+                  if (google_map.checked){
+                      console.log("3");
                       document.getElementById("address").disabled = true;
                       if (document.getElementById("address").value !== "") {
                         getAddressToMove(); //入力された住所へ移動
@@ -224,7 +240,7 @@
 
 
 
-        <div class="actions">
+        <div class="actions text-center">
           <%= f.submit "お店の情報登録", class: "btn btn-info" %>
         </div>
         <% end %>
