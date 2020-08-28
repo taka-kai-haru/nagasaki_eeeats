@@ -39,15 +39,17 @@
         <div class="field">
           <%= f.label :address %>
             <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
-              <label class="btn btn-outline-secondary active" style="width:30%">
-                <%= f.radio_button :address_select, 0, {checked: true ,id: "textimput", onchange: "RadioButtonChanged()"}%> 住所を入力
-              </label>
-              <label class="btn btn-outline-secondary" style="width:30%">
-                <%= f.radio_button :address_select, 1, {id: "present_ocation", onchange: "RadioButtonChanged()"} %> 現在地から登録
-              </label>
-              <label class="btn btn-outline-secondary" style="width:30%">
-                <%= f.radio_button :address_select, 2, {id: "google_maptimput", onchange: "RadioButtonChanged()"} %> マップから登録
-              </label>
+              <form id="radioGroup">
+                <label class="btn btn-outline-secondary active" style="width:30%">
+                  <%= f.radio_button :address_select, 0, {checked: true ,id: "textimput"}%>住所を入力
+                </label>
+                <label class="btn btn-outline-secondary" style="width:30%">
+                  <%= f.radio_button :address_select, 1, {id: "present_ocation"} %>現在地から登録
+                </label>
+                <label class="btn btn-outline-secondary" style="width:30%">
+                  <%= f.radio_button :address_select, 2, {id: "google_map"} %>マップから登録 
+                </label>
+              </form>
             </div>          
           <%= f.text_field :address, autocomplete: "address", class: 'form-control', id:"address" %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
@@ -85,11 +87,26 @@
                 "use strict";
                 var target = document.getElementById("target");
                 var geocoder = new google.maps.Geocoder();
+                var textimput = document.getElementById("textimput");
+                var present_ocation = document.getElementById("present_ocation");
+                var google_map = document.getElementById("google_map");
+                var googlemaker = null;
+
+                // イベント
+                textimput.addEventListener('click', (event) => {
+                  RadioButtonChanged();
+                });
+                present_ocation.addEventListener('click', (event) => {
+                  RadioButtonChanged();
+                });
+                google_map.addEventListener('click', (event) => {
+                  RadioButtonChanged();
+                });
+
 
                 // Map初期設定
                   let def_lat = Number(document.getElementById("gmap_def_lat").value);
                   let def_lng = Number(document.getElementById("gmap_def_lng").value);
-                  console.log(restaurantmap);
                   let restaurantmap = new google.maps.Map(target, {
                       center: {
                         lat: def_lat,
@@ -97,13 +114,14 @@
                       },
                       zoom: 17
                     });
-                  console.log(restaurantmap);
+
 
                 //　住所があればGoogleMap表示
                 if (document.getElementById("address").value !== "") {
                   getAddressToMove();
                 };
 
+            
                 // Mapクリックイベント
                 restaurantmap.addListener('click', function(e) {
                 geocoder.geocode({
@@ -114,15 +132,21 @@
                     document.getElementById('target').innerText ="地図情報が取得できません。1";
                     return;
                   }
+                  // アイコンクリア
+                  if (googlemaker !== null){
+                    googlemaker.setMap(null);
+                  };
                   // results[0].formatted_address
                   if (results[0]) {
-                    new google.maps.Marker({
+                    googlemaker = new google.maps.Marker({
                       position: e.latLng,
                       map: restaurantmap,
                       title: results[0].formatted_address,
                       animation: google.maps.Animation.DROP
                     });
-                    document.getElementById('address').innerText = results[0].formatted_address;
+                    console.log("setaddress");
+                    document.getElementById('address').value = results[0].formatted_address;
+                    // document.getElementById('address').value = results[0].address_components[0].types["sublocality", "political"];
                   } else {
                     arert("マップが見つかりませんでした。");
                     document.getElementById('target').innerText ="地図情報が取得できません。2";
@@ -130,15 +154,17 @@
                   }
                 });
               });
+            };
 
 
                 //RadioButtonChangeイベント
                 function RadioButtonChanged(){
-                  let textimput = document.getElementById("textimput");
-                  let present_ocation = document.getElementById("present_ocation");
-                  let google_map = document.getElementById("google_map");
+
+                  // let textimput = document.getElementById("textimput");
+                  // let present_ocation = document.getElementById("present_ocation");
+                  // let google_map = document.getElementById("google_map");
                   // textエリア選択時
-                  console.log("0");
+
                   if (textimput.checked){
                       console.log("1");
                       document.getElementById("address").disabled = false;
@@ -156,14 +182,13 @@
                   };
                   // GoogleMap選択時
                   if (google_map.checked){
-                      console.log("3");
                       document.getElementById("address").disabled = true;
                       if (document.getElementById("address").value !== "") {
                         getAddressToMove(); //入力された住所へ移動
                       };
                   };
 
-                }
+                };
 
                 // 現在地を取得
                 function getPresentOcation(){
@@ -193,7 +218,7 @@
                     return;
                   });
 
-                }
+
 
                 // 住所からGoogoleMap更新
                 function getAddressToMove(){
@@ -207,6 +232,7 @@
                         document.getElementById('target').innerText ="地図情報が取得できません。3";
                         return;
                       }
+                      console.log("beforeset");
                       // results[0].geometry.locationに緯度経度の情報が入ってくる
                       if (results[0]) {
                         let location = results[0].geometry.location;
@@ -234,7 +260,7 @@
                     }
                   );
                 };
-            };
+              };
           </script>
 
 

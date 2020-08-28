@@ -38,8 +38,7 @@
       //読み込みが完了すると、srcにfileのURLを格納
       fileReader.onloadend = function() {
         var src = fileReader.result
-        var html= `<div class="col-lg-4 col-xs-12">
-                    <div class='item-image' data-image="${file.name}">
+        var html= `<div class='item-image col-lg-4 col-xs-12' data-image="${file.name}">
                       <div class=' item-image__content'>
                         <div class='item-image__content--icon'>
                           <img src=${src} width="auto" height="auto" class='img-fluid' >
@@ -48,7 +47,6 @@
                       <div class='item-image__operetion'>
                         <div class='item-image__operetion--delete btn btn-outline-info w-100'>削除</div>
                       </div>
-                    </div>
                   </div>`
         //image_box__container要素の前にhtmlを差し込む
         $('#image-box__container').before(html);

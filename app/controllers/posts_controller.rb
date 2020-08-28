@@ -37,11 +37,11 @@ class PostsController < ApplicationController
     # binding.pry
     @post = Post.find(params[:id])
     # binding.pry
-    restaurant_id = @post.restaurant_id
+    # restaurant_id = @post.restaurant_id
     # @post.images.detach #image紐づけ解除
-    if @post = @post.update(post_params)
+    if @post.update(post_params)
       flash[:info] = "コメントの更新をしました。"
-      redirect_to "/restaurants/#{restaurant_id}"
+      redirect_to "/restaurants/#{@post.restaurant_id}"
     else
       render :edit
     end
@@ -49,10 +49,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
-    restaurant_id = @post.restaurant_id
+    # restaurant_id = @post.restaurant_id
     @post.destroy
     flash[:info] = "コメントの削除をしました。"
-    redirect_to "/restaurants/#{restaurant_id}"
+    redirect_to "/restaurants/#{@post.restaurant_id}"
   end
 
   private
