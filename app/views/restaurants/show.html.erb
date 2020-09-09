@@ -17,7 +17,7 @@
         <h3 class="h3">電話番号</h3>
         <p><%= @restaurant.tel%></p>
         <h3 class="h3">URL</h3>
-        <%= link_to @restaurant.url, @restaurant.url, target: :_blank %>
+        <%= link_to @restaurant.url, @restaurant.url, target: :_blank, rel: "noopener noreferrer" %>
         <h3 class="h3">地域</h3>
         <p><%= @restaurant.area.areas_name%></p>
         <h3 class="h3">住所</h3>
@@ -118,4 +118,3 @@
     <% end %>
   <% end %>
 </div>
-<%= link_to "戻る", restaurants_path, class: 'text-light' %>

@@ -1,9 +1,9 @@
 <% provide(:title, "お店の情報登録") %>
 <h4 class="display-4 text-light text-center">お店の情報登録</h4>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
-      <%= form_with(model: @restaurant, local: true ) do |f| %>
+  <%= form_with(model: @restaurant, local: true ) do |f| %>
+    <div class="row">
+      <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
         <%= render 'shared/error_messages', object: f.object %>
 
         <div class="field">
@@ -75,6 +75,7 @@
           
           <%= f.hidden_field :gmap_def_lat, value: Restaurant::GMAP_DEF_LAT ,id: "gmap_def_lat" %>
           <%= f.hidden_field :gmap_def_lng, value: Restaurant::GMAP_DEF_LNG ,id: "gmap_def_lng" %>
+          
           <div class="gmap ">
             <div id="target"></div>
           </div>
@@ -265,12 +266,11 @@
 
 
 
-
         <div class="actions text-center">
-          <%= f.submit "お店の情報登録", class: "btn btn-info" %>
+          <%= f.submit "お店の情報登録", class: "btn btn-info w-75" %>
         </div>
-        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 <%= link_to "戻る", :back, class: 'text-light' %>

@@ -108,12 +108,12 @@
           <%= f.text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :comment} %>
         </div>
+        <div class="actions text-center">
+          <%= f.submit "コメントの登録", class: "btn btn-info w-75" %>
+        </div>
       </div>
 
-      <div class="actions">
-        <%= f.submit "コメントの登録", class: "btn btn-info" %>
-      </div>
     </div>
   </div>
 <% end %>
-<%= link_to "戻る", :back, class: 'text-light' %>
+<%= link_to "戻る", restaurant_path(id: @post.restaurant.id), class: 'text-light' %>

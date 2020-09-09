@@ -48,8 +48,8 @@
           </div>
           <%= render 'devise/shared/error_message_detail',{object: f.object, target: :release} %>
         </div>
-        <div class="actions text-center">
-          <%= f.submit "ユーザー情報更新", class: "btn btn-info" %>
+        <div class="actions text-center mt-20">
+          <%= f.submit "ユーザー情報更新", class: "btn btn-info w-75" %>
         </div>
       <% end %>
     </div>
@@ -61,7 +61,7 @@
 
       <p>ユーザー情報を削除する場合はこちら</p>
       <div class="text-center">
-        <%= button_to "ユーザー情報削除", registration_path(resource_name), data: { confirm: "ユーザー情報と登録した全てのデータを削除しますか?" }, method: :delete , class: "btn btn-danger text-center"%>
+        <%= button_to "ユーザー情報削除", registration_path(resource_name), data: { confirm: "ユーザー情報と登録した全てのデータを削除しますか?" }, method: :delete , class: "btn btn-danger text-center w-75"%>
       </div>
     </div>
   </div>

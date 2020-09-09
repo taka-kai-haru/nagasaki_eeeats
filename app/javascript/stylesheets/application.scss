@@ -165,6 +165,10 @@ label.custom-control-label {
   padding: 20px;
 }
 
+.no-decoration:hover {
+  text-decoration: none;
+}
+
 /* トグルアイコン */
 .navbar-toggler {
   border-color: rgb(255, 255, 255);
@@ -188,11 +192,11 @@ input[type='range'] {
   appearance: none;
   cursor: pointer; /* カーソルを分かりやすく */
   outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
-  height: 14px; /* バーの高さ */
+  height: 20px; /* バーの高さ */
   width: 75%; /* バーの幅 */
   background: #8acdff; /* バーの背景色 */
   border-radius: 10px; /* バーの両端の丸み */
-  border: solid 3px #dff1ff; /* バー周囲の線 */
+  border: solid 2px #dff1ff; /* バー周囲の線 */
   margin: auto;
   // position: relative;
   // top: 50%;
@@ -203,16 +207,16 @@ input[type='range'] {
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none; /*  🚩デフォルトのつまみのスタイルを解除 */
   background: #53aeff; /* 背景色 */
-  width: 24px; /* 幅 */
-  height: 24px; /* 高さ */
+  width: 20px; /* 幅 */
+  height: 20px; /* 高さ */
   border-radius: 50%; /* 円形に */
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15); /* 影 */
 }
 /* Moz向けのつまみ */
 input[type='range']::-moz-range-thumb {
   background: #53aeff; /* 背景色 */
-  width: 24px; /* 幅 */
-  height: 24px; /* 高さ */
+  width: 20px; /* 幅 */
+  height: 20px; /* 高さ */
   border-radius: 50%; /* 円形に */
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15); /* 影 */
   border: none; /* デフォルトの線を消す */

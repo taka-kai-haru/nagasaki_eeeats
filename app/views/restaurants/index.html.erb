@@ -3,7 +3,7 @@
 <h4 class="display-4 text-light text-center">お店一覧</h4>
 
 <% if user_signed_in? %>
-  <%= link_to "+お店の情報登録", new_restaurant_path, class: "btn  btn-info" %>
+  <%= link_to "+お店の情報登録", new_restaurant_path, class: "btn  btn-info", target: "_blank", rel: "noopener noreferrer"%>
 <% end %>
 
 <div class="container-fluid">
@@ -32,13 +32,23 @@
       </div>
     </div>
   </div>
+
+  <div class="col-lg-4">
+  </div>
+  <div class="bg-white rounded col-lg-4 pd-20 pd-20">
+  <p>検索結果：<%= @restaurants.count%>件</p>
+  </div>
+  <div class="col-lg-4">
+  </div>
+
+
   <div class="bg-white rounded col-xl-6 col-xs-12 pd-20">
     <% if @restaurants.count > 0 %>
       <div class="row row-cols-1 row-cols-md-2">
         <% @restaurants.each do |restaurant|%>
           <div class="col mb-4">
             <div class="card h-100">
-              <a href="/restaurants/<%= restaurant.id%>" class="text-dark">
+              <a href="/restaurants/<%= restaurant.id%>" class="text-dark no-decoration" target="_blank" rel="noopener noreferrer">
                 <div class="card-header">
                   <h5 class="h5"><%= restaurant.name %></h5>
                 </div>
@@ -74,5 +84,7 @@
   <div class="col-lg-6 col-xs-12 rounded">
   <%# マップ %>
   </div>
-  <%= paginate @restaurants %>
+  <div class="mt-20">
+    <%= paginate @restaurants %>
+  </div>
 </div>

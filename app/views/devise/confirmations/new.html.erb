@@ -13,8 +13,8 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control' %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "再送信",class: "btn btn btn-info" %>
+        <div class="actions text-center mt-20 mb-20">
+          <%= f.submit "再送信",class: "btn btn-info w-75" %>
         </div>
       <% end %>
 
