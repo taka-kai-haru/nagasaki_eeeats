@@ -42,6 +42,15 @@
           <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
         </div>
 
+        <div class="field">
+          <%= f.label :closed %>
+          <div class="switchArea-closed">
+            <%= f.check_box :closed, autocomplete: "release", id: 'switch1' %>
+            <label for="switch1"><span></span></label>
+            <div id="swImg"></div>
+          </div>
+        </div>
+
         <div class="actions text-center">
           <%= f.submit "お店情報の更新", class: "btn btn-info w-75" %>
         </div>

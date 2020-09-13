@@ -33,24 +33,27 @@
     </div>
   </div>
 
-  <div class="col-lg-4">
-  </div>
-  <div class="bg-white rounded col-lg-4 pd-20 pd-20">
-  <p>検索結果：<%= @restaurants.count%>件</p>
-  </div>
-  <div class="col-lg-4">
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+    <div class="bg-white rounded col-lg-4 mb-20 text-center pd-10">
+    <h5 class="h5">検索結果：<%= @restaurants.total_count%>件</h5>
+    </div>
+    <div class="col-lg-4">
+    </div>
   </div>
 
 
   <div class="bg-white rounded col-xl-6 col-xs-12 pd-20">
     <% if @restaurants.count > 0 %>
       <div class="row row-cols-1 row-cols-md-2">
+        <% @restaurants_number = 0 %>
         <% @restaurants.each do |restaurant|%>
           <div class="col mb-4">
             <div class="card h-100">
               <a href="/restaurants/<%= restaurant.id%>" class="text-dark no-decoration" target="_blank" rel="noopener noreferrer">
                 <div class="card-header">
-                  <h5 class="h5"><%= restaurant.name %></h5>
+                  <h5 class="h5" id="restaurant_name<%= @restaurants_number%>"><%= restaurant.name %></h5>
                 </div>
                 <% restaurant.posts.shuffle.each do |post| %>
                   <% next if post.user.release = false%>
@@ -69,7 +72,8 @@
                   <% end %>
                   <p class="card-text"><%= restaurant.restaurant_type.name %></p>
                   <small class="text-muted"><%= restaurant.area.areas_name %></small>
-                  <p class="card-text"><%= restaurant.address %></p>
+                  <p class="card-text" id="address<%= @restaurants_number%>"><%= restaurant.address %></p>
+                  <% @restaurants_number += 1 %>
                 </div>
               </a>
             </div>
@@ -83,6 +87,83 @@
   </div>
   <div class="col-lg-6 col-xs-12 rounded">
   <%# マップ %>
+
+  <input type="hidden" value="<%= Restaurant::GMAP_DEF_LAT%>" id ="gmap_def_lat">
+  <input type="hidden" value="<%= Restaurant::GMAP_DEF_LNG%>" id ="gmap_def_lng">
+  <input type="hidden" value="<%= @restaurants.count %>"      id ="restaurants_count">
+
+  <div class="gmap ">
+    <div id="target"></div>
+  </div>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCi_3RzETS7tHokVtKrb2wpoHC7ovon2IE&callback=initMap"
+  async defer>
+</script>
+<script>
+  function initMap() {
+    "use strict";
+
+  var target = document.getElementById("target");
+  var geocoder = new google.maps.Geocoder();
+  const def_lat = Number(document.getElementById("gmap_def_lat").value);
+  const def_lng = Number(document.getElementById("gmap_def_lng").value);
+  const restaurants_count = Number(document.getElementById("restaurants_count").value);
+  let array_address = [];
+  let array_restaurant_name = [];
+  for (let i = 0; i < restaurants_count; i++) {
+    array_address.push(document.getElementById("address" + i).value);
+    array_restaurant_name.push(document.getElementById("restaurant_name" + i).value);
+  }
+
+  geocoder.geocode(
+    {
+      address: document.getElementById("address1").innerHTML
+    },
+    function (results, status) {
+      if (status !== "OK") {
+        alert("マップの取得に失敗しました。: " + status);
+        document.getElementById('target').innerText ="地図情報が取得できません。";
+        return;
+      }
+      // results[0].geometry.locationに緯度経度の情報が入ってくる
+      if (results[0]) {
+        let location = results[0].geometry.location;
+        let restaurantmap = new google.maps.Map(target, {
+          center: location,
+          zoom: 17,
+        });
+        // 緯度経度の情報をハッシュに変換
+        let lat = location.lat();
+        let lng =  location.lng();
+        let latlng = {lat: lat, lng: lng};
+        var marker = new google.maps.Marker({
+          position: latlng,
+          map: restaurantmap,
+          animation: google.maps.Animation.DROP,
+          title: document.getElementById("restaurant_name1").innerHTML
+          });
+        var infoWindow = new google.maps.InfoWindow({
+          content: document.getElementById("restaurant_name1").innerHTML
+          });
+          marker.addListener('click', function() {
+            infoWindow.open(restaurantmap, marker);
+          });
+
+      } else {
+        arert("マップが見つかりませんでした。");
+        document.getElementById('target').innerText ="地図情報が取得できません。";
+        return;
+      }
+    }
+  );
+
+  }
+</script>
+
+
+
+
   </div>
   <div class="mt-20">
     <%= paginate @restaurants %>

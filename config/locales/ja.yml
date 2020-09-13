@@ -34,6 +34,7 @@ ja:
         tel: 電話番号
         url: お店のURL
         address: 住所
+        closed: 閉店
       post:
         images: 画像
         delicious: 味
