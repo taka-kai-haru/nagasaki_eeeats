@@ -188,7 +188,7 @@
           let center_position = new google.maps.LatLng(lat,lng);
           
           restaurantmap.setCenter(center_position);
-          
+          latitudelongitudeSet(lat,lng); // 緯度経度セット
           merkerSet(latlng,restaurantmap,address.value);
         } else {
           arert("マップが見つかりませんでした。");

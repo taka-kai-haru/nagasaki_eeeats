@@ -29,7 +29,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     # binding.pry
     if @restaurant.save
-      flash[:info] = "お店の登録をしました。"
+      flash[:info] = "お店の情報の登録をしました。"
       redirect_to new_post_path(restaurant_id: @restaurant.id)
     else
       # binding.pry
@@ -44,7 +44,7 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_params)
-      flash[:info] = "お店の更新をしました。"
+      flash[:info] = "お店の情報の更新をしました。"
       redirect_to restaurant_path
     else
       render :edit

@@ -5,12 +5,13 @@
 <script>
   function initMap() {
     "use strict";
-
-  let latitude = document.getElementById("latitude").value;
-  let longitude = document.getElementById("latitude").value;
+  var target = document.getElementById("target");
+  let latitude = Number(document.getElementById("latitude").value);
+  let longitude = Number(document.getElementById("longitude").value);
   let point =  { lat: latitude, lng: longitude};
   let map;
 
+  console.log(point);
   map = new google.maps.Map(target, {
     center: point,
     zoom: 17,

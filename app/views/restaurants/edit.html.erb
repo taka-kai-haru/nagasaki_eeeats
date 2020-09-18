@@ -1,61 +1,102 @@
 <% provide(:title, "お店の情報編集") %>
 <h4 class="display-4 text-light text-center">お店の情報編集</h4>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
-      <%= form_with(model: @restaurant, local: true ) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+<%= form_with(model: @restaurant, local: true ) do |f| %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
+          <%= render 'shared/error_messages', object: f.object %>
 
-        <div class="field">
-          <%= f.label :name %>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
-          <%= render 'shared/error_message_detail',{object: f.object, target: :name} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :restaurant_type_id %>
-          <%= f.collection_select(:restaurant_type_id, RestaurantType.all, :id, :name,{prompt: "選択してください"}, {class: 'form-control'}) %>
-          <%= render 'shared/error_message_detail',{object: f.object, target: :restaurant_type_id} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :area_id %>
-          <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{prompt: "選択してください"}, {class: 'form-control'}) %>
-          <%= render 'shared/error_message_detail',{object: f.object, target: :area_id} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :tel %> <em>(ハイフン不要)  ※必須</em>
-          <%= f.telephone_field :tel, autocomplete: "tel", class: 'form-control' %>
-          <%= render 'shared/error_message_detail',{object: f.object, target: :tel} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :url %>
-          <%= f.url_field :url, autocomplete: "url", class: 'form-control' %>
-          <%= render 'shared/error_message_detail',{object: f.object, target: :url} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :address %>
-          <%= f.text_field :address, autocomplete: "address", class: 'form-control' %>
-          <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :closed %>
-          <div class="switchArea-closed">
-            <%= f.check_box :closed, autocomplete: "release", id: 'switch1' %>
-            <label for="switch1"><span></span></label>
-            <div id="swImg"></div>
+          <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+            <%= render 'shared/error_message_detail',{object: f.object, target: :name} %>
           </div>
-        </div>
 
-        <div class="actions text-center">
-          <%= f.submit "お店情報の更新", class: "btn btn-info w-75" %>
-        </div>
-        <% end %>
+          <div class="field">
+            <%= f.label :restaurant_type_id %>
+            <%= f.collection_select(:restaurant_type_id, RestaurantType.all, :id, :name,{prompt: "選択してください"}, {class: 'form-control'}) %>
+            <%= render 'shared/error_message_detail',{object: f.object, target: :restaurant_type_id} %>
+          </div>
+
+          <div class="field">
+            <%= f.label :area_id %>
+            <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{prompt: "選択してください"}, {class: 'form-control'}) %>
+            <%= render 'shared/error_message_detail',{object: f.object, target: :area_id} %>
+          </div>
+
+          <div class="field">
+            <%= f.label :tel %> <em>(ハイフン不要)  ※必須</em>
+            <%= f.telephone_field :tel, autocomplete: "tel", class: 'form-control' %>
+            <%= render 'shared/error_message_detail',{object: f.object, target: :tel} %>
+          </div>
+
+          <div class="field">
+            <%= f.label :url %>
+            <%= f.url_field :url, autocomplete: "url", class: 'form-control' %>
+            <%= render 'shared/error_message_detail',{object: f.object, target: :url} %>
+          </div>
+
+          <div class="field">
+            <%= f.label :address %>
+              <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
+                <form id="radioGroup">
+                  <label class="btn btn-outline-secondary active" style="width:30%" id="textimput_label">
+                    <%= f.radio_button :address_select, 0, {checked: true ,id: "textimput"}%>住所を入力
+                  </label>
+                  <label class="btn btn-outline-secondary" style="width:30%" id="present_ocation_label">
+                    <%= f.radio_button :address_select, 1, {id: "present_ocation"} %>現在地から登録
+                  </label>
+                  <label class="btn btn-outline-secondary" style="width:30%" id="google_map_label">
+                    <%= f.radio_button :address_select, 2, {id: "google_map"} %>マップから登録 
+                  </label>
+                </form>
+              </div>          
+            <%= f.text_field :address, autocomplete: "address", class: 'form-control', id:"address" %>
+            <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
+          </div>
+            <%# <div class="form-check">
+              <input class="form-check-input" type=”radio” name="address_select" id="textimput" checked>
+              <label class="form-check-label" for="textimput">
+                  住所を入力して登録
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type=”radio” name="address_select" id="present_ocation" >
+              <label class="form-check-label" for="present_ocation">
+                  現在地から登録
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type=”radio” name="address_select" id="google_map" >
+              <label class="form-check-label" for="google_map">
+                  マップから登録
+              </label>
+            </div> %>
+          
+          <%= f.hidden_field :latitude,  id: "latitude" %>
+          <%= f.hidden_field :longitude, id: "longitude" %>
+
+          <%= f.hidden_field :gmap_def_lat, value: Restaurant::GMAP_DEF_LAT ,id: "gmap_def_lat" %>
+          <%= f.hidden_field :gmap_def_lng, value: Restaurant::GMAP_DEF_LNG ,id: "gmap_def_lng" %>
+          <div class="gmap ">
+            <div id="target"></div>
+          </div>
+          <%= render 'restaurants/mapselectjs'%>
+
+          <div class="field">
+            <%= f.label :closed %>
+            <div class="switchArea-closed">
+              <%= f.check_box :closed, autocomplete: "release", id: 'switch1' %>
+              <label for="switch1"><span></span></label>
+              <div id="swImg"></div>
+            </div>
+          </div>
+
+          <div class="actions text-center">
+            <%= f.submit "お店情報の更新", class: "btn btn-info w-75" %>
+          </div>
+      </div>
     </div>
-  </div>
 </div>
+<% end %>
 <%= link_to "戻る", :back, class: 'text-light' %>

@@ -165,6 +165,11 @@ label.custom-control-label {
   padding: 20px;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 .no-decoration:hover {
   text-decoration: none;
 }
