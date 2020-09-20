@@ -11,6 +11,7 @@ $headings-line-height: 1.5;
 $line-height-base: 1.65;
 $modal-inner-padding: 30px;
 $modal-title-padding: 30px;
+$header-size: 8vh;
 
 * {
   letter-spacing: 0.1em;
@@ -27,6 +28,7 @@ $modal-title-padding: 30px;
 
 .navbar {
   background: rgba(0, 0, 0, 0.3);
+  height: $header-size;
 }
 
 /* 背景設定*/
@@ -67,6 +69,24 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 input[type='text'],
@@ -166,8 +186,11 @@ label.custom-control-label {
 }
 
 .sticky {
+  position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 0;
+  top: $header-size;
+  // top: 0;
+  // bottom: 80vh;
 }
 
 .no-decoration:hover {
@@ -260,19 +283,205 @@ html body {
   height: 50vh;
 }
 
-// .gmap {
+.gmap-index {
+  height: 75vh;
+}
+
+.gmap-target {
+  position: relative;
+  z-index: 1;
+}
+
+.gps_fixed {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
+}
+
+.likes {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+}
+
+.likes [type='checkbox'] {
+  display: none;
+}
+
+.material-icons.good {
+  font-size: 42px;
+  color: #e4e4e4;
+  user-select: none;
+}
+
+.likes [type='checkbox']:checked ~ .good {
+  animation-name: good;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes good {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    color: #0000ff;
+  }
+}
+
+.like_ripple {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  background: #0000ff;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.likes [type='checkbox']:checked ~ .like_ripple {
+  animation-name: like_ripple;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes like_ripple {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.dislikes {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+}
+
+.dislikes [type='checkbox'] {
+  display: none;
+}
+
+.material-icons.bad {
+  font-size: 42px;
+  color: #e4e4e4;
+  user-select: none;
+}
+
+.dislikes [type='checkbox']:checked ~ .bad {
+  animation-name: bad;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bad {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    color: red;
+  }
+}
+
+.dislike_ripple {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  background: red;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.dislikes [type='checkbox']:checked ~ .dislike_ripple {
+  animation-name: dislike_ripple;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dislike_ripple {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.description {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.6em;
+  color: #fff;
+  border-radius: 5px;
+  background: #000;
+  width: 240px;
+  text-align: center;
+}
+
+// .description:before {
+//   content: '';
+//   position: absolute;
+//   top: 25px;
+//   left: 40%;
+//   border: 15px solid transparent;
+//   border-top: 15px solid #000;
+//   margin-left: -15px;
+// }
+.likes:hover .description {
+  display: inline-block;
+  top: 100px;
+  left: 0px;
+}
+
+.dislikes:hover .description {
+  display: inline-block;
+  top: 100px;
+  left: 20px;
+}
+
+// .material-icons.search-icon {
+//   top: 20px;
+// }
+
+// .gmap-index {
 //   height: 0;
 //   overflow: hidden;
 //   padding-bottom: 56.25%;
 //   position: relative;
-//   }
-//   .gmap iframe {
+// }
+// .gmap-index-target {
 //   position: absolute;
 //   left: 0;
 //   top: 0;
 //   height: 100%;
 //   width: 100%;
-//   }
+// }
 
 /*ページネーション自体のデザイン*/
 // .pagination>li>a {

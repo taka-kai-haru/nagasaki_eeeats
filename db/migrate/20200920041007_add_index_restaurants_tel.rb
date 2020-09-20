@@ -1,0 +1,5 @@
+class AddIndexRestaurantsTel < ActiveRecord::Migration[6.0]
+  def change
+    add_index :restaurants, :tel
+  end
+end

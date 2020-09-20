@@ -58,16 +58,18 @@
       </div>
     </div>
   </div>
+  <input type="hidden" value="<%= @restaurant.latitude%>" id ="latitude">
+  <input type="hidden" value="<%= @restaurant.longitude%>" id ="longitude">
   <div class="row mt-20">
     <div class="col-xl-12">
-        <div class="bg-white rounded pd-20 mb-5">
-          <input type="hidden" value="<%= @restaurant.latitude%>" id ="latitude">
-          <input type="hidden" value="<%= @restaurant.longitude%>" id ="longitude">
-          <div class="gmap">
-            <div id="target"></div>
+        <div class="gmap">
+          <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
+            <i class="material-icons">gps_fixed</i>
+          </button>
+          <div id="target" class="gmap-target">
           </div>
-          <%= render 'restaurants/mapshowjs'%>
-      </div>
+        </div>
+        <%= render 'restaurants/mapshowjs'%>
     </div>
   </div>
   

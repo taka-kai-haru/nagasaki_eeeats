@@ -6,11 +6,28 @@
 
 <%= form_with(model: @post, local: true ) do |f| %>
 
+  <%# <div class="field range"> %>
+          
+          <label class="likes">
+            <%= f.check_box :likes %><i class="material-icons good">thumb_up_alt</i>
+            <div class="like_ripple"></div>
+            <div class="description">お店が気に入ったらクリック</div>
+          </label>
+          
+          <label class="dislikes">
+            <%= f.check_box :dislikes %><i class="material-icons bad">thumb_down_alt</i>
+            <div class="dislike_ripple"></div>
+            <div class="description">お店が気に入らなかったらクリック</div>
+          </label>
+        <%# </div> %>
+
   <div class="container-fluid bg-white rounded  pd-20 mb-10">
     <div class="row">
       <div class="col-lg-12 col-xs-12 mb-10">
         <h5 class="h5">お店の名前</h5>
         <%= Restaurant.find_by(id: @post.restaurant_id).name%>
+        
+
         <%= f.hidden_field :restaurant_id, value: @post.restaurant_id %>
       </div>
     </div>

@@ -11,11 +11,14 @@
   const def_lat = Number(document.getElementById("gmap_def_lat").value);
   const def_lng = Number(document.getElementById("gmap_def_lng").value);
   const restaurants_count = Number(document.getElementById("restaurants_count").value);
+  let gps_fixed = document.getElementById("gps_fixed");
   let array_latitude = [];
   let array_longitude = [];
   let array_restaurant_name = [];
   let point = null;
   let data = [];
+  let gps_marker = null;
+
   for (let i = 0; i < restaurants_count; i++) {
 
     data[i] = {name: document.getElementById("restaurant_name" + i).innerHTML,
@@ -44,6 +47,9 @@
     center: point,
     zoom: 17,
     maxZoom: 16,
+    mapTypeControl: false,
+    zoomControl: true,
+    streetViewControl: false,
     // disableDefaultUI: true,
     // zoomControl: true,
   });
@@ -70,7 +76,7 @@
     };
 
     // マーカーがいい感じに表示できるよう調整
-map.fitBounds(new google.maps.LatLngBounds(
+  map.fitBounds(new google.maps.LatLngBounds(
   // sw
   {
     lat: Math.min(...data.map(d => d.lat)),
@@ -140,5 +146,43 @@ map.fitBounds(new google.maps.LatLngBounds(
   //   }
   // );
 
-  }
+  // イベント
+  gps_fixed.addEventListener('click', (event) => {
+    console.log('clickイベント');
+    if (!navigator.geolocation) {
+        alert('GoogleのGeolocationサービスが使用できません。');
+        return;
+    };
+    console.log('clickイベント２');
+    navigator.geolocation.getCurrentPosition(function(position) {
+      let lat = position.coords.latitude;
+      let lng =  position.coords.longitude;
+      let latlng = {lat: lat, lng: lng};
+      let center_position = new google.maps.LatLng(lat,lng);
+      console.log(latlng);
+
+      map.setCenter(center_position)
+      // アイコンクリア
+      if (gps_marker !== null){
+          gps_marker.setMap(null);
+      };
+      gps_marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title: "現在地",
+        // icon:{
+        //   fillColor: "#0000ff", 
+        // }
+      });
+    },
+    function () {
+    alert("現在地が取得できませんでした。");
+    return;
+    });
+  });
+
+
+
+  };
 </script>

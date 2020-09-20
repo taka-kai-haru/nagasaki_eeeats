@@ -39,7 +39,10 @@
               lat: def_lat,
               lng: def_lng
             },
-            zoom: 17
+            zoom: 17,
+            mapTypeControl: false,
+            zoomControl: true,
+            streetViewControl: false,
           });
 
       // 住所があればGoogleMap表示
@@ -122,7 +125,7 @@
       let center_position = new google.maps.LatLng(lat,lng);
       latitudelongitudeSet(lat,lng); // 緯度経度セット
 
-      restaurantmap.setCenter(center_position)
+      restaurantmap.setCenter(center_position);
       merkerSet(latlng,restaurantmap,"");
 
       // 住所をセット

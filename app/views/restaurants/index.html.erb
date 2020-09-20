@@ -26,7 +26,9 @@
           </div>
         </div>
           <div class="text-center">
-            <%= f.submit "検索", class: "btn btn-info w-25" %>
+            <%= button_tag type:"submit", class: "btn btn-info w-25" do %>
+            検索<%= content_tag :i, "search", class: "material-icons search-icon" %><% end %>
+
           </div>
         <% end %>
       </div>
@@ -42,9 +44,9 @@
     <div class="col-lg-4">
     </div>
   </div>
-
+  
   <div class="row">
-    <div class="bg-white rounded col-xl-6 col-xs-12 pd-20">
+    <div class="bg-white rounded col-xl-6 col-xs-12 pd-20 mb-20">
       <% if @restaurants.count > 0 %>
         <div class="row row-cols-1 row-cols-md-2">
           <% @restaurants_number = 0 %>
@@ -87,22 +89,31 @@
         <h5 class="text-center">条件に合うお店がありません。</h5>
       <% end %>
     </div>
-    <div class="col-lg-6 col-xs-12 rounded">
+    <div class="col-xl-6 col-xs-12 mb-20">
       <%# マップ %>
 
       <input type="hidden" value="<%= Restaurant::GMAP_DEF_LAT%>" id ="gmap_def_lat">
       <input type="hidden" value="<%= Restaurant::GMAP_DEF_LNG%>" id ="gmap_def_lng">
       <input type="hidden" value="<%= @restaurants.count %>"      id ="restaurants_count">
+      
+        <div class="gmap-index sticky">
+            <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
+              <i class="material-icons">gps_fixed</i>
+            </button>
+            <div id="target" class="gmap-target">
+            </div>
+            
+        </div>
 
-      <div class="gmap sticky">
-        <div id="target" style="padding-bottom : 75%;"></div>
-      </div>
-
-      <%= render 'restaurants/mapindexjs'%>
-
+        <%= render 'restaurants/mapindexjs'%>
+    
     </div>
+  
   </div>
-  <div class="mt-20">
-    <%= paginate @restaurants %>
+  <div class="row">
+
+      <div class="col-lg-12 col-xs-12">
+        <%= paginate @restaurants %>
+    </div>
   </div>
 </div>

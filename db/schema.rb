@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_201407) do
+ActiveRecord::Schema.define(version: 2020_09_20_041007) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2020_09_12_201407) do
     t.integer "assortment", default: 3, null: false
     t.integer "service", default: 3, null: false
     t.integer "delicious", default: 3, null: false
+    t.boolean "likes", default: false, null: false
+    t.boolean "dislikes", default: false, null: false
     t.index ["restaurant_id"], name: "index_posts_on_restaurant_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_201407) do
     t.float "longitude", default: 0.0
     t.index ["area_id"], name: "index_restaurants_on_area_id"
     t.index ["restaurant_type_id"], name: "index_restaurants_on_restaurant_type_id"
+    t.index ["tel"], name: "index_restaurants_on_tel"
   end
 
   create_table "users", force: :cascade do |t|
