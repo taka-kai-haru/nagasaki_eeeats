@@ -112,7 +112,8 @@
         <span class="individual_score">評価：</span>
         <span id="chart_score_ave" class="individual_score"></span>
       </div>
-      <%= render 'posts/chartjs'%>
+      <canvas id="ScoreRaderChart" width="100" height="100" maxheight="440"></canvas>
+      <%= javascript_pack_tag 'home/posts/chart' %>
     </div>
   </div>
 

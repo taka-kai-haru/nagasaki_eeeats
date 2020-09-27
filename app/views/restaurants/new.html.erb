@@ -81,7 +81,7 @@
         <div class="gmap ">
           <div id="target"></div>
         </div>
-        <%= render 'restaurants/mapselectjs'%>
+        <%= javascript_pack_tag 'home/restaurants/new_edit_map' %>
 
         <div class="actions text-center mt-20 mb-10">
           <%= f.submit "お店の情報登録", class: "btn btn-info w-75" %>
