@@ -43,7 +43,7 @@ map = new google.maps.Map(target, {
   center: point,
   zoom: 17,
   maxZoom: 16,
-  minZoom: 10,
+  minZoom: 8,
   mapTypeControl: false,
   zoomControl: true,
   streetViewControl: false,
