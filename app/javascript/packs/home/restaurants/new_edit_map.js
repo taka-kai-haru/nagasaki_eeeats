@@ -48,12 +48,14 @@ if (address.value !== "") {
 function RadioButtonChanged(){
   // textエリア選択時
   if (textimput.checked){
-      console.log("1");
       address.disabled = false;
+      present_ocation.checked = false;
+      google_map.checked = false;
   };
   //現在地選択時
   if (present_ocation.checked){
-    console.log("2");
+    textimput.checked = false;
+    google_map = false;
     if (!navigator.geolocation) {
       alert('GoogleのGeolocationサービスが使用できません。');
       textimput.checked = true;
@@ -64,6 +66,8 @@ function RadioButtonChanged(){
   };
   // GoogleMap選択時
   if (google_map.checked){
+      textimput.checked = false;
+      present_ocation.checked = false;
       address.disabled = true;
       if (address.value !== "") {
         getAddressToMove(); //入力された住所へ移動

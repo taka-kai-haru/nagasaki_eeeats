@@ -60,6 +60,7 @@ for (let i = 0; i < data.length; i++) {
     map: map,
     animation: google.maps.Animation.DROP,
     title: data[i].name,
+    label: String(i + 1),
   });
   let infoWindow = new google.maps.InfoWindow({
     content: data[i].name,

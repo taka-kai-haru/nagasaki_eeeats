@@ -72,6 +72,7 @@
                     <% else %>
                       <h5><span class="badge badge-success">評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
                     <% end %>
+                    <%= image_tag "red#{@restaurants_number + 1}.png" %>
                     <p class="card-text"><%= restaurant.restaurant_type.name %></p>
                     <small class="text-muted"><%= restaurant.area.areas_name %></small>
                     <p class="card-text" id="address<%= @restaurants_number%>"><%= restaurant.address %></p>
