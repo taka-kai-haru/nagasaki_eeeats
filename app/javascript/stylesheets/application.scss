@@ -11,7 +11,10 @@ $headings-line-height: 1.5;
 $line-height-base: 1.65;
 $modal-inner-padding: 30px;
 $modal-title-padding: 30px;
-$header-size: 8vh;
+// $header-size: 8vh;
+$header-size: 40px;
+$header-size-small: 60px;
+$max-width: 1090px;
 
 * {
   letter-spacing: 0.1em;
@@ -27,13 +30,19 @@ $header-size: 8vh;
 /* forms */
 
 .navbar {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   height: $header-size;
 }
+@media screen and (max-width:$max-width) {
+  .navbar {
+    height: $header-size-small;
+  }
+}
+
 
 /* 背景設定*/
 body.jumbotron {
-  background: url('/assets/backgrund.jpg') center no-repeat;
+  background: url('/assets/background.jpg') center no-repeat;
   background-size: cover;
   position: relative;
   height: 100vh;
@@ -185,12 +194,34 @@ label.custom-control-label {
   padding: 20px;
 }
 
+.title {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 10% 0 20px;
+}
+
+.button-wide {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
 .sticky {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: $header-size;
   // top: 0;
   // bottom: 80vh;
+}
+
+@media screen and (max-width:$max-width) {
+  .sticky {
+    top: $header-size-small;
+  }
 }
 
 .no-decoration:hover {
