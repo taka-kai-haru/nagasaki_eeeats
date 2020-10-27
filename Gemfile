@@ -27,28 +27,30 @@ gem 'jbuilder',   '2.9.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap',   '1.4.5', require: false
 
-#sing up function
+# sing up function
 gem 'devise'
 
-#active strage validation
+# active storage validation
 gem 'active_storage_validations', '0.8.2'
 # image size control
 gem 'image_processing',           '1.9.3'
-gem 'mini_magick',                '4.9.5'
 gem 'kaminari'
+gem 'mini_magick', '4.9.5'
 
-gem 'aws-sdk-s3',              '1.46.0', require: false
+gem 'aws-sdk-s3', '1.46.0', require: false
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.4.1'
-  gem 'pry'
+  # gem 'pry'
+  # gem 'pry-byebug'
+  gem 'debase',                   '2.3.0'
+  gem 'debase-ruby_core_source',  '0.10.11'
   gem 'ruby-debug-ide'
-  gem 'debase'
-  gem 'pry-byebug'
+  # gem 'aws-partitions',           '1.386.0'
 end
 
 group :development do
@@ -58,8 +60,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring',                '2.1.0'
   gem 'spring-watcher-listen', '2.0.1'
+
   gem 'solargraph'
 end
+
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

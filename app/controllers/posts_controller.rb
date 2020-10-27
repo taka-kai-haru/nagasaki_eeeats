@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     # @post.images.attach(params[:post][:images])
     # binding.pry
     if @post.save
+      @post.point_update @post.restaurant_id
       flash[:info] = "コメントの登録しました。"
       redirect_to "/restaurants/#{@post.restaurant_id}"
     else
@@ -40,6 +41,7 @@ class PostsController < ApplicationController
     # restaurant_id = @post.restaurant_id
     # @post.images.detach #image紐づけ解除
     if @post.update(post_params)
+      @post.point_update @post.restaurant_id
       flash[:info] = "コメントの更新をしました。"
       redirect_to "/restaurants/#{@post.restaurant_id}"
     else

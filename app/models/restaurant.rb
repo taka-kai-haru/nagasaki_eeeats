@@ -23,15 +23,12 @@ class Restaurant < ApplicationRecord
       .name_like(search_params[:name])  
   end
 
-  # googlemap 色セット
-  def prace_color_set(count)
-    coler = ["red","blue","","","",""]
-    return coler(count)
-  end
+
 
   #検索用scope
   scope :area_id_is, -> (area_id) { where(area_id: area_id) if area_id.present? } 
   scope :restaurant_type_id_is, -> (restaurant_type_id) { where(restaurant_type_id: restaurant_type_id) if restaurant_type_id.present? }
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
+
 
 end

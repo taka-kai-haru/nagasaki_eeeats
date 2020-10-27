@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
     @search_params[:area_id] = params[:area_id] if !params[:area_id].nil?
     # binding.pry
     # @restaurants = Restaurant.search(@search_params).includes(:restaurant_type)
-    @restaurants = Restaurant.search(@search_params).page(params[:page]).per(4)
+    @restaurants = Restaurant.search(@search_params).order(point: :desc).page(params[:page]).per(4)
 
   end
 

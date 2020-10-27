@@ -66,9 +66,8 @@
                   <% end %>
 
                   <div class="card-body">
-                    
                     <% if restaurant.posts.count > 0 %>
-                      <h5><span class="badge badge-success">評価：<%= score_average(restaurant.posts.sum(:atmosphere),restaurant.posts.sum(:accessibility),restaurant.posts.sum(:cost_performance),restaurant.posts.sum(:assortment),restaurant.posts.sum(:service),restaurant.posts.sum(:delicious)) %>  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
+                      <h5><span class="badge badge-success">評価：<%= restaurant.point %>  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
                     <% else %>
                       <h5><span class="badge badge-success">評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
                     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_041007) do
+ActiveRecord::Schema.define(version: 2020_10_22_194315) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_09_20_041007) do
     t.boolean "closed", default: false, null: false
     t.float "latitude", default: 0.0
     t.float "longitude", default: 0.0
+    t.decimal "point"
+    t.text "accessinformation"
     t.index ["area_id"], name: "index_restaurants_on_area_id"
     t.index ["restaurant_type_id"], name: "index_restaurants_on_restaurant_type_id"
     t.index ["tel"], name: "index_restaurants_on_tel"

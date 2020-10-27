@@ -14,4 +14,21 @@ class Post < ApplicationRecord
                                                 size:         { less_than: 5.megabytes,
                                                 message: "5MBより小さくしてください。" }
   IMAGE_MAX_SAVE = 3
+
+
+  # Restaurant Point更新
+  def point_update(restaurant_id)
+    point = 0
+    post_count = 0
+    # posts = Post.find_by(restaurant_id: restaurant_id)
+    # posts.each do |post|
+    Post.where(restaurant_id: restaurant_id).find_each do |post|
+      point += ((post.atmosphere.to_f + post.accessibility.to_f + post.cost_performance.to_f + post.assortment.to_f + post.service.to_f + post.delicious.to_f) / 6).round(1).to_f
+      post_count += 1
+    end
+    restaurant = Restaurant.find_by(id: restaurant_id)
+    restaurant.point = (point / post_count).round(1)
+    restaurant.save
+  end
+
 end
