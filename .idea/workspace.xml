@@ -50,7 +50,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
@@ -290,7 +290,7 @@
       <workItem from="1604001469721" duration="2895000" />
       <workItem from="1604051181511" duration="1326000" />
       <workItem from="1604083183496" duration="3056000" />
-      <workItem from="1604086310505" duration="5071000" />
+      <workItem from="1604086310505" duration="8707000" />
     </task>
     <servers />
   </component>
@@ -338,22 +338,22 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="990" y="599" key="FileChooserDialogImpl/0.0.3072.1688@0.0.3072.1688" timestamp="1603773182774" />
-    <state width="1870" height="358" key="GridCell.Tab.0.bottom" timestamp="1604091287689">
+    <state width="1870" height="401" key="GridCell.Tab.0.bottom" timestamp="1604092934098">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1870" height="358" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604091287689" />
-    <state width="1870" height="358" key="GridCell.Tab.0.center" timestamp="1604091287689">
+    <state width="1870" height="401" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604092934098" />
+    <state width="1870" height="401" key="GridCell.Tab.0.center" timestamp="1604092934098">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1870" height="358" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604091287689" />
-    <state width="1870" height="358" key="GridCell.Tab.0.left" timestamp="1604091287688">
+    <state width="1870" height="401" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604092934098" />
+    <state width="1870" height="401" key="GridCell.Tab.0.left" timestamp="1604092934098">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1870" height="358" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604091287688" />
-    <state width="1870" height="358" key="GridCell.Tab.0.right" timestamp="1604091287689">
+    <state width="1870" height="401" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604092934098" />
+    <state width="1870" height="401" key="GridCell.Tab.0.right" timestamp="1604092934098">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1870" height="358" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604091287689" />
+    <state width="1870" height="401" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604092934098" />
     <state width="1870" height="358" key="GridCell.Tab.1.bottom" timestamp="1604091287689">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -402,14 +402,18 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1105" y="495" key="ftp.server.browser/0.0.3072.1688@0.0.3072.1688" timestamp="1603773215976" />
-    <state x="1273" y="980" width="672" height="677" key="run.anything.popup" timestamp="1604091286349">
+    <state x="786" y="869" key="git4idea.ui.GitTagDialog" timestamp="1604092768970">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604091286349" />
-    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup" timestamp="1604088725390">
+    <state x="786" y="869" key="git4idea.ui.GitTagDialog/0.0.3072.1688@0.0.3072.1688" timestamp="1604092768970" />
+    <state x="1273" y="980" width="672" height="677" key="run.anything.popup" timestamp="1604091854991">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604088725390" />
+    <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604091854991" />
+    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup" timestamp="1604093150790">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604093150790" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

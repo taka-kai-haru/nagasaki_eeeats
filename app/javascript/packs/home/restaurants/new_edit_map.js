@@ -49,16 +49,16 @@ function RadioButtonChanged(){
   // textエリア選択時
   if (textimput.checked){
       address.disabled = false;
-      present_ocation.checked = false;
-      google_map.checked = false;
+      // present_ocation.checked = false;
+      // google_map.checked = false;
   };
   //現在地選択時
   if (present_ocation.checked){
-    textimput.checked = false;
-    google_map = false;
+    // textimput.checked = false;
+    // google_map = false;
     if (!navigator.geolocation) {
       alert('GoogleのGeolocationサービスが使用できません。');
-      textimput.checked = true;
+      // textimput.checked = true;
       return;
     }
       address.disabled = true;
@@ -66,8 +66,8 @@ function RadioButtonChanged(){
   };
   // GoogleMap選択時
   if (google_map.checked){
-      textimput.checked = false;
-      present_ocation.checked = false;
+      // textimput.checked = false;
+      // present_ocation.checked = false;
       address.disabled = true;
       if (address.value !== "") {
         getAddressToMove(); //入力された住所へ移動
@@ -144,7 +144,7 @@ geocoder.geocode({
     let address_format = results[0].formatted_address;
     address_format = address_format.replace(my_reg, '');
     address_format = address_format.trim();
-    merkerSet(e.latLng,restaurantmap,address_format);
+    merkerSet(latLng,restaurantmap,address_format);
     // 住所セット
     address.value = address_format;
   } else {
