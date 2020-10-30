@@ -72,6 +72,8 @@ function initMap() {
                 }
             )
         );
+    } else {
+        map.setZoom(8);
     }
 
 

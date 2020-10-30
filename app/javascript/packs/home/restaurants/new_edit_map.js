@@ -144,7 +144,7 @@ geocoder.geocode({
     let address_format = results[0].formatted_address;
     address_format = address_format.replace(my_reg, '');
     address_format = address_format.trim();
-    merkerSet(latLng,restaurantmap,address_format);
+    // merkerSet(latLng,restaurantmap,address_format);
     // 住所セット
     address.value = address_format;
   } else {
