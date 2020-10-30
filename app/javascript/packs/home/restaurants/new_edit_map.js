@@ -48,7 +48,7 @@ if (address.value !== "") {
 function RadioButtonChanged(){
   // textエリア選択時
   if (textimput.checked){
-      address.disabled = false;
+      address.readonly = false;
       // present_ocation.checked = false;
       // google_map.checked = false;
   };
@@ -61,14 +61,14 @@ function RadioButtonChanged(){
       // textimput.checked = true;
       return;
     }
-      address.disabled = true;
+      address.readonly = true;
       getPresentOcation(); //現在地を取得
   };
   // GoogleMap選択時
   if (google_map.checked){
       // textimput.checked = false;
       // present_ocation.checked = false;
-      address.disabled = true;
+      address.readonly = true;
       if (address.value !== "") {
         getAddressToMove(); //入力された住所へ移動
       };
@@ -159,7 +159,7 @@ present_ocation.checked = false;
 document.getElementById("present_ocation_label").classList.remove("active");
 textimput.checked = true;
 document.getElementById("textimput_label").classList.add("active");
-address.disabled = false;
+address.readonly = false;
 address.focus();
 return;
 });
