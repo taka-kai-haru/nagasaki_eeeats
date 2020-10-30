@@ -38,3 +38,13 @@ preload_app!
 plugin :tmp_restart
 
 worker_timeout 500
+
+#cert = "/path/to/localhost.pem"
+#key = "/path/to/localhost-key.pem"
+# cert = "./localhost.pem"
+# key = "./localhost-key.pem"
+# ssl_bind "0.0.0.0", 3000, cert: cert, key: key
+
+# if ENV.fetch('RAILS_ENV') { 'development' } == 'development'
+#   ssl_bind '0.0.0.0', '3000', key: '/home/vagrant/localhost-key.pem', cert: '/home/vagrant/localhost.pem'
+# end

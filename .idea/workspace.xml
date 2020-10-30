@@ -24,17 +24,67 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:google-map-function" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d388710-db19-4e0a-b44f-d3dd3bad74f0" name="デフォルト変更リスト" comment="" />
+    <list default="true" id="6d388710-db19-4e0a-b44f-d3dd3bad74f0" name="デフォルト変更リスト" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4e58d35-4d9a-4ee5-949f-2c1e84025f69.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4e58d35-4d9a-4ee5-949f-2c1e84025f69.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nagasaki_eeeats.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nagasaki_eeeats.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/remote-mappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/remote-mappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vagrant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/setup" beforeDir="false" afterPath="$PROJECT_DIR$/bin/setup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spring" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/webpack" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/webpack-dev-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack-dev-server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/yarn" beforeDir="false" afterPath="$PROJECT_DIR$/bin/yarn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/puma.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/puma.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="GeneratorOptions">
+    <option name="VCS_SHOW_CONFIRMATION" value="true" />
+    <option name="ENVIRONMENT" value="development" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -66,14 +116,37 @@
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="rails g  migration AddUpdatetimeToRestaurants updatetime:datetime" />
+      <command value="rails g migration" />
+      <command value="rake db:migrate" />
       <command value="bundle install" />
     </option>
   </component>
   <component name="RunManager" selected="Rails.Development: nagasaki_eeeats">
+    <configuration name="Development: nagasaki_eeeats ssl" type="RailsRunConfigurationType" factoryName="Rails">
+      <module name="nagasaki_eeeats" />
+      <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="9292" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="127.0.0.1" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="Development: nagasaki_eeeats" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="nagasaki_eeeats" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -112,6 +185,27 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="production" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="db:migrate: nagasaki_eeeats" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="nagasaki_eeeats" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="development" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="db:migrate" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
     <configuration name="spec: nagasaki_eeeats" type="RakeRunConfigurationType" factoryName="Rake">
@@ -156,11 +250,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Rails.Development: nagasaki_eeeats ssl" />
       <item itemvalue="Rails.Development: nagasaki_eeeats" />
       <item itemvalue="Rails.Production: nagasaki_eeeats" />
       <item itemvalue="Rake.spec: nagasaki_eeeats" />
       <item itemvalue="Rake.test: nagasaki_eeeats" />
+      <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
+        <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
@@ -188,6 +290,12 @@
       <workItem from="1603800520086" duration="290000" />
       <workItem from="1603800822155" duration="80000" />
       <workItem from="1603825953140" duration="1953000" />
+      <workItem from="1603915773371" duration="1738000" />
+      <workItem from="1603972321027" duration="4564000" />
+      <workItem from="1604001469721" duration="2895000" />
+      <workItem from="1604051181511" duration="1326000" />
+      <workItem from="1604083183496" duration="3056000" />
+      <workItem from="1604086310505" duration="4421000" />
     </task>
     <servers />
   </component>
@@ -199,7 +307,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="google-map-function" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -207,46 +327,54 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="803" y="503" width="1089" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603773405446">
+    <state x="820" y="868" key="#Notifications" timestamp="1604084022658">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="803" y="503" width="1089" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3072.1688@0.0.3072.1688" timestamp="1603773405446" />
+    <state x="820" y="868" key="#Notifications/0.0.3072.1688@0.0.3072.1688" timestamp="1604084022658" />
+    <state x="803" y="503" width="1089" height="809" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604004282490">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="803" y="503" width="1089" height="809" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3072.1688@0.0.3072.1688" timestamp="1604004282490" />
+    <state x="104" y="480" width="1728" height="1103" key="DiffContextDialog" timestamp="1604090163038">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="104" y="480" width="1728" height="1103" key="DiffContextDialog/0.0.3072.1688@0.0.3072.1688" timestamp="1604090163038" />
     <state x="990" y="599" key="FileChooserDialogImpl" timestamp="1603773182774">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="990" y="599" key="FileChooserDialogImpl/0.0.3072.1688@0.0.3072.1688" timestamp="1603773182774" />
-    <state width="1586" height="525" key="GridCell.Tab.0.bottom" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.0.bottom" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
-    <state width="1586" height="525" key="GridCell.Tab.0.center" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
+    <state width="1870" height="358" key="GridCell.Tab.0.center" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
-    <state width="1586" height="525" key="GridCell.Tab.0.left" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
+    <state width="1870" height="358" key="GridCell.Tab.0.left" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
-    <state width="1586" height="525" key="GridCell.Tab.0.right" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
+    <state width="1870" height="358" key="GridCell.Tab.0.right" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
-    <state width="1586" height="525" key="GridCell.Tab.1.bottom" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
+    <state width="1870" height="358" key="GridCell.Tab.1.bottom" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.1.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
-    <state width="1586" height="525" key="GridCell.Tab.1.center" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.1.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
+    <state width="1870" height="358" key="GridCell.Tab.1.center" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.1.center/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
-    <state width="1586" height="525" key="GridCell.Tab.1.left" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.1.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
+    <state width="1870" height="358" key="GridCell.Tab.1.left" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.1.left/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
-    <state width="1586" height="525" key="GridCell.Tab.1.right" timestamp="1603827514796">
+    <state width="1870" height="358" key="GridCell.Tab.1.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
+    <state width="1870" height="358" key="GridCell.Tab.1.right" timestamp="1604090501850">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state width="1586" height="525" key="GridCell.Tab.1.right/0.0.3072.1688@0.0.3072.1688" timestamp="1603827514796" />
+    <state width="1870" height="358" key="GridCell.Tab.1.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604090501850" />
     <state width="1586" height="525" key="GridCell.Tab.2.bottom" timestamp="1603827517066">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -263,10 +391,14 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state width="1586" height="525" key="GridCell.Tab.2.right/0.0.3072.1688@0.0.3072.1688" timestamp="1603827517065" />
-    <state x="719" y="489" key="SettingsEditor" timestamp="1603773319375">
+    <state x="719" y="489" key="SettingsEditor" timestamp="1604086285516">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="719" y="489" key="SettingsEditor/0.0.3072.1688@0.0.3072.1688" timestamp="1603773319375" />
+    <state x="719" y="489" key="SettingsEditor/0.0.3072.1688@0.0.3072.1688" timestamp="1604086285516" />
+    <state x="782" y="942" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604089908530">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="782" y="942" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3072.1688@0.0.3072.1688" timestamp="1604089908530" />
     <state x="1019" y="724" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration" timestamp="1603773218785">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -275,25 +407,21 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1105" y="495" key="ftp.server.browser/0.0.3072.1688@0.0.3072.1688" timestamp="1603773215976" />
-    <state x="867" y="405" width="672" height="677" key="run.anything.popup" timestamp="1603775745444">
+    <state x="1273" y="980" width="672" height="677" key="run.anything.popup" timestamp="1603972658805">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="867" y="405" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1603775745444" />
+    <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1603972658805" />
+    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup" timestamp="1604088725390">
+      <screen x="0" y="0" width="3072" height="1688" />
+    </state>
+    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604088725390" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/models/post.rb</url>
-          <line>20</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/controllers/posts_controller.rb</url>
-          <line>43</line>
+          <line>45</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>

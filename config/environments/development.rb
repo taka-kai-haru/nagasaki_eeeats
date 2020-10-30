@@ -65,4 +65,7 @@ Rails.application.configure do
   # mailer setting
   host = '192.168.33.100:3000'
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
+
+
 end
