@@ -41,13 +41,31 @@ $max-width: 1090px;
 
 
 /* 背景設定*/
-body.jumbotron {
-  background: url('/assets/background.jpg') center no-repeat;
+body {
+  //-moz-box-sizing: border-box;
+  //box-sizing: border-box;
   background-size: cover;
-  position: relative;
-  height: 100vh;
-  margin-top: 32px;
-  margin-bottom: 0px;
+  -moz-background-size:cover;
+  background-image:url('/assets/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: fixed;
+
+  //background: url('/assets/background.jpg') no-repeat fixed center center;
+  //background-size: 100% auto;
+  //position: relative;
+  //width:100vw;
+  //width:100%;
+  //height: auto;
+  //width:auto;
+  //height: 100%;
+  //padding: 0;
+  //margin: 0;
+  //min-height:100vh;
+  //height: 100%;
+  //padding-top: 65.52854938271605%;
+  //margin-top: 32px;
+  //margin-bottom: 0px;
 }
 
 /* typography */

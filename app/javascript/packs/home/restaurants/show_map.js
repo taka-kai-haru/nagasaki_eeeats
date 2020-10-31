@@ -78,6 +78,8 @@ gps_fixed.addEventListener('click', (event) => {
     //     marker.setMap(null);
     // ルート描画
     getRoute(latlng);
+    // 距離描画
+    getDestance(lat,lng);
   },
   function () {
   alert("現在地が取得できませんでした。");
@@ -98,5 +100,52 @@ function getRoute(latlng){
   });
 }
 
+// 距離取得
+function getDestance(gpslat,gpslng){
+
+  // DistanceMatrix サービスを生成
+  let distanceMatrixService = new google.maps.DistanceMatrixService();
+
+  // 出発点
+  var origns = [new google.maps.LatLng(gpslat, gpslng)];
+  // 到着点
+  var destinations = [new google.maps.LagLng(latitude, longitude)];
+
+  // DistanceMatrix の実行
+  distanceMatrixService.getDistanceMatrix({
+    origins: origns, // 出発地点
+    destinations: destinations, // 到着地点
+    travelMode: google.maps.TravelMode.DRIVING, // 車モード or 徒歩モード
+    unitSystem: google.maps.UnitSystem.METRIC,
+    avoidHighways: false,
+    avoidTolls: false
+    // drivingOptions: { // 車モードの時のみ有効
+    //   departureTime: new Date('2017/5/5 10:00:00'), // 2017年5月5日
+    //   trafficModel: google.maps.TrafficModel.BEST_GUESS // 最適な検索
+    // }
+  }, function(response, status) {
+    if (status == google.maps.DistanceMatrixStatus.OK) {
+
+      // 出発地点と到着地点の住所（配列）を取得
+      var origins = response.originAddresses;
+      var destinations = response.destinationAddresses;
+
+      // 出発地点でループ
+      for (var i=0; i<origins.length; i++) {
+        // 出発地点から到着地点への計算結果を取得
+        var results = response.rows[i].elements;
+
+        // 到着地点でループ
+        for (var j = 0; j<results.length; j++) {
+          // var from = origins[i]; // 出発地点の住所
+          // var to = destinations[j]; // 到着地点の住所
+          document.getElementById("duration").innerText = results[j].duration.value; // 時間
+          document.getElementById("distance").innerText = results[j].distance.value; // 距離
+          // console.log("{},{},{},{}", from,  to, duration, distance);
+        }
+      }
+    }
+  });
+}
 
 
