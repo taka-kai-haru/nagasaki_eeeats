@@ -98,20 +98,26 @@ gps_fixed.addEventListener('click', (event) => {
       let lng = position.coords.longitude;
       let latlng = { lat: lat, lng: lng };
       let center_position = new google.maps.LatLng(lat, lng);
-
+        let image = new google.maps.MarkerImage(
+            '../../assets/images/source-bluedot.png',
+            null, // size
+            null, // origin
+            new google.maps.Point( 8, 8 ), // anchor (move to center of marker)
+            new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
+        );
       map.setCenter(center_position);
       // アイコンクリア
       if (gps_marker !== null) {
         gps_marker.setMap(null);
       }
       gps_marker = new google.maps.Marker({
-        position: latlng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        title: '現在地',
-        icon:{
-          fillColor: "#0000ff",
-        }
+          flat: true,//・・・・・・アイコンにtrueで影を付けない
+          icon: image,
+          position: latlng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: '現在地',
+          visible: true
       });
     },
     function () {

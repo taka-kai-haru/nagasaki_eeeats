@@ -50,7 +50,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
@@ -72,7 +73,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="google-map-function" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -113,6 +114,20 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="General" flag="true" />
+      <visibility group="Grunt tasks" flag="true" />
+      <visibility group="Gulp tasks" flag="true" />
+      <visibility group="Railsジェネレーター" flag="true" />
+      <visibility group="Rake タスク" flag="true" />
+      <visibility group="Rbenv シェル" flag="true" />
+      <visibility group="Recent projects" flag="true" />
+      <visibility group="Run configurations" flag="true" />
+      <visibility group="npm" flag="true" />
+      <visibility group="rvm の使用" flag="true" />
+      <visibility group="yarn" flag="true" />
+      <visibility group="バンドラー" flag="true" />
+    </myKeys>
     <option name="myCommands">
       <command value="rails g  migration AddUpdatetimeToRestaurants updatetime:datetime" />
       <command value="rails g migration" />
@@ -256,6 +271,7 @@
       <list>
         <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
         <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
+        <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
       </list>
     </recent_temporary>
   </component>
@@ -290,7 +306,7 @@
       <workItem from="1604001469721" duration="2895000" />
       <workItem from="1604051181511" duration="1326000" />
       <workItem from="1604083183496" duration="3056000" />
-      <workItem from="1604086310505" duration="18618000" />
+      <workItem from="1604086310505" duration="20278000" />
     </task>
     <servers />
   </component>
@@ -410,10 +426,10 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604091854991" />
-    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup" timestamp="1604101398087">
+    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup" timestamp="1604111382437">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
-    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604101398087" />
+    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604111382437" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
