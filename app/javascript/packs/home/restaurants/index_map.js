@@ -111,10 +111,10 @@ gps_fixed.addEventListener('click', (event) => {
       // アイコンクリア
       if (gps_marker !== null) {
         gps_marker.setMap(null);
-          divnone('inside');//◆watchPosition gif表示
+          // divnone('inside');//◆watchPosition gif表示
           // document.getElementById('inside').style.display = 'none';
       }
-        divblock('inside');//◆watchPosition gif表示
+        // divblock('inside');//◆watchPosition gif表示
         // document.getElementById('inside').style.display = 'block';
       gps_marker = new google.maps.Marker({
           flat: true,//・・・・・・アイコンにtrueで影を付けない
@@ -134,15 +134,15 @@ gps_fixed.addEventListener('click', (event) => {
 });
 
 //div表示の切換え
-function divblock(id)
-{
-    let ele = document.getElementById(id);
-    ele.display = 'block';
-}
-
-//div非表示の切換え
-function divnone(id)
-{
-    let ele = document.getElementById(id);
-    ele.display = 'none';
-}
+// function divblock(id)
+// {
+//     let ele = document.getElementById(id);
+//     ele.display = 'block';
+// }
+//
+// //div非表示の切換え
+// function divnone(id)
+// {
+//     let ele = document.getElementById(id);
+//     ele.display = 'none';
+// }
