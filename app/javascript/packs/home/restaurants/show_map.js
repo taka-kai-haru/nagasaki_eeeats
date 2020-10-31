@@ -11,7 +11,7 @@ let gps_marker = null;
 let directionsService = new google.maps.DirectionsService();
 
 
-// function initMap() {
+function initMap() {
   console.log(point);
   map = new google.maps.Map(target, {
     center: point,
@@ -29,12 +29,12 @@ let directionsService = new google.maps.DirectionsService();
     animation: google.maps.Animation.DROP,
   });
 
-// };
-//
-// // InvalidValueError: initMap is not a functionの対応
-// window.onload = function () {
-//   initMap();
-// };
+};
+
+// InvalidValueError: initMap is not a functionの対応
+window.onload = function () {
+  initMap();
+};
 
 // イベント
 gps_fixed.addEventListener('click', (event) => {
@@ -84,7 +84,7 @@ function getRoute(latlng){
 }
 
 function toRender(result){
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  let directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setDirections(result); //取得した情報をset
   directionsDisplay.setMap(map); //マップに描画
 }
