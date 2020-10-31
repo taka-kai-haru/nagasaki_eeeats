@@ -51,7 +51,6 @@
       <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
@@ -306,7 +305,7 @@
       <workItem from="1604001469721" duration="2895000" />
       <workItem from="1604051181511" duration="1326000" />
       <workItem from="1604083183496" duration="3056000" />
-      <workItem from="1604086310505" duration="32431000" />
+      <workItem from="1604086310505" duration="32804000" />
     </task>
     <servers />
   </component>

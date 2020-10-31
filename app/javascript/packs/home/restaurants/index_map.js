@@ -134,7 +134,7 @@ gps_fixed.addEventListener('click', (event) => {
 //     ele.display = 'none';
 // }
 
-function AutoMapZoom {
+function AutoMapZoom(){
     map.fitBounds(
         new google.maps.LatLngBounds(
             // sw
