@@ -1,6 +1,6 @@
 'use strict';
 
-let target = document.getElementById('target');
+let map_canvas = document.getElementById('map_canvas');
 const def_lat = Number(document.getElementById('gmap_def_lat').value);
 const def_lng = Number(document.getElementById('gmap_def_lng').value);
 const restaurants_count = Number(
@@ -27,7 +27,7 @@ function initMap() {
 
 
 // マップ作成
-    map = new google.maps.Map(target, {
+    map = new google.maps.Map(map_canvas, {
         center: point,
         zoom: 17,
         maxZoom: 17,
@@ -106,10 +106,14 @@ gps_fixed.addEventListener('click', (event) => {
             new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
         );
       map.setCenter(center_position);
+
+
       // アイコンクリア
       if (gps_marker !== null) {
         gps_marker.setMap(null);
+          divnone('inside');//◆watchPosition gif表示
       }
+        divblock('inside');//◆watchPosition gif表示
       gps_marker = new google.maps.Marker({
           flat: true,//・・・・・・アイコンにtrueで影を付けない
           icon: image,
@@ -126,3 +130,17 @@ gps_fixed.addEventListener('click', (event) => {
     }
   );
 });
+
+//div表示の切換え
+function divblock(id)
+{
+    let ele = document.getElementById(id);
+    ele.style.display = 'block';
+}
+
+//div非表示の切換え
+function divnone(id)
+{
+    let ele = document.getElementById(id);
+    ele.style.display = 'none';
+}
