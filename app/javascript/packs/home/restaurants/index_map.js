@@ -99,7 +99,7 @@ gps_fixed.addEventListener('click', (event) => {
       let latlng = { lat: lat, lng: lng };
       let center_position = new google.maps.LatLng(lat, lng);
         let image = new google.maps.MarkerImage(
-            '../../../../assets/images/source-bluedot.png',
+            '../../../../assets/source-bluedot.png',
             null, // size
             null, // origin
             new google.maps.Point( 8, 8 ), // anchor (move to center of marker)
