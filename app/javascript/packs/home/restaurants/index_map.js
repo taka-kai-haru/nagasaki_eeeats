@@ -10,6 +10,7 @@ let gps_fixed = document.getElementById('gps_fixed');
 let point = null;
 let data = [];
 let gps_marker = null;
+let map = null;
 
 function initMap() {
 
@@ -26,7 +27,6 @@ function initMap() {
 
 
 // マップ作成
-    let map;
     map = new google.maps.Map(target, {
         center: point,
         zoom: 17,
