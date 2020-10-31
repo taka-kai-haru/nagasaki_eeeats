@@ -58,20 +58,7 @@ function initMap() {
 
 // マーカーがいい感じに表示できるよう調整
     if (data.length > 0) {
-        map.fitBounds(
-            new google.maps.LatLngBounds(
-                // sw
-                {
-                    lat: Math.min(...data.map((d) => d.lat)),
-                    lng: Math.min(...data.map((d) => d.lng)),
-                },
-                // ne
-                {
-                    lat: Math.max(...data.map((d) => d.lat)),
-                    lng: Math.max(...data.map((d) => d.lng)),
-                }
-            )
-        );
+        AutoMapZoom();
     } else {
         map.setZoom(8);
     }
@@ -106,7 +93,7 @@ gps_fixed.addEventListener('click', (event) => {
             new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
         );
       map.setCenter(center_position);
-
+        AutoMapZoom();
 
       // アイコンクリア
       if (gps_marker !== null) {
@@ -146,3 +133,20 @@ gps_fixed.addEventListener('click', (event) => {
 //     let ele = document.getElementById(id);
 //     ele.display = 'none';
 // }
+
+function AutoMapZoom {
+    map.fitBounds(
+        new google.maps.LatLngBounds(
+            // sw
+            {
+                lat: Math.min(...data.map((d) => d.lat)),
+                lng: Math.min(...data.map((d) => d.lng)),
+            },
+            // ne
+            {
+                lat: Math.max(...data.map((d) => d.lat)),
+                lng: Math.max(...data.map((d) => d.lng)),
+            }
+        )
+    );
+}
