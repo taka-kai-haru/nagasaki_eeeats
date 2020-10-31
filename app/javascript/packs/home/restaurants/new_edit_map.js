@@ -1,5 +1,5 @@
 "use strict";
-var target = document.getElementById("target");
+var map_canvas = document.getElementById("map_canvas");
 var geocoder = new google.maps.Geocoder();
 var textimput = document.getElementById("textimput");
 var present_ocation = document.getElementById("present_ocation");
@@ -28,7 +28,7 @@ address.addEventListener('focusout', (event) => {
 // Map初期設定
   const def_lat = Number(document.getElementById("gmap_def_lat").value);
   const def_lng = Number(document.getElementById("gmap_def_lng").value);
-  let restaurantmap = new google.maps.Map(target, {
+  let restaurantmap = new google.maps.Map(map_canvas, {
       center: {
         lat: def_lat,
         lng: def_lng
@@ -82,7 +82,7 @@ geocoder.geocode({
 }, function(results, status) {
   if (status !== 'OK') {
     alert('マップの取得に失敗しました。: ' + status);
-    document.getElementById('target').innerText ="地図情報が取得できません。1";
+    document.getElementById('map_canvas').innerText ="地図情報が取得できません。1";
     return;
   }
 
@@ -99,7 +99,7 @@ geocoder.geocode({
 
   } else {
     arert("マップが見つかりませんでした。");
-    document.getElementById('target').innerText ="地図情報が取得できません。2";
+    document.getElementById('map_canvas').innerText ="地図情報が取得できません。2";
     return;
   }
 });
@@ -135,7 +135,7 @@ geocoder.geocode({
 }, function(results, status) {
   if (status !== 'OK') {
     alert('マップの取得に失敗しました。: ' + status);
-    document.getElementById('target').innerText ="地図情報が取得できません。1";
+    document.getElementById('map_canvas').innerText ="地図情報が取得できません。1";
     return;
   }
 
@@ -149,7 +149,7 @@ geocoder.geocode({
     address.value = address_format;
   } else {
     arert("マップが見つかりませんでした。");
-    document.getElementById('target').innerText ="地図情報が取得できません。2";
+    document.getElementById('map_canvas').innerText ="地図情報が取得できません。2";
     return;
   }
 });
@@ -175,7 +175,7 @@ geocoder.geocode(
 function (results, status) {
   if (status !== "OK") {
     alert("マップの取得に失敗しました。: " + status);
-    document.getElementById('target').innerText ="地図情報が取得できません。3";
+    document.getElementById('map_canvas').innerText ="地図情報が取得できません。3";
     return;
   }
   console.log("beforeset");
@@ -193,7 +193,7 @@ function (results, status) {
     merkerSet(latlng,restaurantmap,address.value);
   } else {
     arert("マップが見つかりませんでした。");
-    document.getElementById('target').innerText ="地図情報が取得できません。4";
+    document.getElementById('map_canvas').innerText ="地図情報が取得できません。4";
     return;
   }
 }

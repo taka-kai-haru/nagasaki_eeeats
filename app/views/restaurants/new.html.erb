@@ -79,7 +79,7 @@
         <%= f.hidden_field :gmap_def_lat, value: Restaurant::GMAP_DEF_LAT ,id: "gmap_def_lat" %>
         <%= f.hidden_field :gmap_def_lng, value: Restaurant::GMAP_DEF_LNG ,id: "gmap_def_lng" %>
         <div class="gmap ">
-          <div id="target"></div>
+          <div id="map_canvas"></div>
         </div>
         <%= javascript_pack_tag 'home/restaurants/new_edit_map' %>
 

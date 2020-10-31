@@ -1,7 +1,7 @@
 "use strict";
 
 
-var target = document.getElementById("target");
+var map_canvas = document.getElementById("map_canvas");
 let latitude = Number(document.getElementById("latitude").value);
 let longitude = Number(document.getElementById("longitude").value);
 let gps_fixed = document.getElementById("gps_fixed");
@@ -9,13 +9,13 @@ let point =  { lat: latitude, lng: longitude};
 let map;
 let gps_marker = null;
 let directionsService = new google.maps.DirectionsService();
-let directionsRenderer = new google.maps.DirectionsRenderer();
+let directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true}); //suppressMarkers: true // デフォルトのマーカーを削除
 let marker = null;
 
 
 function initMap() {
   console.log(point);
-  map = new google.maps.Map(target, {
+  map = new google.maps.Map(map_canvas, {
     center: point,
     zoom: 17,
     mapTypeControl: false,
@@ -51,20 +51,31 @@ gps_fixed.addEventListener('click', (event) => {
     let lng =  position.coords.longitude;
     let latlng = {lat: lat, lng: lng};
     let center_position = new google.maps.LatLng(lat,lng);
+        let image = new google.maps.MarkerImage(
+            '../../../../assets/source-bluedot.png',
+            null, // size
+            null, // origin
+            new google.maps.Point( 8, 8 ), // anchor (move to center of marker)
+            new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
+        );
     console.log(latlng);
 
     map.setCenter(center_position)
     // アイコンクリア
-    // if (gps_marker !== null){
-    //     gps_marker.setMap(null);
-    // };
-    // gps_marker = new google.maps.Marker({
-    //   position: latlng,
-    //   map: map,
-    //   animation: google.maps.Animation.DROP,
-    //   title: "現在地",
-    // });
-        marker.setMap(null);
+    if (gps_marker !== null){
+        gps_marker.setMap(null);
+    };
+    gps_marker = new google.maps.Marker({
+      flat: true,//・・・・・・アイコンにtrueで影を付けない
+      icon: image,
+      position: latlng,
+      map: map,
+      optimized: false,
+      animation: google.maps.Animation.DROP,
+      title: "現在地",
+      visible: true
+    });
+    //     marker.setMap(null);
     // ルート描画
     getRoute(latlng);
   },
