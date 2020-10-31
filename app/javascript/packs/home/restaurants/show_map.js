@@ -9,6 +9,8 @@ let point =  { lat: latitude, lng: longitude};
 let map;
 let gps_marker = null;
 let directionsService = new google.maps.DirectionsService();
+let directionsRenderer = new google.maps.DirectionsRenderer();
+let marker = null;
 
 
 function initMap() {
@@ -22,7 +24,7 @@ function initMap() {
   });
 
 //マーカーをデフォルトセット
-  let marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
     position: point,
     map: map,
     title: document.getElementById("restaurant_name").innerHTML,
@@ -53,15 +55,16 @@ gps_fixed.addEventListener('click', (event) => {
 
     map.setCenter(center_position)
     // アイコンクリア
-    if (gps_marker !== null){
-        gps_marker.setMap(null);
-    };
-    gps_marker = new google.maps.Marker({
-      position: latlng,
-      map: map,
-      animation: google.maps.Animation.DROP,
-      title: "現在地",
-    });
+    // if (gps_marker !== null){
+    //     gps_marker.setMap(null);
+    // };
+    // gps_marker = new google.maps.Marker({
+    //   position: latlng,
+    //   map: map,
+    //   animation: google.maps.Animation.DROP,
+    //   title: "現在地",
+    // });
+        marker.setMap(null);
     // ルート描画
     getRoute(latlng);
   },
@@ -79,14 +82,9 @@ function getRoute(latlng){
     travelMode: google.maps.DirectionsTravelMode.WALKING //ルートの種類
   }
   directionsService.route(request,function(result, status){
-    toRender(result);
+    directionsRenderer.setDirections(result); //取得した情報をset
+    directionsRenderer.setMap(map); //マップに描画
   });
-}
-
-function toRender(result){
-  let directionsDisplay = new google.maps.DirectionsRenderer();
-  directionsDisplay.setDirections(result); //取得した情報をset
-  directionsDisplay.setMap(map); //マップに描画
 }
 
 
