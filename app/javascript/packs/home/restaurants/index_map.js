@@ -115,6 +115,7 @@ gps_fixed.addEventListener('click', (event) => {
           icon: image,
           position: latlng,
           map: map,
+          optimized: false,
           animation: google.maps.Animation.DROP,
           title: '現在地',
           visible: true
