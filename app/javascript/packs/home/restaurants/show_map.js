@@ -164,7 +164,7 @@ function getDestance(gpslat,gpslng){
         for (var j = 0; j<results.length; j++) {
           // var from = origins[i]; // 出発地点の住所
           // var to = destinations[j]; // 到着地点の住所
-          document.getElementById("distance").innerText = '距離：' + results[j].distance.text; // 距離
+          document.getElementById("distance").innerText = '距離：' + results[j].distance.text + '　'; // 距離
           document.getElementById("duration").innerText = '時間：' + results[j].duration.text; // 時間
           // console.log("{},{},{},{}", from,  to, duration, distance);
         }
@@ -212,7 +212,7 @@ function getDestanceWork(gpslat,gpslng){
         for (var j = 0; j<results.length; j++) {
           // var from = origins[i]; // 出発地点の住所
           // var to = destinations[j]; // 到着地点の住所
-          document.getElementById("distance-work").innerText = '距離：' + results[j].distance.text; // 距離
+          document.getElementById("distance-work").innerText = '距離：' + results[j].distance.text + '　'; // 距離
           document.getElementById("duration-work").innerText = '時間：' + results[j].duration.text; // 時間
           // console.log("{},{},{},{}", from,  to, duration, distance);
         }
