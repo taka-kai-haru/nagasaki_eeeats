@@ -13,9 +13,9 @@ let directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers: tr
 let directionsServiceWork = new google.maps.DirectionsService();
 let directionsRendererWork = new google.maps.DirectionsRenderer({suppressMarkers: true,
       polylineOptions: {
-      strokeColor: '#98fb98',
-      strokeOpacity: 0.5,
-      strokeWeight: 3}
+      strokeColor: '#00ff7f',
+      strokeOpacity: 0.6,
+      strokeWeight: 5}
 }); //suppressMarkers: true // デフォルトのマーカーを削除
 let marker = null;
 
@@ -88,6 +88,7 @@ gps_fixed.addEventListener('click', (event) => {
     getRouteWork(latlng);
     // 距離描画
     getDestance(lat,lng);
+    getDestanceWork(lat,lng);
   },
   function () {
   alert("現在地が取得できませんでした。");
