@@ -70,13 +70,30 @@
           </div>
         </div>
         <%= javascript_pack_tag 'home/restaurants/show_map' %>
-      <p id="duration-work"></p>
-      <p id="distance-work"></p>
-      <p id="duration"></p>
-      <p id="distance"></p>
+
     </div>
   </div>
-  
+    <div id="mapinfo" class="row mt-20 display-none">
+      <div class="col-xl-12">
+        <div class="bg-white rounded pd-10 mb-20">
+          <div class="flexContainer">
+            <div class="stick-work"></div>
+            <p>　徒歩のルート　</p>
+            <p id="duration-work"></p>
+            <p id="distance-work"></p>
+          </div>
+          <div class="flexContainer">
+            <div class="stick-drive"></div>
+            <p>　車のルート　　</p>
+            <p id="duration"></p>
+            <p id="distance"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   <% if user_signed_in? && !@restaurant.posts.exists?(user_id: current_user.id) %>
       <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info" %>
   <% end %>

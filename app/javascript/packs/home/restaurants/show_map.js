@@ -89,6 +89,9 @@ gps_fixed.addEventListener('click', (event) => {
     // 距離描画
     getDestance(lat,lng);
     getDestanceWork(lat,lng);
+    // 表示
+        let mapinfo = document.getElementById('mapinfo');
+        mapinfo.classList.remove('display-none');
   },
   function () {
   alert("現在地が取得できませんでした。");
@@ -161,8 +164,8 @@ function getDestance(gpslat,gpslng){
         for (var j = 0; j<results.length; j++) {
           // var from = origins[i]; // 出発地点の住所
           // var to = destinations[j]; // 到着地点の住所
-          document.getElementById("duration").innerText = results[j].duration.text; // 時間
-          document.getElementById("distance").innerText = results[j].distance.text; // 距離
+          document.getElementById("distance").innerText = '距離：' + results[j].distance.text; // 距離
+          document.getElementById("duration").innerText = '時間：' + results[j].duration.text; // 時間
           // console.log("{},{},{},{}", from,  to, duration, distance);
         }
       }
@@ -209,8 +212,8 @@ function getDestanceWork(gpslat,gpslng){
         for (var j = 0; j<results.length; j++) {
           // var from = origins[i]; // 出発地点の住所
           // var to = destinations[j]; // 到着地点の住所
-          document.getElementById("duration-work").innerText = results[j].duration.text; // 時間
-          document.getElementById("distance-work").innerText = results[j].distance.text; // 距離
+          document.getElementById("distance-work").innerText = '距離：' + results[j].distance.text; // 距離
+          document.getElementById("duration-work").innerText = '時間：' + results[j].duration.text; // 時間
           // console.log("{},{},{},{}", from,  to, duration, distance);
         }
       }

@@ -522,6 +522,38 @@ html body {
   left: 20px;
 }
 
+.stick-work {
+  width: 50px;
+  height: 5px;
+  padding: 0;
+  margin: 0;
+  background: #00ff7f;
+  opacity: 0.6;
+}
+
+.stick-drive {
+  width: 50px;
+  height: 5px;
+  padding: 0;
+  margin: 0;
+  background: #73b9ff;
+  opacity: 0.8;
+}
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+}
+
+.flexContainer>p {
+  margin: 0;
+
+}
+
+.display-none {
+  display: none;
+}
+
 // .material-icons.search-icon {
 //   top: 20px;
 // }
