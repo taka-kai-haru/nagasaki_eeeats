@@ -107,9 +107,9 @@ function getDestance(gpslat,gpslng){
   let distanceMatrixService = new google.maps.DistanceMatrixService();
 
   // 出発点
-  var origns = [new google.maps.LatLng(gpslat, gpslng)];
+  let origns = [new google.maps.LatLng(gpslat, gpslng)];
   // 到着点
-  var destinations = [new google.maps.LagLng(latitude, longitude)];
+  let destinations = [new google.maps.LatLng(latitude, longitude)];
 
   // DistanceMatrix の実行
   distanceMatrixService.getDistanceMatrix({
