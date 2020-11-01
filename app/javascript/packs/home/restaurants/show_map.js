@@ -139,8 +139,8 @@ function getDestance(gpslat,gpslng){
         for (var j = 0; j<results.length; j++) {
           // var from = origins[i]; // 出発地点の住所
           // var to = destinations[j]; // 到着地点の住所
-          document.getElementById("duration").innerText = results[j].duration.value; // 時間
-          document.getElementById("distance").innerText = results[j].distance.value; // 距離
+          document.getElementById("duration").innerText = results[j].duration.text; // 時間
+          document.getElementById("distance").innerText = results[j].distance.text; // 距離
           // console.log("{},{},{},{}", from,  to, duration, distance);
         }
       }
