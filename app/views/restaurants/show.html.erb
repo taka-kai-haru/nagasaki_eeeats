@@ -62,11 +62,11 @@
   <input type="hidden" value="<%= @restaurant.longitude%>" id ="longitude">
   <div class="row mt-20">
     <div class="col-xl-12">
-        <div class="gmap">
+        <div class="gmap gmap-target">
           <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
             <i class="material-icons">gps_fixed</i>
           </button>
-          <div id="map_canvas" class="gmap-target">
+          <div id="map_canvas">
           </div>
         </div>
         <%= javascript_pack_tag 'home/restaurants/show_map' %>
