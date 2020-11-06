@@ -15,6 +15,7 @@ $modal-title-padding: 30px;
 $header-size: 40px;
 $header-size-small: 60px;
 $max-width: 1090px;
+$nav-color: rgba(0, 0, 0, 0.5);
 
 * {
   letter-spacing: 0.1em;
@@ -30,15 +31,23 @@ $max-width: 1090px;
 /* forms */
 
 .navbar {
-  background: rgba(0, 0, 0, 0.4);
-  height: $header-size;
+  background: $nav-color;
+  //margin: 0;
+  position : fixed;
+  //height: $header-size;
 }
-@media screen and (max-width:$max-width) {
-  .navbar {
-    height: $header-size-small;
-  }
-}
+//@media screen and (max-width:$max-width) {
+//  .navbar {
+//    height: $header-size-small;
+//  }
+//}
+//.navbar-collapse.in {
+//  background: rgba(0, 0, 0, 0.4);
+//}
 
+//.navbar-collapse {
+//  background: $nav-color;
+//}
 
 /* 背景設定*/
 body {
@@ -50,6 +59,8 @@ body {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-attachment: fixed;
+  min-height:100vh;
+  width:100vw;
 
   //background: url('/assets/background.jpg') no-repeat fixed center center;
   //background-size: 100% auto;
@@ -66,6 +77,11 @@ body {
   //padding-top: 65.52854938271605%;
   //margin-top: 32px;
   //margin-bottom: 0px;
+}
+
+.max-width {
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 /* typography */
@@ -231,7 +247,7 @@ label.custom-control-label {
 .sticky {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: $header-size;
+  //top: $header-size;
   // top: 0;
   // bottom: 80vh;
 }
@@ -354,6 +370,7 @@ html body {
   z-index: 2;
   top: 10px;
   left: 10px;
+  box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3);
 }
 
 .likes {

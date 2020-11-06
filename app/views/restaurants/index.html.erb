@@ -57,13 +57,16 @@
                   <div class="card-header">
                     <h5 class="h5" id="restaurant_name<%= @restaurants_number%>"><%= restaurant.name %></h5>
                   </div>
+                  <% image_exist = false %>
                   <% restaurant.posts.shuffle.each do |post| %>
-                    <% next if post.user.release = false%>
+                    <% next if post.user.release == false%>
                     <% if post.images.count > 0 %>
                       <%= image_tag post.images.sample, class: 'card-img-top' %>
+                      <% image_exist = true %>
                       <% break %>
                     <% end %>
                   <% end %>
+                  <%= image_tag "no_photo.png", class: 'card-img-top' unless image_exist %>
 
                   <div class="card-body">
                     <% if restaurant.posts.count > 0 %>
@@ -89,18 +92,15 @@
         <h5 class="text-center">条件に合うお店がありません。</h5>
       <% end %>
     </div>
+    <input type="hidden" value="<%= Restaurant::GMAP_DEF_LAT%>" id ="gmap_def_lat">
+    <input type="hidden" value="<%= Restaurant::GMAP_DEF_LNG%>" id ="gmap_def_lng">
+    <input type="hidden" value="<%= @restaurants.count %>"      id ="restaurants_count">
     <div class="col-xl-6 col-xs-12 mb-20">
-      <%# マップ %>
-
-      <input type="hidden" value="<%= Restaurant::GMAP_DEF_LAT%>" id ="gmap_def_lat">
-      <input type="hidden" value="<%= Restaurant::GMAP_DEF_LNG%>" id ="gmap_def_lng">
-      <input type="hidden" value="<%= @restaurants.count %>"      id ="restaurants_count">
-      
-        <div class="gmap-index sticky">
+        <div class="gmap-index sticky gmap-target">
             <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
               <i class="material-icons">gps_fixed</i>
             </button>
-            <div id="map_canvas" class="gmap-target">
+            <div id="map_canvas">
             </div>
             
         </div>

@@ -34,6 +34,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d388710-db19-4e0a-b44f-d3dd3bad74f0" name="デフォルト変更リスト" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
@@ -47,11 +48,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/remote-mappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/remote-mappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vagrant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/posts/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/posts/chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/restaurants/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/restaurants/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/restaurants/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/restaurants/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
@@ -61,6 +66,14 @@
       <change beforePath="$PROJECT_DIR$/bin/webpack" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/webpack-dev-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack-dev-server" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/yarn" beforeDir="false" afterPath="$PROJECT_DIR$/bin/yarn" afterDir="false" />
+    </list>
+    <list id="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" name="menuber change" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/restaurants/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/restaurants/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +87,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="google-map-function" />
+        <entry key="$PROJECT_DIR$" value="design-add" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,6 +105,25 @@
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/app/views/restaurants/show.html.erb">
+      <ranges>
+        <range start1="53" end1="54" start2="53" end2="54" changelist="6d388710-db19-4e0a-b44f-d3dd3bad74f0" />
+        <range start1="64" end1="65" start2="64" end2="65" changelist="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" />
+        <range start1="68" end1="69" start2="68" end2="69" changelist="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/app/views/restaurants/index.html.erb">
+      <ranges>
+        <range start1="59" end1="59" start2="59" end2="60" changelist="6d388710-db19-4e0a-b44f-d3dd3bad74f0" />
+        <range start1="60" end1="61" start2="61" end2="62" changelist="6d388710-db19-4e0a-b44f-d3dd3bad74f0" />
+        <range start1="63" end1="63" start2="64" end2="65" changelist="6d388710-db19-4e0a-b44f-d3dd3bad74f0" />
+        <range start1="66" end1="66" start2="68" end2="69" changelist="6d388710-db19-4e0a-b44f-d3dd3bad74f0" />
+        <range start1="91" end1="99" start2="94" end2="99" changelist="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" />
+        <range start1="102" end1="103" start2="102" end2="103" changelist="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" />
+      </ranges>
+    </file>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -273,6 +305,8 @@
         <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
         <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
         <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
+        <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
+        <item itemvalue="Rake.db:migrate: nagasaki_eeeats" />
       </list>
     </recent_temporary>
   </component>
@@ -288,6 +322,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6d388710-db19-4e0a-b44f-d3dd3bad74f0" name="デフォルト変更リスト" comment="" />
+      <changelist id="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" name="menuber change" comment="" />
       <created>1603772266298</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -309,12 +344,27 @@
       <workItem from="1604083183496" duration="3056000" />
       <workItem from="1604086310505" duration="36872000" />
       <workItem from="1604175723069" duration="17025000" />
-      <workItem from="1604257947280" duration="2264000" />
+      <workItem from="1604257947280" duration="4518000" />
+      <workItem from="1604345998837" duration="4541000" />
+      <workItem from="1604435243385" duration="2463000" />
+      <workItem from="1604517908767" duration="5837000" />
+      <workItem from="1604687343192" duration="5904000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="SHOW_OTHER_BRANCHES" value="true" />
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -349,54 +399,55 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="803" y="503" width="1089" height="809" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3072.1688@0.0.3072.1688" timestamp="1604004282490" />
-    <state x="104" y="480" width="1728" height="1103" key="DiffContextDialog" timestamp="1604112831756">
-      <screen x="0" y="0" width="3072" height="1688" />
+    <state x="130" y="603" width="2160" height="1386" key="DiffContextDialog" timestamp="1604689139317">
+      <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state x="104" y="480" width="1728" height="1103" key="DiffContextDialog/0.0.3072.1688@0.0.3072.1688" timestamp="1604112831756" />
+    <state x="130" y="603" width="2160" height="1386" key="DiffContextDialog/0.0.3840.2120@0.0.3840.2120" timestamp="1604689139317" />
     <state x="990" y="599" key="FileChooserDialogImpl" timestamp="1603773182774">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="990" y="599" key="FileChooserDialogImpl/0.0.3072.1688@0.0.3072.1688" timestamp="1603773182774" />
-    <state width="1917" height="255" key="GridCell.Tab.0.bottom" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.0.bottom" timestamp="1604524485893">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1917" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
-    <state width="1917" height="255" key="GridCell.Tab.0.center" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485893" />
+    <state width="2412" height="255" key="GridCell.Tab.0.center" timestamp="1604524485893">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1917" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
-    <state width="1917" height="255" key="GridCell.Tab.0.left" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485893" />
+    <state width="2412" height="255" key="GridCell.Tab.0.left" timestamp="1604524485893">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1917" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
-    <state width="1917" height="255" key="GridCell.Tab.0.right" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485893" />
+    <state width="2412" height="255" key="GridCell.Tab.0.right" timestamp="1604524485893">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1917" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
-    <state width="1917" height="255" key="GridCell.Tab.1.bottom" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485893" />
+    <state width="2412" height="255" key="GridCell.Tab.1.bottom" timestamp="1604524485894">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="1917" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
-    <state width="1917" height="255" key="GridCell.Tab.1.center" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485894" />
+    <state width="2412" height="255" key="GridCell.Tab.1.center" timestamp="1604524485893">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="1917" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
-    <state width="1917" height="255" key="GridCell.Tab.1.left" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485893" />
+    <state width="2412" height="255" key="GridCell.Tab.1.left" timestamp="1604524485893">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1917" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
-    <state width="1917" height="255" key="GridCell.Tab.1.right" timestamp="1604261349488">
+    <state width="2412" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485893" />
+    <state width="2412" height="255" key="GridCell.Tab.1.right" timestamp="1604524485893">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="1917" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604261349488" />
+    <state width="2412" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604524485893" />
     <state width="1870" height="439" key="GridCell.Tab.2.bottom" timestamp="1604101583459">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -413,10 +464,22 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state width="1870" height="439" key="GridCell.Tab.2.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604101583459" />
+    <state x="1063" y="953" key="RollbackChangesDialog" timestamp="1604688262012">
+      <screen x="0" y="0" width="3840" height="2120" />
+    </state>
+    <state x="1063" y="953" key="RollbackChangesDialog/0.0.3840.2120@0.0.3840.2120" timestamp="1604688262012" />
     <state x="719" y="489" key="SettingsEditor" timestamp="1604086285516">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="719" y="489" key="SettingsEditor/0.0.3072.1688@0.0.3072.1688" timestamp="1604086285516" />
+    <state x="1085" y="1240" key="VCS.ChangelistChooser" timestamp="1604688956138">
+      <screen x="0" y="0" width="3840" height="2120" />
+    </state>
+    <state x="1085" y="1240" key="VCS.ChangelistChooser/0.0.3840.2120@0.0.3840.2120" timestamp="1604688956138" />
+    <state x="1013" y="986" key="VcsDiffUtil.ChangesDialog" timestamp="1604688919556">
+      <screen x="0" y="0" width="3840" height="2120" />
+    </state>
+    <state x="1013" y="986" key="VcsDiffUtil.ChangesDialog/0.0.3840.2120@0.0.3840.2120" timestamp="1604688919556" />
     <state x="782" y="942" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604089908530">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -425,6 +488,10 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1019" y="724" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.3072.1688@0.0.3072.1688" timestamp="1603773218785" />
+    <state x="690" y="909" width="596" height="849" key="find.popup" timestamp="1604263705738">
+      <screen x="0" y="0" width="3840" height="2120" />
+    </state>
+    <state x="690" y="909" width="596" height="849" key="find.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1604263705738" />
     <state x="1105" y="495" key="ftp.server.browser" timestamp="1603773215976">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -437,10 +504,11 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604091854991" />
-    <state x="862" y="702" width="672" height="678" key="search.everywhere.popup" timestamp="1604129090917">
-      <screen x="0" y="0" width="3072" height="1688" />
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup" timestamp="1604696002231">
+      <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604129090917" />
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1604696002231" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,43 +1,46 @@
-var delicious 
-var atmosphere
-var accessibility
-var cost_performance
-var assortment 
-var service
+let delicious;
+let atmosphere;
+let accessibility;
+let cost_performance;
+let assortment;
+let service;
 
-ChartDataSet();
-DrowChart();
 
-// ボタンをクリックしたら、グラフを再描画
-document.getElementById('delicious').onclick = function() {
-  ChartDataSet();
-  DrowChart();
-}
 
-document.getElementById('atmosphere').onclick = function() {
-  ChartDataSet();
-  DrowChart();
-}
+    ChartDataSet();
+    DrawChart();
 
-document.getElementById('accessibility').onclick = function() {
-  ChartDataSet();
-  DrowChart();
-}
+    // ボタンをクリックしたら、グラフを再描画
+    document.getElementById('delicious').onclick = function() {
+      ChartDataSet();
+      DrawChart();
+    }
 
-document.getElementById('cost_performance').onclick = function() {
-  ChartDataSet();
-  DrowChart();
-}
+    document.getElementById('atmosphere').onclick = function() {
+      ChartDataSet();
+      DrawChart();
+    }
 
-document.getElementById('assortment').onclick = function() {
-  ChartDataSet();
-  DrowChart();
-}
+    document.getElementById('accessibility').onclick = function() {
+      ChartDataSet();
+      DrawChart();
+    }
 
-document.getElementById('service').onclick = function() {
-  ChartDataSet();
-  DrowChart();
-}
+    document.getElementById('cost_performance').onclick = function() {
+      ChartDataSet();
+      DrawChart();
+    }
+
+    document.getElementById('assortment').onclick = function() {
+      ChartDataSet();
+      DrawChart();
+    }
+
+    document.getElementById('service').onclick = function() {
+      ChartDataSet();
+      DrawChart();
+    }
+
 
 function ChartDataSet(){
   delicious = Number(document.getElementById("delicious").value);
@@ -55,27 +58,10 @@ function ChartDataSet(){
   document.getElementById('chart_score_ave').innerText =  (Math.round((delicious + atmosphere + accessibility + cost_performance + assortment + service) / 6 * 10) / 10).toFixed(1);
 }
 
-function sleep(waitMsec) {
-var startMsec = new Date();
 
-  // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
-  while (new Date() - startMsec < waitMsec);
-} 
-
-function DrowChart(){
-var ctx = document.getElementById("ScoreRaderChart");
-// let ScoreRadarChart
-// if (ScoreRadarChart !== 'undefined' && ScoreRadarChart){
-//   ScoreRadarChart.destroy();
-//   console.log("destroy")
-// }
-// sleep(3000);
-// if (ScoreRadarChart){
-//   ScoreRadarChart.destroy();
-//   console.log("destroy")
-// }
-
-var ScoreRadarChart = new Chart(ctx, {
+function DrawChart(){
+let ctx = document.getElementById("ScoreRaderChart");
+let ScoreRadarChart = new Chart(ctx, {
     type: 'radar', 
     data: { 
         labels: ["味", "雰囲気", "利便性", "コスパ", "品揃え", "接客"],
