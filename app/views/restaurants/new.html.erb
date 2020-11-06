@@ -40,8 +40,8 @@
           <%= f.label :address %>
             <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
               <form id="radioGroup">
-                <label class="btn btn-outline-secondary active" style="width:30%" id="textimput_label">
-                  <%= f.radio_button :address_select, 0, {checked: true ,id: "textimput"}%>住所を入力
+                <label class="btn btn-outline-secondary active" style="width:30%" id="textinput_label">
+                  <%= f.radio_button :address_select, 0, {checked: true ,id: "textinput"}%>住所を入力
                 </label>
                 <label class="btn btn-outline-secondary" style="width:30%" id="present_ocation_label">
                   <%= f.radio_button :address_select, 1, {id: "present_ocation"} %>現在地から登録
@@ -55,8 +55,8 @@
           <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
         </div>
           <%# <div class="form-check">
-            <input class="form-check-input" type=”radio” name="address_select" id="textimput" checked>
-            <label class="form-check-label" for="textimput">
+            <input class="form-check-input" type=”radio” name="address_select" id="textinput" checked>
+            <label class="form-check-label" for="textinput">
                 住所を入力して登録
             </label>
           </div>

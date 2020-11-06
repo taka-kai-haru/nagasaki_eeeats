@@ -1,7 +1,7 @@
 "use strict";
 
 
-var map_canvas = document.getElementById("map_canvas");
+let map_canvas = document.getElementById("map_canvas");
 let latitude = Number(document.getElementById("latitude").value);
 let longitude = Number(document.getElementById("longitude").value);
 let gps_fixed = document.getElementById("gps_fixed");
@@ -19,8 +19,11 @@ let directionsRendererWork = new google.maps.DirectionsRenderer({suppressMarkers
 }); //suppressMarkers: true // デフォルトのマーカーを削除
 let marker = null;
 
+gps_fixed.addEventListener('click', function() {
+  show_current_location();
+});
 
-function initMap() {
+
   console.log(point);
   map = new google.maps.Map(map_canvas, {
     center: point,
@@ -38,15 +41,11 @@ function initMap() {
     animation: google.maps.Animation.DROP,
   });
 
-};
 
-// InvalidValueError: initMap is not a functionの対応
-window.onload = function () {
-  initMap();
-};
 
 // イベント
-gps_fixed.addEventListener('click', (event) => {
+function show_current_location(){
+
   console.log('clickイベント');
   if (!navigator.geolocation) {
       alert('GoogleのGeolocationサービスが使用できません。');
@@ -97,7 +96,7 @@ gps_fixed.addEventListener('click', (event) => {
   alert("現在地が取得できませんでした。");
   return;
   });
-});
+};
 
 //ルート描画用
 function getRoute(latlng){

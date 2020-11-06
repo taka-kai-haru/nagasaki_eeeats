@@ -4,15 +4,20 @@ let map_canvas = document.getElementById('map_canvas');
 const def_lat = Number(document.getElementById('gmap_def_lat').value);
 const def_lng = Number(document.getElementById('gmap_def_lng').value);
 const restaurants_count = Number(
-  document.getElementById('restaurants_count').value
+    document.getElementById('restaurants_count').value
 );
 let gps_fixed = document.getElementById('gps_fixed');
-let point = null;
+let point = {lat: def_lat, lng: def_lng};
 let data = [];
 let gps_marker = null;
 let map = null;
 
-function initMap() {
+
+gps_fixed.addEventListener('click', function() {
+    show_current_location();
+});
+
+
 
     for (let i = 0; i < restaurants_count; i++) {
         data[i] = {
@@ -22,8 +27,6 @@ function initMap() {
         };
     }
 
-
-    point = {lat: def_lat, lng: def_lng};
 
 
 // マップ作成
@@ -64,15 +67,9 @@ function initMap() {
     }
 
 
-}
-
-// InvalidValueError: initMap is not a functionの対応
-window.onload = function () {
-  initMap();
-};
 
 // イベント
-gps_fixed.addEventListener('click', (event) => {
+function show_current_location(){
 
   if (!navigator.geolocation) {
     alert('GoogleのGeolocationサービスが使用できません。');
@@ -118,7 +115,7 @@ gps_fixed.addEventListener('click', (event) => {
       alert('現在地が取得できませんでした。');
     }
   );
-});
+}
 
 //div表示の切換え
 // function divblock(id)

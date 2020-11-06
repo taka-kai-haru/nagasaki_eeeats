@@ -57,13 +57,16 @@
                   <div class="card-header">
                     <h5 class="h5" id="restaurant_name<%= @restaurants_number%>"><%= restaurant.name %></h5>
                   </div>
+                  <% image_exist = false %>
                   <% restaurant.posts.shuffle.each do |post| %>
-                    <% next if post.user.release = false%>
+                    <% next if post.user.release == false%>
                     <% if post.images.count > 0 %>
                       <%= image_tag post.images.sample, class: 'card-img-top' %>
+                      <% image_exist = true %>
                       <% break %>
                     <% end %>
                   <% end %>
+                  <%= image_tag "no_photo.png", class: 'card-img-top' unless image_exist %>
 
                   <div class="card-body">
                     <% if restaurant.posts.count > 0 %>

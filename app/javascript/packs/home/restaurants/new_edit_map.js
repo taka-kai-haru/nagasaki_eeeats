@@ -1,64 +1,71 @@
 "use strict";
-var map_canvas = document.getElementById("map_canvas");
-var geocoder = new google.maps.Geocoder();
-var textimput = document.getElementById("textimput");
-var present_ocation = document.getElementById("present_ocation");
-var google_map = document.getElementById("google_map");
-var address = document.getElementById("address");
-var googlemaker = null;
+let map_canvas = document.getElementById("map_canvas");
+let geocoder = new google.maps.Geocoder();
+let textinput = document.getElementById("textinput");
+let present_ocation = document.getElementById("present_ocation");
+let google_map = document.getElementById("google_map");
+let address = document.getElementById("address");
+let googlemaker = null;
+let restaurantmap;
 const my_reg = /日本、〒\s?\d{3}(-|ー)\d{4}/;
+const def_lat = Number(document.getElementById("gmap_def_lat").value);
+const def_lng = Number(document.getElementById("gmap_def_lng").value);
+
 
 // イベント
-textimput.addEventListener('click', (event) => {
-  RadioButtonChanged();
-});
-present_ocation.addEventListener('click', (event) => {
-  RadioButtonChanged();
-});
-google_map.addEventListener('click', (event) => {
-  RadioButtonChanged();
-});
-address.addEventListener('focusout', (event) => {
-  if (address.value !== "") {
-        getAddressToMove(); //入力された住所へ移動
-  };
-});
+  textinput.addEventListener('click', (event) => {
+    RadioButtonChanged();
+  });
+  present_ocation.addEventListener('click', (event) => {
+    RadioButtonChanged();
+  });
+  google_map.addEventListener('click', (event) => {
+    RadioButtonChanged();
+  });
+  address.addEventListener('focusout', (event) => {
+    if (address.value !== "") {
+      getAddressToMove(); //入力された住所へ移動
+    }
+  });
 
 
 // Map初期設定
-  const def_lat = Number(document.getElementById("gmap_def_lat").value);
-  const def_lng = Number(document.getElementById("gmap_def_lng").value);
-  let restaurantmap = new google.maps.Map(map_canvas, {
-      center: {
-        lat: def_lat,
-        lng: def_lng
-      },
-      zoom: 17,
-      mapTypeControl: false,
-      zoomControl: true,
-      streetViewControl: false,
-    });
+  restaurantmap = new google.maps.Map(map_canvas, {
+    center: {
+      lat: def_lat,
+      lng: def_lng
+    },
+    zoom: 17,
+    mapTypeControl: false,
+    zoomControl: true,
+    streetViewControl: false,
+  });
 
 // 住所があればGoogleMap表示
-if (address.value !== "") {
-  getAddressToMove();
-};
+  if (address.value !== "") {
+    getAddressToMove();
+  }
+
+  restaurantmap.addListener('click', function (e) {
+    show_current_location(e);
+  });
+
 
 //RadioButtonChangeイベント
 function RadioButtonChanged(){
   // textエリア選択時
-  if (textimput.checked){
+  if (textinput.checked){
       address.readonly = false;
       // present_ocation.checked = false;
       // google_map.checked = false;
   };
   //現在地選択時
   if (present_ocation.checked){
-    // textimput.checked = false;
+    // textinput.checked = false;
     // google_map = false;
     if (!navigator.geolocation) {
       alert('GoogleのGeolocationサービスが使用できません。');
-      // textimput.checked = true;
+      // textinput.checked = true;
       return;
     }
       address.readonly = true;
@@ -66,7 +73,7 @@ function RadioButtonChanged(){
   };
   // GoogleMap選択時
   if (google_map.checked){
-      // textimput.checked = false;
+      // textinput.checked = false;
       // present_ocation.checked = false;
       address.readonly = true;
       if (address.value !== "") {
@@ -76,34 +83,34 @@ function RadioButtonChanged(){
 };
 
 // Mapクリックイベント
-restaurantmap.addListener('click', function(e) {
-geocoder.geocode({
-  location: e.latLng
-}, function(results, status) {
-  if (status !== 'OK') {
-    alert('マップの取得に失敗しました。: ' + status);
-    document.getElementById('map_canvas').innerText ="地図情報が取得できません。1";
-    return;
-  }
+function show_current_location(e){
+     geocoder.geocode({
+      location: e.latLng
+    }, function (results, status) {
+      if (status !== 'OK') {
+        alert('マップの取得に失敗しました。: ' + status);
+        document.getElementById('map_canvas').innerText = "地図情報が取得できません。1";
+        return;
+      }
 
-  if (results[0]) {
-    // 住所を整形
-    let address_format = results[0].formatted_address;
-    address_format = address_format.replace(my_reg, '');
-    address_format = address_format.trim();
-    
-    merkerSet(e.latLng,restaurantmap,address_format);
-    // 住所セット
-    address.value = address_format;
-    latitudelongitudeSet(e.latLng.lat(),e.latLng.lng()); // 緯度経度セット
+      if (results[0]) {
+        // 住所を整形
+        let address_format = results[0].formatted_address;
+        address_format = address_format.replace(my_reg, '');
+        address_format = address_format.trim();
 
-  } else {
-    arert("マップが見つかりませんでした。");
-    document.getElementById('map_canvas').innerText ="地図情報が取得できません。2";
-    return;
-  }
-});
-});
+        merkerSet(e.latLng, restaurantmap, address_format);
+        // 住所セット
+        address.value = address_format;
+        latitudelongitudeSet(e.latLng.lat(), e.latLng.lng()); // 緯度経度セット
+
+      } else {
+        arert("マップが見つかりませんでした。");
+        document.getElementById('map_canvas').innerText = "地図情報が取得できません。2";
+        return;
+      }
+    });
+}
 
 
 // 緯度、経度セット
@@ -157,8 +164,8 @@ geocoder.geocode({
 alert('現在地が取得できませんでした。');
 present_ocation.checked = false;
 document.getElementById("present_ocation_label").classList.remove("active");
-textimput.checked = true;
-document.getElementById("textimput_label").classList.add("active");
+textinput.checked = true;
+document.getElementById("textinput_label").classList.add("active");
 address.readonly = false;
 address.focus();
 return;
