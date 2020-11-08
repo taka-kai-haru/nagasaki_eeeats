@@ -105,7 +105,7 @@
             <div class="bg-white rounded pd-20 mb-5">
               <%= link_to post.user.name, post_path(post_id: post.id)%>
               <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-              <p><%=post.comment.truncate(100, omission: '...')%></p>
+<!--              <p><%#=post.comment.truncate(100, omission: '...')%></p>-->
               <%= link_to "コメントの編集", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
               <%= link_to "コメントの削除", post_path(post_id: post.id), method: :delete,
                                             data: { confirm: "コメントの削除をしてよいですか？" }, class: "btn  btn-info" %>
@@ -121,7 +121,7 @@
             <div class="bg-white rounded pd-20 mb-5">
               <%= link_to post.user.name, post_path(post_id: post.id)%>
               <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-              <p><%=post.comment.truncate(100, omission: '...')%></p>
+<!--              <p><%#=post.comment.truncate(100, omission: '...')%></p>-->
             </div>
           </div>
         </div>
@@ -129,13 +129,13 @@
     <% end %>
   <% else %>
     <% @restaurant.posts.each do |post| %>
-      <% if post.user.release = true%>
+      <% if post.user.release == true%>
         <div class="row mt-20">
           <div class="col-xl-12">
             <div class="bg-white rounded pd-20 mb-5">
               <%= link_to post.user.name, post_path(post_id: post.id)%>
               <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-              <p><%=post.comment.truncate(100, omission: '...')%></p>
+<!--              <p><%#=post.comment.truncate(100, omission: '...')%></p>-->
             </div>
           </div>
         </div>
