@@ -34,7 +34,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d388710-db19-4e0a-b44f-d3dd3bad74f0" name="デフォルト変更リスト" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/stylesheets/actiontext.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
@@ -53,12 +52,9 @@
       <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/no_photo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/no_photo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/post.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/post.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/posts/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/actiontext.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/actiontext.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/posts/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/restaurants/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
@@ -67,9 +63,6 @@
       <change beforePath="$PROJECT_DIR$/bin/webpack" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/webpack-dev-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack-dev-server" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/yarn" beforeDir="false" afterPath="$PROJECT_DIR$/bin/yarn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <list id="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" name="menuber change" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +80,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="design-add" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -331,7 +324,8 @@
       <workItem from="1604517908767" duration="5837000" />
       <workItem from="1604687343192" duration="5904000" />
       <workItem from="1604787333509" duration="5196000" />
-      <workItem from="1604822995599" duration="747000" />
+      <workItem from="1604822995599" duration="1044000" />
+      <workItem from="1604865207532" duration="2023000" />
     </task>
     <servers />
   </component>
@@ -391,46 +385,46 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="990" y="599" key="FileChooserDialogImpl/0.0.3072.1688@0.0.3072.1688" timestamp="1603773182774" />
-    <state width="1656" height="255" key="GridCell.Tab.0.bottom" timestamp="1604823662086">
+    <state width="2041" height="255" key="GridCell.Tab.0.bottom" timestamp="1604868031017">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1656" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662086" />
-    <state width="1656" height="255" key="GridCell.Tab.0.center" timestamp="1604823662086">
+    <state width="2041" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
+    <state width="2041" height="255" key="GridCell.Tab.0.center" timestamp="1604868031017">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1656" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662086" />
-    <state width="1656" height="255" key="GridCell.Tab.0.left" timestamp="1604823662086">
+    <state width="2041" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
+    <state width="2041" height="255" key="GridCell.Tab.0.left" timestamp="1604868031016">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1656" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662086" />
-    <state width="1656" height="255" key="GridCell.Tab.0.right" timestamp="1604823662086">
+    <state width="2041" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031016" />
+    <state width="2041" height="255" key="GridCell.Tab.0.right" timestamp="1604868031017">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1656" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662086" />
-    <state width="1656" height="255" key="GridCell.Tab.1.bottom" timestamp="1604823662087">
+    <state width="2041" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
+    <state width="2041" height="255" key="GridCell.Tab.1.bottom" timestamp="1604868031017">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="1656" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662087" />
-    <state width="1656" height="255" key="GridCell.Tab.1.center" timestamp="1604823662087">
+    <state width="2041" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
+    <state width="2041" height="255" key="GridCell.Tab.1.center" timestamp="1604868031017">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="1656" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662087" />
-    <state width="1656" height="255" key="GridCell.Tab.1.left" timestamp="1604823662087">
+    <state width="2041" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
+    <state width="2041" height="255" key="GridCell.Tab.1.left" timestamp="1604868031017">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="1656" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662087" />
-    <state width="1656" height="255" key="GridCell.Tab.1.right" timestamp="1604823662087">
+    <state width="2041" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
+    <state width="2041" height="255" key="GridCell.Tab.1.right" timestamp="1604868031017">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="1656" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604823662087" />
+    <state width="2041" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
     <state width="1870" height="439" key="GridCell.Tab.2.bottom" timestamp="1604101583459">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -487,11 +481,11 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604091854991" />
-    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup" timestamp="1604823390581">
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup" timestamp="1604867285001">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604129090917" />
-    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1604823390581" />
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1604867285001" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
