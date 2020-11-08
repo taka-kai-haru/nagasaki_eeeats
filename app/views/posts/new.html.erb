@@ -123,7 +123,8 @@
       <div class="col-lg-12 col-xs-12 ">
         <div class="field">
           <%= f.label :comment %>
-          <%= f.text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
+          <%= f.rich_text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
+          <%#= f.rich_text_area :comment%>
           <%= render 'shared/error_message_detail',{object: f.object, target: :comment} %>
         </div>
         <div class="actions text-center">
