@@ -141,7 +141,7 @@ function getDestance(gpslat,gpslng){
     destinations: destinations, // 到着地点
     travelMode: google.maps.TravelMode.DRIVING, // 車モード or 徒歩モード
     unitSystem: google.maps.UnitSystem.METRIC,
-    avoidHighways: ture,
+    avoidHighways: true,
     avoidTolls: false
     // drivingOptions: { // 車モードの時のみ有効
     //   departureTime: new Date('2017/5/5 10:00:00'), // 2017年5月5日
