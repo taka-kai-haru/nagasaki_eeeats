@@ -19,10 +19,15 @@ let directionsRendererWork = new google.maps.DirectionsRenderer({suppressMarkers
 }); //suppressMarkers: true // デフォルトのマーカーを削除
 let marker = null;
 
-gps_fixed.addEventListener('click', function() {
-  show_current_location();
-});
-
+if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+  gps_fixed.addEventListener('touchend', function () {
+    show_current_location();
+  });
+} else {
+  gps_fixed.addEventListener('click', function () {
+    show_current_location();
+  });
+}
 
   console.log(point);
   map = new google.maps.Map(map_canvas, {

@@ -52,8 +52,18 @@
       <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/no_photo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/no_photo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/posts/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/posts/chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/actiontext.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/actiontext.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/passwords/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/passwords/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/passwords/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/passwords/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
@@ -324,7 +334,9 @@
       <workItem from="1604687343192" duration="5904000" />
       <workItem from="1604787333509" duration="5196000" />
       <workItem from="1604822995599" duration="1044000" />
-      <workItem from="1604865207532" duration="2745000" />
+      <workItem from="1604865207532" duration="3449000" />
+      <workItem from="1604913525290" duration="723000" />
+      <workItem from="1604948054638" duration="5258000" />
     </task>
     <servers />
   </component>
@@ -384,46 +396,46 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="990" y="599" key="FileChooserDialogImpl/0.0.3072.1688@0.0.3072.1688" timestamp="1603773182774" />
-    <state width="2041" height="255" key="GridCell.Tab.0.bottom" timestamp="1604868031017">
+    <state width="2041" height="255" key="GridCell.Tab.0.bottom" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
-    <state width="2041" height="255" key="GridCell.Tab.0.center" timestamp="1604868031017">
+    <state width="2041" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.0.center" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
-    <state width="2041" height="255" key="GridCell.Tab.0.left" timestamp="1604868031016">
+    <state width="2041" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.0.left" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031016" />
-    <state width="2041" height="255" key="GridCell.Tab.0.right" timestamp="1604868031017">
+    <state width="2041" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.0.right" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
-    <state width="2041" height="255" key="GridCell.Tab.1.bottom" timestamp="1604868031017">
+    <state width="2041" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.1.bottom" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="2041" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
-    <state width="2041" height="255" key="GridCell.Tab.1.center" timestamp="1604868031017">
+    <state width="2041" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.1.center" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="2041" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
-    <state width="2041" height="255" key="GridCell.Tab.1.left" timestamp="1604868031017">
+    <state width="2041" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.1.left" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
-    <state width="2041" height="255" key="GridCell.Tab.1.right" timestamp="1604868031017">
+    <state width="2041" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.1.right" timestamp="1604953664341">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="2041" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604868031017" />
+    <state width="2041" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
     <state width="1870" height="439" key="GridCell.Tab.2.bottom" timestamp="1604101583459">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -480,11 +492,11 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604091854991" />
-    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup" timestamp="1604868948707">
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup" timestamp="1604950877377">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604129090917" />
-    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1604868948707" />
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1604950877377" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
