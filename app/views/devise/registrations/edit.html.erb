@@ -1,7 +1,7 @@
 <% provide(:title, "ユーザー情報変更") %>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
+    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10 rounded-center">
       <h2 class="h2">ユーザー情報変更</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>

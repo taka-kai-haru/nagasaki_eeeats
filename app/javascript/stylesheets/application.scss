@@ -84,6 +84,10 @@ body {
   margin: 0 auto;
 }
 
+.rounded-center {
+  margin: 0 auto;
+}
+
 /* typography */
 h1,
 h2,
@@ -630,12 +634,14 @@ html body {
   // margin         : auto;                /* 中央寄せ           */
   width: 88px; /* ボタンの横幅       */
   background: #fff; /* デフォルト背景色   */
+  cursor: pointer;
 }
 
 /* === チェックボックス ==================================== */
 .switchArea input[type='checkbox'],
 .switchArea-closed input[type='checkbox'] {
   display: none; /* チェックボックス非表示 */
+  cursor: pointer;
 }
 
 /* === チェックボックスのラベル（標準） ==================== */

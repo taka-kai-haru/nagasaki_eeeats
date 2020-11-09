@@ -12,11 +12,15 @@ let data = [];
 let gps_marker = null;
 let map = null;
 
-
-gps_fixed.addEventListener('click', function() {
-    show_current_location();
-});
-
+if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+    gps_fixed.addEventListener('touchend', function() {
+        show_current_location();
+    });
+} else {
+    gps_fixed.addEventListener('click', function() {
+        show_current_location();
+    });
+}
 
 
     for (let i = 0; i < restaurants_count; i++) {

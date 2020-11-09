@@ -13,6 +13,22 @@ const def_lng = Number(document.getElementById("gmap_def_lng").value);
 
 
 // イベント
+if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+  textinput.addEventListener('touchend', (event) => {
+    RadioButtonChanged();
+  });
+  present_ocation.addEventListener('touchend', (event) => {
+    RadioButtonChanged();
+  });
+  google_map.addEventListener('touchend', (event) => {
+    RadioButtonChanged();
+  });
+  address.addEventListener('touchend', (event) => {
+    if (address.value !== "") {
+      getAddressToMove(); //入力された住所へ移動
+    }
+  });
+} else {
   textinput.addEventListener('click', (event) => {
     RadioButtonChanged();
   });
@@ -27,7 +43,7 @@ const def_lng = Number(document.getElementById("gmap_def_lng").value);
       getAddressToMove(); //入力された住所へ移動
     }
   });
-
+}
 
 // Map初期設定
   restaurantmap = new google.maps.Map(map_canvas, {
