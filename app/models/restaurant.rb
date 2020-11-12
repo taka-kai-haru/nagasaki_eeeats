@@ -6,15 +6,17 @@ class Restaurant < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   validates :name, presence: true, uniqueness: true
   validates :tel,  presence: true, format: { with: VALID_PHONE_REGEX, allow_blank: true}, uniqueness: true
-  validates :address, presence: true
+  validates :address, presence: true, inclusion: {in: %w(長崎県)}
   validates :restaurant_type_id, presence: true
   validates :area_id, presence: true
+  validates :latitude, presence: true, numericality: {greater_than: 0}
+  validates :longitude, presence: true, numericality: {greater_than: 0}
 
   # GoogleMapデフォルト位置(長崎市中心)
   GMAP_DEF_LAT = 32.752443
   GMAP_DEF_LNG = 129.870812
 
-  #検索用seachメソッド
+  #検索用searchメソッド
   scope :search, -> (search_params) do  
     return if search_params.blank?
 

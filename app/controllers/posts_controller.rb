@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :edit, :create]
+  before_action :authenticate_user!
   before_action :params_check, only:[:new]
 
   include PostsHelper

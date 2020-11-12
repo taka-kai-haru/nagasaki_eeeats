@@ -53,6 +53,8 @@
             </div>          
           <%= f.text_field :address, autocomplete: "address", class: 'form-control', id:"address" %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :latitude} %>
+          <%= render 'shared/error_message_detail',{object: f.object, target: :longitude} %>
         </div>
           <%# <div class="form-check">
             <input class="form-check-input" type=”radio” name="address_select" id="textinput" checked>

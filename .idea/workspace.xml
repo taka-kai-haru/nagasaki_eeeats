@@ -52,18 +52,12 @@
       <change beforePath="$PROJECT_DIR$/.rucocop_todo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rucocop_todo.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/no_photo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/no_photo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/source-bluedot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/posts/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/posts/chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/index_map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/new_edit_map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/home/restaurants/show_map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/posts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/posts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/actiontext.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/actiontext.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/passwords/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/passwords/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/passwords/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/passwords/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/post.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/post.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/restaurant.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/restaurant.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/restaurants/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurants/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/bundle" beforeDir="false" afterPath="$PROJECT_DIR$/bin/bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
@@ -72,6 +66,8 @@
       <change beforePath="$PROJECT_DIR$/bin/webpack" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/webpack-dev-server" beforeDir="false" afterPath="$PROJECT_DIR$/bin/webpack-dev-server" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/yarn" beforeDir="false" afterPath="$PROJECT_DIR$/bin/yarn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/ja.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ja.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <list id="9ab7bd54-51a7-433d-b83d-caccfc5a54a5" name="menuber change" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -336,7 +332,10 @@
       <workItem from="1604822995599" duration="1044000" />
       <workItem from="1604865207532" duration="3449000" />
       <workItem from="1604913525290" duration="723000" />
-      <workItem from="1604948054638" duration="5628000" />
+      <workItem from="1604948054638" duration="5258000" />
+      <workItem from="1605037080983" duration="4983000" />
+      <workItem from="1605122989315" duration="4864000" />
+      <workItem from="1605212056541" duration="2001000" />
     </task>
     <servers />
   </component>
@@ -396,46 +395,46 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="990" y="599" key="FileChooserDialogImpl/0.0.3072.1688@0.0.3072.1688" timestamp="1603773182774" />
-    <state width="2041" height="255" key="GridCell.Tab.0.bottom" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.0.bottom" timestamp="1605213870632">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
-    <state width="2041" height="255" key="GridCell.Tab.0.center" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.0.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870632" />
+    <state width="2041" height="255" key="GridCell.Tab.0.center" timestamp="1605213870632">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
-    <state width="2041" height="255" key="GridCell.Tab.0.left" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.0.center/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870632" />
+    <state width="2041" height="255" key="GridCell.Tab.0.left" timestamp="1605213870632">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
-    <state width="2041" height="255" key="GridCell.Tab.0.right" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.0.left/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870632" />
+    <state width="2041" height="255" key="GridCell.Tab.0.right" timestamp="1605213870632">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.0.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
-    <state width="2041" height="255" key="GridCell.Tab.1.bottom" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.0.right/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870632" />
+    <state width="2041" height="255" key="GridCell.Tab.1.bottom" timestamp="1605213870633">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.bottom/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="2041" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
-    <state width="2041" height="255" key="GridCell.Tab.1.center" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.1.bottom/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870633" />
+    <state width="2041" height="255" key="GridCell.Tab.1.center" timestamp="1605213870633">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.center/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="2041" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
-    <state width="2041" height="255" key="GridCell.Tab.1.left" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.1.center/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870633" />
+    <state width="2041" height="255" key="GridCell.Tab.1.left" timestamp="1605213870632">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.left/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719816" />
-    <state width="2041" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
-    <state width="2041" height="255" key="GridCell.Tab.1.right" timestamp="1604953664341">
+    <state width="2041" height="255" key="GridCell.Tab.1.left/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870632" />
+    <state width="2041" height="255" key="GridCell.Tab.1.right" timestamp="1605213870633">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state width="1870" height="206" key="GridCell.Tab.1.right/0.0.3072.1688@0.0.3072.1688" timestamp="1604188719817" />
-    <state width="2041" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1604953664341" />
+    <state width="2041" height="255" key="GridCell.Tab.1.right/0.0.3840.2120@0.0.3840.2120" timestamp="1605213870633" />
     <state width="1870" height="439" key="GridCell.Tab.2.bottom" timestamp="1604101583459">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -468,6 +467,10 @@
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state x="1013" y="986" key="VcsDiffUtil.ChangesDialog/0.0.3840.2120@0.0.3840.2120" timestamp="1604688919556" />
+    <state x="1188" y="1226" width="309" height="264" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605123056208">
+      <screen x="0" y="0" width="3840" height="2120" />
+    </state>
+    <state x="1188" y="1226" width="309" height="264" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.3840.2120@0.0.3840.2120" timestamp="1605123056208" />
     <state x="782" y="942" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604089908530">
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
@@ -492,24 +495,10 @@
       <screen x="0" y="0" width="3072" height="1688" />
     </state>
     <state x="1273" y="980" width="672" height="677" key="run.anything.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604091854991" />
-    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup" timestamp="1604950877377">
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup" timestamp="1605213248548">
       <screen x="0" y="0" width="3840" height="2120" />
     </state>
     <state x="862" y="702" width="672" height="678" key="search.everywhere.popup/0.0.3072.1688@0.0.3072.1688" timestamp="1604129090917" />
-    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1604950877377" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/posts_controller.rb</url>
-          <line>45</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="1078" y="882" width="840" height="852" key="search.everywhere.popup/0.0.3840.2120@0.0.3840.2120" timestamp="1605213248548" />
   </component>
 </project>
