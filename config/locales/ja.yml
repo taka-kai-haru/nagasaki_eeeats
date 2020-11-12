@@ -35,6 +35,8 @@ ja:
         url: お店のURL
         address: 住所
         closed: 閉店
+        latitude: 緯度
+        longitude: 経度
       post:
         images: 画像
         delicious: 味
@@ -84,6 +86,11 @@ ja:
               taken: "はすでに存在します。"
             address:
               blank: "が入力されていません。"
+              inclusion: "に長崎県以外が設定されています。"
+            latitude:
+              greater_than: "が取得できませんでした。"
+            longitude:
+              greater_than: "が取得できませんでした。"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
