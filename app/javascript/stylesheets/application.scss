@@ -12,8 +12,8 @@ $line-height-base: 1.65;
 $modal-inner-padding: 30px;
 $modal-title-padding: 30px;
 // $header-size: 8vh;
-$header-size: 40px;
-$header-size-small: 60px;
+//$header-size: 40px;
+//$header-size-small: 60px;
 $max-width: 1090px;
 $nav-color: rgba(0, 0, 0, 0.5);
 
@@ -231,6 +231,9 @@ label.custom-control-label {
 .pd-20 {
   padding: 20px;
 }
+.pd-0 {
+  padding: 0;
+}
 
 .title {
   width: 100%;
@@ -252,15 +255,11 @@ label.custom-control-label {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   //top: $header-size;
-  // top: 0;
+  top: 0;
   // bottom: 80vh;
 }
 
-@media screen and (max-width:$max-width) {
-  .sticky {
-    top: $header-size-small;
-  }
-}
+
 
 .no-decoration:hover {
   text-decoration: none;
@@ -624,7 +623,8 @@ html body {
 
 /* === ボタンを表示するエリア ============================== */
 .switchArea,
-.switchArea-closed {
+.switchArea-closed,
+.switchArea-present-position{
   line-height: 32px; /* 1行の高さ          */
   letter-spacing: 0; /* 文字間             */
   text-align: center; /* 文字位置は中央     */
@@ -639,14 +639,16 @@ html body {
 
 /* === チェックボックス ==================================== */
 .switchArea input[type='checkbox'],
-.switchArea-closed input[type='checkbox'] {
+.switchArea-closed input[type='checkbox'],
+.switchArea-present-position input[type='checkbox']{
   display: none; /* チェックボックス非表示 */
   cursor: pointer;
 }
 
 /* === チェックボックスのラベル（標準） ==================== */
 .switchArea label,
-.switchArea-closed label {
+.switchArea-closed label,
+.switchArea-present-position label {
   display: block; /* ボックス要素に変更 */
   box-sizing: border-box; /* 枠線を含んだサイズ */
   height: 32px; /* ボタンの高さ       */
@@ -661,6 +663,10 @@ html body {
   border: 2px solid $info; /* 未選択タブのの枠線 */
 }
 
+.switchArea-present-position label {
+  border: 2px solid $gray; /* 未選択タブのの枠線 */
+}
+
 /* === チェックボックスのラベル（ONのとき） ================ */
 .switchArea input[type='checkbox']:checked + label {
   border-color: $info; /* 選択タブの枠線     */
@@ -668,6 +674,10 @@ html body {
 
 .switchArea-closed input[type='checkbox']:checked + label {
   border-color: $gray; /* 選択タブの枠線     */
+}
+
+.switchArea-present-position input[type='checkbox']:checked + label {
+  border-color: $info; /* 選択タブの枠線     */
 }
 
 /* === 表示する文字（標準） ================================ */
@@ -683,6 +693,13 @@ html body {
   color: $info; /* 文字色             */
 }
 
+.switchArea-present-position label span:after {
+  content: 'OFF'; /* 表示する文字       */
+  padding: 0 0 0 19px; /* 表示する位置       */
+  color: $gray; /* 文字色             */
+}
+
+
 /* === 表示する文字（ONのとき） ============================ */
 .switchArea input[type='checkbox']:checked + label span:after {
   content: '公開'; /* 表示する文字       */
@@ -696,9 +713,16 @@ html body {
   color: $gray; /* 文字色             */
 }
 
+.switchArea-present-position input[type='checkbox']:checked + label span:after {
+  content: 'ON'; /* 表示する文字       */
+  padding: 0 19px 0 0; /* 表示する位置       */
+  color: $info; /* 文字色             */
+}
+
 /* === 丸部分のSTYLE（標準） =============================== */
 .switchArea #swImg,
-.switchArea-closed #swImg {
+.switchArea-closed #swImg,
+.switchArea-present-position #swImg{
   position: absolute; /* 親要素からの相対位置*/
   width: 24px; /* 丸の横幅           */
   height: 24px; /* 丸の高さ           */
@@ -717,6 +741,10 @@ html body {
   background: $info; /* カーソルタブの背景 */
 }
 
+.switchArea-present-position #swImg {
+  background: $gray; /* カーソルタブの背景 */
+}
+
 /* === 丸部分のSTYLE（ONのとき） =========================== */
 .switchArea input[type='checkbox']:checked ~ #swImg {
   transform: translateX(56px); /* 丸も右へ移動       */
@@ -725,6 +753,11 @@ html body {
 .switchArea-closed input[type='checkbox']:checked ~ #swImg {
   transform: translateX(56px); /* 丸も右へ移動       */
   background: $gray; /* カーソルタブの背景 */
+}
+
+.switchArea-present-position input[type='checkbox']:checked ~ #swImg {
+  transform: translateX(56px); /* 丸も右へ移動       */
+  background: $info; /* カーソルタブの背景 */
 }
 
 

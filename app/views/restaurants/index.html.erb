@@ -7,14 +7,52 @@
 <% end %>
 
 <div class="container-fluid">
-  <div class="row mb-20 mt-10">
-    <div class="col-lg-12 col-xs-12">
-      <div class="bg-white rounded pd-20">
+  <div class="row">
+    <div class="col-lg-12 col-xs-12 bg-white rounded pd-20  mb-20 mt-10">
         <%= form_with(scope: :search, url: restaurants_path, method: :get, local: true) do |f| %>
         <div class="col-lg-8 col-xs-12">
+
+          <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
+<!--            <form id="radioGroup">-->
+              <label class="btn btn-outline-secondary active" style="width:30%" id="my_post_none_label">
+                <%= f.radio_button :my_post_select, 0, {checked: true ,id: "my_post_none"}%>すべて
+              </label>
+              <label class="btn btn-outline-secondary" style="width:30%" id="my_post_only_label">
+                <%= f.radio_button :my_post_select, 1, {id: "my_post_only"}%>自分の登録分
+              </label>
+<!--            </form>-->
+          </div>
+
+          <div id="likes_condition" class="row mt-20 display-none">
+            <label class="likes">お気に入り
+              <%= f.check_box :likes, id: 'likes' %><i class="material-icons good">thumb_up_alt</i>
+              <div class="like_ripple"></div>
+              <div class="description">お店が気に入ったらクリック</div>
+            </label>
+
+            <label class="dislikes">イマイチ
+              <%= f.check_box :dislikes, id: 'dislikes' %><i class="material-icons bad">thumb_down_alt</i>
+              <div class="dislike_ripple"></div>
+              <div class="description">お店が気に入らなかったらクリック</div>
+            </label>
+          </div>
+
+          <div class="field">
+            <%= f.label '現在地周辺検索' %>
+            <div class="switchArea-present-position">
+              <%= f.check_box :present_position_select, autocomplete: "release", id: 'switch1' %>
+              <label for="switch1"><span></span></label>
+              <div id="swImg"></div>
+            </div>
+          </div>
+          <%= f.hidden_field :present_position_lat,id: 'present_position_lat'%>
+          <%= f.hidden_field :present_position_lng,id: 'present_position_lng'%>
+<!--          <input type="hidden" value="0" id ="present_position_lat">-->
+<!--          <input type="hidden" value="0" id ="present_position_lng">-->
+
           <div class="field">
             <%= f.label :area_id, "地域" %>
-            <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{selected: @search_params[:area_id], include_blank: "指定なし"}, {class: 'form-control'}) %>
+            <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{selected: @search_params[:area_id], include_blank: "指定なし"}, {class: 'form-control',id: 'area'}) %>
           </div>
           <div class="field">
             <%= f.label :restaurant_type_id, "ジャンル" %>
@@ -31,9 +69,10 @@
 
           </div>
         <% end %>
-      </div>
     </div>
   </div>
+
+  <%= javascript_pack_tag 'home/restaurants/index_condition' %>
 
   <div class="row">
     <div class="col-lg-4">
@@ -80,6 +119,7 @@
                     <p class="card-text" id="address<%= @restaurants_number%>"><%= restaurant.address %></p>
                     <input type="hidden" value="<%= restaurant.latitude %>" id="latitude<%= @restaurants_number %>">
                     <input type="hidden" value="<%= restaurant.longitude %>" id="longitude<%= @restaurants_number %>">
+<!--                    <p class="card-text"><%#= restaurant.distance %></p>-->
                     <% @restaurants_number += 1 %>
                   </div>
                 </a>
@@ -94,9 +134,10 @@
     </div>
     <input type="hidden" value="<%= Restaurant::GMAP_DEF_LAT%>" id ="gmap_def_lat">
     <input type="hidden" value="<%= Restaurant::GMAP_DEF_LNG%>" id ="gmap_def_lng">
+
     <input type="hidden" value="<%= @restaurants.count %>"      id ="restaurants_count">
-    <div class="col-xl-6 col-xs-12 mb-20">
-        <div class="gmap-index sticky gmap-target">
+    <div class="col-xl-6 col-xs-12 mb-20 pd-0">
+        <div class="gmap-index gmap-target sticky">
             <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
               <i class="material-icons">gps_fixed</i>
             </button>
@@ -108,7 +149,6 @@
         <%= javascript_pack_tag 'home/restaurants/index_map' %>
     
     </div>
-  
   </div>
   <div class="row">
 

@@ -3,13 +3,13 @@ class RestaurantsController < ApplicationController
   
   def index
 
-    @search_params = restaurant_serch_params
+    @search_params = restaurant_search_params
     # binding.pry
     #homeからのパラメーターセット
     @search_params[:area_id] = params[:area_id] if !params[:area_id].nil?
     # binding.pry
     # @restaurants = Restaurant.search(@search_params).includes(:restaurant_type)
-    @restaurants = Restaurant.search(@search_params).order(point: :desc).page(params[:page]).per(4)
+    @restaurants = Restaurant.includes(:posts).search(@search_params).order(point: :desc).page(params[:page]).per(6)
 
   end
 
@@ -57,8 +57,9 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name, :restaurant_type_id, :area_id, :tel, :url, :address, :closed, :latitude, :longitude)
   end
 
-  def restaurant_serch_params
-    params.fetch(:search, {}).permit(:area_id, :restaurant_type_id, :name)
+  def restaurant_search_params
+    @lat_lag = [params[:present_position_lat],params[:present_position_lng]]
+    params.fetch(:search, {}).permit(:area_id, :restaurant_type_id, :name, :likes, :dislikes, :my_post_select, @lat_lag)
   end
 
 end
