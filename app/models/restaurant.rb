@@ -2,11 +2,11 @@ class Restaurant < ApplicationRecord
   belongs_to :area
   belongs_to :restaurant_type
   has_many :posts, dependent: :destroy
-  acts_as_mappable :default_units => :kms,
-                   :default_formula => :sphere,
-                   :distance_field_name => :distance,
-                   :lat_column_name => :latitude,
-                   :lng_column_name => :longitude
+  # acts_as_mappable :default_units => :kms,
+  #                  :default_formula => :sphere,
+  #                  :distance_field_name => :distance,
+  #                  :lat_column_name => :latitude,
+  #                  :lng_column_name => :longitude
 
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   validates :name, presence: true, uniqueness: true
@@ -25,13 +25,14 @@ class Restaurant < ApplicationRecord
   #検索用searchメソッド
   scope :search, -> (search_params) do  
     return if search_params.blank?
-
+    # lat_lag = Array.new
+    # lat_lag = [search_params[:present_position_lat], search_params[:present_position_lng]] if search_params[:present_position_lat].present? && search_params[:present_position_lng].present?
     area_id_is(search_params[:area_id])
       .restaurant_type_id_is(search_params[:restaurant_type_id])
       .name_like(search_params[:name])
         .likes(search_params[:likes])
         .dislikes(search_params[:dislikes])
-        .present_position(search_params[@lat_lag])
+        # .present_position([lat: search_params[:present_position_lat], lag: search_params[:present_position_lng]])
   end
 
 
@@ -42,5 +43,24 @@ class Restaurant < ApplicationRecord
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
   scope :likes, -> (likes) { where(posts: {likes: true}) if likes == true }
   scope :dislikes, -> (dislikes) { where(posts: {dislikes: true}) if dislikes == true }
-  scope :present_position, ->(lat_lag) { within(5, origin: [lat_lag]) if lat_lag.present?}
+  # scope :order_location_by, ->(latitude, longitude) {
+  #   sort_by_near(latitude, longitude)  if latitude.present? && longitude.present?
+  scope :order_location_by, -> (latitude, longitude) {sort_by_near(latitude, longitude)}
+  # scope :present_position, ->(lat_lag) { within(5, origin: [lat_lag[:lat].to_i,lat_lag[:lag].to_i]) if lat_lag[:lat].present? && lat_lag[:lag].present? }
+  # scope :present_position, ->(lat_lag) { within(5, origin: [32.7286784,129.892352]) }
+
+  private
+  def self.sort_by_near(latitude, longitude)
+    # 6371=地球の半径
+    select("*, (
+        6371 * acos(
+            cos(radians(#{latitude}))
+            * cos(radians(latitude))
+            * cos(radians(longitude) - radians(#{longitude}))
+            + sin(radians(#{latitude}))
+            * sin(radians(latitude))
+        )
+        ) AS distance").order(:distance)
+  end
+
 end

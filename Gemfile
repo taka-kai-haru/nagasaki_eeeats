@@ -41,12 +41,13 @@ gem 'aws-sdk-s3', '1.46.0', require: false
 
 gem 'geokit-rails',               '2.3.1'
 
+gem 'pg', '1.1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '1.4.1'
+  # gem 'sqlite3', '1.4.1'
   # gem 'pry'
   # gem 'pry-byebug'
   gem 'debase',                   '2.3.0'
@@ -82,7 +83,7 @@ end
 
 group :production do
   # Use pg as the database for Active Record(production)
-  gem 'pg', '1.1.4'
+  # gem 'pg', '1.1.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

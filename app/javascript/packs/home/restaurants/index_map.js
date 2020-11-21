@@ -15,6 +15,7 @@ let present_position_lat = document.getElementById('present_position_lat');
 let present_position_lng = document.getElementById('present_position_lng');
 let present_position_select = document.getElementById('switch1');
 let area = document.getElementById('area');
+let switch1 = document.getElementById('switch1');
 
 if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
     gps_fixed.addEventListener('touchend', function() {
@@ -85,26 +86,29 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
 
 // 現在地取得後hidden_fieldへセット
 function set_present_position_hidden_field() {
-    present_position_lat.value = null;
-    present_position_lng.value = null;
-    if (!navigator.geolocation) {
-        alert('GoogleのGeolocationサービスが使用できません。');
-        present_position_select.checked = false;
-        area.readonly = false;
-        return;
-    }
-    navigator.geolocation.getCurrentPosition(
-        function (position) {
-            present_position_lat.value = position.coords.latitude;
-            present_position_lng.value = position.coords.longitude;
-            area.selectIndex = 0;
-            area.readonly = true;
-        },
-        function () {
+
+        if (switch1.checked === true) {
+            present_position_lat.value = null;
+            present_position_lng.value = null;
+            if (!navigator.geolocation) {
+                alert('GoogleのGeolocationサービスが使用できません。');
+                present_position_select.checked = false;
+                area.readonly = false;
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    present_position_lat.value = position.coords.latitude;
+                    present_position_lng.value = position.coords.longitude;
+                    area.selectIndex = 0;
+                    area.readonly = true;
+                },
+                function () {
                     alert('現在地が取得できませんでした。');
                     present_position_select.checked = false;
                     area.readonly = false;
-                    });
+                });
+        }
 }
 
 

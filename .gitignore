@@ -41,5 +41,7 @@ yarn-debug.log*
 .yarn-integrity
 
 .idea/*
+!.idea/gradle.xml
+!.idea/misc.xml
 localhost.pem
 localhost-key.pem

@@ -1,9 +1,11 @@
 <% provide(:title, "お店の情報") %>
 
 <h4 class="display-4 text-light text-center">お店の情報</h4>
+<p class="text-right">更新日：<%= @restaurant.updatetime.strftime("%Y年%m月%d日")%></p>
 
 <% if user_signed_in? %>
-  <%= link_to "お店情報の変更", edit_restaurant_path, class: "btn  btn-info" %>
+  <%= link_to "お店情報変更", edit_restaurant_path, class: "btn  btn-info" %>
+  <%= link_to "お店情報削除", restaurant_path(restaurant_id: @restaurant.id), data: { confirm: "お店の情報を削除していいですか?" }, method: :delete, class: "btn  btn-danger" %>
 <% end %>
 
 <div class="container-fluid">
@@ -142,4 +144,6 @@
       <% end %>
     <% end %>
   <% end %>
+</div>
+  <%= link_to "戻る", restaurants_return_path, class: 'text-light' %>
 </div>
