@@ -333,7 +333,7 @@ DEPENDENCIES
   aws-sdk-s3 (= 1.46.0)
   bootsnap (= 1.4.5)
   capybara (= 3.32.2)
-  debase (= 2.3.0)
+  debase
   debase-ruby_core_source (= 0.10.11)
   devise
   geokit-rails (= 2.3.1)

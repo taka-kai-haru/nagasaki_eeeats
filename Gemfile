@@ -50,7 +50,7 @@ group :development, :test do
   # gem 'sqlite3', '1.4.1'
   # gem 'pry'
   # gem 'pry-byebug'
-  gem 'debase',                   '2.3.0'
+  gem 'debase'
   gem 'debase-ruby_core_source',  '0.10.11'
   gem 'ruby-debug-ide'
   # gem 'aws-partitions',           '1.386.0'
