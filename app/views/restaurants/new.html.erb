@@ -38,42 +38,24 @@
 
         <div class="field">
           <%= f.label :address %>
-            <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
-              <form id="radioGroup">
-                <label class="btn btn-outline-secondary active" style="width:30%" id="textinput_label">
-                  <%= f.radio_button :address_select, 0, {checked: true ,id: "textinput"}%>住所を入力
-                </label>
-                <label class="btn btn-outline-secondary" style="width:30%" id="present_ocation_label">
-                  <%= f.radio_button :address_select, 1, {id: "present_ocation"} %>現在地から登録
-                </label>
-                <label class="btn btn-outline-secondary" style="width:30%" id="google_map_label">
-                  <%= f.radio_button :address_select, 2, {id: "google_map"} %>マップから登録 
-                </label>
-              </form>
-            </div>          
+          <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
+            <form id="radioGroup">
+              <label class="btn btn-outline-secondary active" style="width:30%" id="textinput_label">
+                <%= f.radio_button :address_select, 0, {checked: true ,id: "textinput"}%>住所を入力
+              </label>
+              <label class="btn btn-outline-secondary" style="width:30%" id="present_ocation_label">
+                <%= f.radio_button :address_select, 1, {id: "present_ocation"} %>現在地から登録
+              </label>
+              <label class="btn btn-outline-secondary" style="width:30%" id="google_map_label">
+                <%= f.radio_button :address_select, 2, {id: "google_map"} %>マップから登録
+              </label>
+            </form>
+          </div>
           <%= f.text_field :address, autocomplete: "address", class: 'form-control', id:"address" %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :address} %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :latitude} %>
           <%= render 'shared/error_message_detail',{object: f.object, target: :longitude} %>
         </div>
-          <%# <div class="form-check">
-            <input class="form-check-input" type=”radio” name="address_select" id="textinput" checked>
-            <label class="form-check-label" for="textinput">
-                住所を入力して登録
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type=”radio” name="address_select" id="present_ocation" >
-            <label class="form-check-label" for="present_ocation">
-                現在地から登録
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type=”radio” name="address_select" id="google_map" >
-            <label class="form-check-label" for="google_map">
-                マップから登録
-            </label>
-          </div> %>
         
         <%= f.hidden_field :latitude,  id: "latitude" %>
         <%= f.hidden_field :longitude, id: "longitude" %>
@@ -88,12 +70,6 @@
         <div class="actions text-center mt-20 mb-10">
           <%= f.submit "お店の情報登録", class: "btn btn-info w-75" %>
         </div>
-        <script type="text/javascript">
-          function CloseWindow() {
-            window.close();
-          }
-        </script>
-<!--        <input type="button" onclick="CloseWindow();" value="◀︎戻る" class="btn btn-link" />-->
         <%= link_to "戻る", :back %>
       </div>
     </div>
