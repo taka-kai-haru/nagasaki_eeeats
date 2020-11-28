@@ -13,16 +13,16 @@ let gps_marker = null;
 let map = null;
 let present_position_lat = document.getElementById('present_position_lat');
 let present_position_lng = document.getElementById('present_position_lng');
-let present_position_select = document.getElementById('switch1');
 let area = document.getElementById('area');
-let switch1 = document.getElementById('switch1');
+let order_near = document.getElementById('order_near');
+let order_evaluation = document.getElementById('order_evaluation');
 
 if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
     gps_fixed.addEventListener('touchend', function() {
         show_current_location();
     });
 
-    present_position_select.addEventListener('touchend',function (){
+    order_near.addEventListener('touchend',function (){
         set_present_position_hidden_field();
     })
 
@@ -31,7 +31,7 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
         show_current_location();
     });
 
-    present_position_select.addEventListener('click',function (){
+    order_near.addEventListener('click',function (){
         set_present_position_hidden_field();
     })
 }
@@ -87,28 +87,32 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
 // 現在地取得後hidden_fieldへセット
 function set_present_position_hidden_field() {
 
-        if (switch1.checked === true) {
-            present_position_lat.value = null;
-            present_position_lng.value = null;
-            if (!navigator.geolocation) {
-                alert('GoogleのGeolocationサービスが使用できません。');
-                present_position_select.checked = false;
-                area.readonly = false;
-                return;
-            }
-            navigator.geolocation.getCurrentPosition(
-                function (position) {
-                    present_position_lat.value = position.coords.latitude;
-                    present_position_lng.value = position.coords.longitude;
-                    area.selectIndex = 0;
-                    area.readonly = true;
-                },
-                function () {
-                    alert('現在地が取得できませんでした。');
-                    present_position_select.checked = false;
-                    area.readonly = false;
-                });
-        }
+        // テスト時に作動すると現在地が所得出来ないのでデプロイ時にコメントを外す
+
+        // if (order_near.checked === true) {
+        //     present_position_lat.value = null;
+        //     present_position_lng.value = null;
+        //     if (!navigator.geolocation) {
+        //         alert('GoogleのGeolocationサービスが使用できません。');
+        //         order_near.checked = false;
+        //         order_evaluation.checked = true;
+        //         document.getElementById("order_near_label").classList.remove("active");
+        //         document.getElementById("order_evaluation_label").classList.add("active");
+        //         return;
+        //     }
+        //     navigator.geolocation.getCurrentPosition(
+        //         function (position) {
+        //             present_position_lat.value = position.coords.latitude;
+        //             present_position_lng.value = position.coords.longitude;
+        //         },
+        //         function () {
+        //             alert('現在地が取得できませんでした。');
+        //             order_near.checked = false;
+        //             order_evaluation.checked = true;
+        //             document.getElementById("order_near_label").classList.remove("active");
+        //             document.getElementById("order_evaluation_label").classList.add("active");
+        //         });
+        // }
 }
 
 

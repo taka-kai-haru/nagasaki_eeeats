@@ -1,55 +1,16 @@
 <% provide(:title, "お店一覧") %>
 
 <h4 class="display-4 text-light text-center">お店一覧</h4>
-
-<% if user_signed_in? %>
-  <%= link_to "+お店の情報登録", new_restaurant_path, class: "btn  btn-info"%>
-<% end %>
-
+<%= link_to "+お店の情報登録", new_restaurant_path, class: "btn  btn-info"%>
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12 col-xs-12 bg-white rounded pd-20  mb-20 mt-10">
-        <%= form_with(scope: :search, url: restaurants_path, method: :get, local: true) do |f| %>
+      <%= form_with(scope: :search, url: restaurants_path, method: :get, local: true) do |f| %>
         <div class="col-lg-8 col-xs-12">
-
-          <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
-<!--            <form id="radioGroup">-->
-              <label class="btn btn-outline-secondary active" style="width:30%" id="my_post_none_label">
-                <%= f.radio_button :my_post_select, 0, {checked: true ,id: "my_post_none"}%>すべて
-              </label>
-              <label class="btn btn-outline-secondary" style="width:30%" id="my_post_only_label">
-                <%= f.radio_button :my_post_select, 1, {id: "my_post_only"}%>自分の登録分
-              </label>
-<!--            </form>-->
-          </div>
-
-          <div id="likes_condition" class="row mt-20 display-none">
-            <label class="likes">お気に入り
-              <%= f.check_box :likes, id: 'likes' %><i class="material-icons good">thumb_up_alt</i>
-              <div class="like_ripple"></div>
-              <div class="description">お店が気に入ったらクリック</div>
-            </label>
-
-            <label class="dislikes">イマイチ
-              <%= f.check_box :dislikes, id: 'dislikes' %><i class="material-icons bad">thumb_down_alt</i>
-              <div class="dislike_ripple"></div>
-              <div class="description">お店が気に入らなかったらクリック</div>
-            </label>
-          </div>
-
-          <div class="field">
-            <%= f.label '現在地周辺検索' %>
-            <div class="switchArea-present-position">
-              <%= f.check_box :present_position_select, autocomplete: "release", id: 'switch1'%>
-              <label for="switch1"><span></span></label>
-              <div id="swImg"></div>
-            </div>
-          </div>
-          <%#= f.hidden_field :present_position_lat,id: 'present_position_lat',value: "32.7286784"%>
-          <%#= f.hidden_field :present_position_lng,id: 'present_position_lng',value: "129.892352"%>
-<!--          <input type="hidden" value="0" id ="present_position_lat">-->
-<!--          <input type="hidden" value="0" id ="present_position_lng">-->
-
+          <%= f.hidden_field :present_position_lat,id: 'present_position_lat',value: "32.7286784"%>
+          <%= f.hidden_field :present_position_lng,id: 'present_position_lng',value: "129.892352"%>
+          <%#= f.hidden_field :present_position_lat,id: 'present_position_lat'%>
+          <%#= f.hidden_field :present_position_lng,id: 'present_position_lng'%>
           <div class="field">
             <%= f.label :area_id, "地域" %>
             <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{selected: @search_params[:area_id], include_blank: "指定なし"}, {class: 'form-control',id: 'area'}) %>
@@ -62,13 +23,50 @@
             <%= f.label :name, "お店の名前" %>
             <%= f.text_field :name, value: @search_params[:name], autocomplete: "name", class: 'form-control' %>
           </div>
-        </div>
-          <div class="text-center">
-            <%= button_tag type:"submit", class: "btn btn-info w-25" do %>
-            検索<%= content_tag :i, "search", class: "material-icons search-icon" %><% end %>
-
+          <%= f.label :my_post_select, '検索範囲' %>
+          <div class="field">
+            <div class="col-sm-10 btn-group btn-group-toggle  mb-10" data-toggle="buttons">
+              <label class="btn btn-outline-secondary active" style="width:30%" id="my_post_none_label">
+                <%= f.radio_button :my_post_select, 0, {checked: @search_params[:my_post_select] == '0' ? true : false ,id: "my_post_none"}%>すべて
+              </label>
+              <label class="btn btn-outline-secondary" style="width:30%" id="my_post_only_label">
+                <%= f.radio_button :my_post_select, 1, {checked: @search_params[:my_post_select] == '1' ? true : false ,id: "my_post_only"}%>自分の登録分
+              </label>
+            </div>
+            <div id="likes_condition" class="display-none">
+              <div class="d-flex justify-content-start">
+                <%= f.label :likes, 'お気に入り', class: "align-self-center" %>
+                <label class="likes">
+                  <%= f.check_box :likes, {checked: @search_params[:likes] == '1' ? true: false, id: 'likes'} %><i class="material-icons good">thumb_up_alt</i>
+                  <div class="like_ripple"></div>
+                </label>
+                <%= f.label :dislikes, 'イマイチ', class: "align-self-center" %>
+                <label class="dislikes">
+                  <%= f.check_box :dislikes, {checked: @search_params[:dislikes] == '1' ? true: false ,id: 'dislikes'} %><i class="material-icons bad">thumb_down_alt</i>
+                  <div class="dislike_ripple"></div>
+                </label>
+              </div>
+            </div>
           </div>
-        <% end %>
+          <%= f.label :order, '並び順' %>
+          <div class="field">
+            <div class="col-sm-10 btn-group btn-group-toggle  mb-10" data-toggle="buttons">
+              <label class="btn btn-outline-secondary active" style="width:30%" id="order_evaluation_label">
+                <%= f.radio_button :order, 0, {checked: @search_params[:order] == '0' ? true : false , id: "order_evaluation"}%>評価順
+              </label>
+              <label class="btn btn-outline-secondary" style="width:30%" id="order_near_label">
+                <%= f.radio_button :order, 1, {checked: @search_params[:order] == '1' ? true : false, id: "order_near"}%>近い順
+                </label>
+            </div>
+          </div>
+        </div>
+        <div class="text-center ">
+          <%= button_tag type:"submit", class: "btn btn-info button-wide rounded-center" do %>
+            検索<%= content_tag :i, "search", class: "material-icons search-icon" %>
+          <% end %>
+        </div>
+
+      <% end %>
     </div>
   </div>
 
@@ -78,7 +76,7 @@
     <div class="col-lg-4">
     </div>
     <div class="bg-white rounded col-lg-4 mb-20 text-center pd-10">
-    <h5 class="h5">検索結果：<%= @restaurants.total_count%>件</h5>
+      <h5 class="h5">検索結果：<%= @restaurants.total_count%>件</h5>
     </div>
     <div class="col-lg-4">
     </div>
@@ -106,7 +104,6 @@
                     <% end %>
                   <% end %>
                   <%= image_tag "no_photo.png", class: 'card-img-top' unless image_exist %>
-
                   <div class="card-body">
                     <% if restaurant.posts.count > 0 %>
                       <h5><span class="badge badge-success">評価：<%= restaurant.point %>  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
@@ -119,41 +116,37 @@
                     <p class="card-text" id="address<%= @restaurants_number%>"><%= restaurant.address %></p>
                     <input type="hidden" value="<%= restaurant.latitude %>" id="latitude<%= @restaurants_number %>">
                     <input type="hidden" value="<%= restaurant.longitude %>" id="longitude<%= @restaurants_number %>">
-<!--                    <p class="card-text"><%#= restaurant.distance %></p>-->
                     <% @restaurants_number += 1 %>
                   </div>
                 </a>
               </div>
             </div>
           <% end %>
-          
         </div>
       <% else %>
         <h5 class="text-center">条件に合うお店がありません。</h5>
       <% end %>
     </div>
+
     <input type="hidden" value="<%= Restaurant::GMAP_DEF_LAT%>" id ="gmap_def_lat">
     <input type="hidden" value="<%= Restaurant::GMAP_DEF_LNG%>" id ="gmap_def_lng">
-
     <input type="hidden" value="<%= @restaurants.count %>"      id ="restaurants_count">
     <div class="col-xl-6 col-xs-12 mb-20 pd-0">
-        <div class="gmap-index gmap-target sticky">
-            <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
-              <i class="material-icons">gps_fixed</i>
-            </button>
-            <div id="map_canvas">
-            </div>
-            
+      <div class="gmap-index gmap-target sticky">
+        <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
+          <i class="material-icons">gps_fixed</i>
+        </button>
+        <div id="map_canvas">
         </div>
-
-        <%= javascript_pack_tag 'home/restaurants/index_map' %>
-    
+      </div>
+      <%= javascript_pack_tag 'home/restaurants/index_map' %>
     </div>
   </div>
+
   <div class="row">
-
-      <div class="col-lg-12 col-xs-12">
-        <%= paginate @restaurants %>
+    <div class="col-lg-12 col-xs-12">
+      <%= paginate @restaurants %>
     </div>
   </div>
+
 </div>

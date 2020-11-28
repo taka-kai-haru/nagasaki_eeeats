@@ -37,21 +37,21 @@
               <div id="carouselExampleFade" class="carousel slide carousel-fade w-75 mx-auto" data-ride="carousel">
                 <div class="carousel-inner">
             <% end%>
-              <% post.images.each do |image|%>
-                <% if index == 0%>
-                  <div class="carousel-item active">
-                <% else %>
-                  <div class="carousel-item">
-                <% end %>
-                <%= image_tag image , class: "d-block w-100", alt: "#{index} slide" %>
-                <% index += 1%>
-                  </div>
+            <% post.images.each do |image|%>
+              <% if index == 0%>
+                <div class="carousel-item active">
+              <% else %>
+                <div class="carousel-item">
               <% end %>
+              <%= image_tag image , class: "d-block w-100", alt: "#{index} slide" %>
+              <% index += 1%>
+                </div>
+            <% end %>
           <% end %>
         <% end %>
         <% if index != 0 %>
-                </div>
-              </div>
+          </div>
+          </div>
         <% else %>
           <%= image_tag "no_photo.png", class: "d-block w-100", alt: "no photo" %>
         <% end %>
