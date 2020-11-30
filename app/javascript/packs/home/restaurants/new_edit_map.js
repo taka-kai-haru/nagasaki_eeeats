@@ -11,6 +11,22 @@ const my_reg = /日本、〒\s?\d{3}(-|ー)\d{4}/;
 const def_lat = Number(document.getElementById("gmap_def_lat").value);
 const def_lng = Number(document.getElementById("gmap_def_lng").value);
 
+// Map初期設定
+restaurantmap = new google.maps.Map(map_canvas, {
+  center: {
+    lat: def_lat,
+    lng: def_lng
+  },
+  zoom: 17,
+  mapTypeControl: false,
+  zoomControl: true,
+  streetViewControl: false,
+});
+
+// 住所があればGoogleMap表示
+if (address.value !== "") {
+  getAddressToMove();
+}
 
 // イベント
 if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
@@ -23,9 +39,9 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
   google_map.addEventListener('touchend', (event) => {
     RadioButtonChanged();
   });
-  address.addEventListener('touchend', (event) => {
-    if (address.value !== "") {
-      getAddressToMove(); //入力された住所へ移動
+  restaurantmap.addListener('touchend', function (e) {
+    if (google_map.checked) {
+      show_current_location(e);
     }
   });
 } else {
@@ -38,33 +54,18 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
   google_map.addEventListener('click', (event) => {
     RadioButtonChanged();
   });
-  address.addEventListener('focusout', (event) => {
-    if (address.value !== "") {
-      getAddressToMove(); //入力された住所へ移動
+  restaurantmap.addListener('click', function (e) {
+    if (google_map.checked) {
+      show_current_location(e);
     }
   });
 }
-
-// Map初期設定
-  restaurantmap = new google.maps.Map(map_canvas, {
-    center: {
-      lat: def_lat,
-      lng: def_lng
-    },
-    zoom: 17,
-    mapTypeControl: false,
-    zoomControl: true,
-    streetViewControl: false,
-  });
-
-// 住所があればGoogleMap表示
+address.addEventListener('focusout', (event) => {
   if (address.value !== "") {
-    getAddressToMove();
+    getAddressToMove(); //入力された住所へ移動
   }
+});
 
-  restaurantmap.addListener('click', function (e) {
-    show_current_location(e);
-  });
 
 
 //RadioButtonChangeイベント

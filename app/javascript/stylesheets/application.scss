@@ -80,7 +80,7 @@ body {
 }
 
 .max-width {
-  max-width: 1500px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -543,6 +543,7 @@ html body {
 
 .flexContainer {
   display: flex;
+  flex-wrap:wrap;
   align-items: center;
 }
 

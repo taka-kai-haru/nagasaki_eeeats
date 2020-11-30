@@ -7,10 +7,10 @@
     <div class="col-lg-12 col-xs-12 bg-white rounded pd-20  mb-20 mt-10">
       <%= form_with(scope: :search, url: restaurants_path, method: :get, local: true) do |f| %>
         <div class="col-lg-8 col-xs-12">
-          <%= f.hidden_field :present_position_lat,id: 'present_position_lat',value: "32.7286784"%>
-          <%= f.hidden_field :present_position_lng,id: 'present_position_lng',value: "129.892352"%>
-          <%#= f.hidden_field :present_position_lat,id: 'present_position_lat'%>
-          <%#= f.hidden_field :present_position_lng,id: 'present_position_lng'%>
+          <%#= f.hidden_field :present_position_lat,id: 'present_position_lat',value: "32.7286784"%>
+          <%#= f.hidden_field :present_position_lng,id: 'present_position_lng',value: "129.892352"%>
+          <%= f.hidden_field :present_position_lat,id: 'present_position_lat'%>
+          <%= f.hidden_field :present_position_lng,id: 'present_position_lng'%>
           <div class="field">
             <%= f.label :area_id, "地域" %>
             <%= f.collection_select(:area_id, Area.all, :id, :areas_name,{selected: @search_params[:area_id], include_blank: "指定なし"}, {class: 'form-control',id: 'area'}) %>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="text-center ">
-          <%= button_tag type:"submit", class: "btn btn-info button-wide rounded-center" do %>
+          <%= button_tag type:"submit", class: "btn btn-info button-wide rounded-center mt-20" do %>
             検索<%= content_tag :i, "search", class: "material-icons search-icon" %>
           <% end %>
         </div>

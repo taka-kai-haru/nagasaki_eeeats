@@ -3,7 +3,7 @@
 <%= form_with(model: @restaurant, local: true ) do |f| %>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
+      <div class="col-lg-12 col-xs-12 bg-white rounded pd-20 mb-10">
         <%= render 'shared/error_messages', object: f.object %>
 
         <div class="field">
@@ -38,16 +38,16 @@
 
         <div class="field">
           <%= f.label :address %>
-          <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-20" data-toggle="buttons">
+          <div class="col-sm-10 btn-group btn-group-toggle  mb-10 mt-10" data-toggle="buttons">
             <form id="radioGroup">
               <label class="btn btn-outline-secondary active" style="width:30%" id="textinput_label">
-                <%= f.radio_button :address_select, 0, {checked: true ,id: "textinput"}%>住所を入力
+                <%= f.radio_button :address_select, 0, {checked: true ,id: "textinput"}%>入力
               </label>
               <label class="btn btn-outline-secondary" style="width:30%" id="present_ocation_label">
-                <%= f.radio_button :address_select, 1, {id: "present_ocation"} %>現在地から登録
+                <%= f.radio_button :address_select, 1, {id: "present_ocation"} %>現在地
               </label>
               <label class="btn btn-outline-secondary" style="width:30%" id="google_map_label">
-                <%= f.radio_button :address_select, 2, {id: "google_map"} %>マップから登録
+                <%= f.radio_button :address_select, 2, {id: "google_map"} %>マップ
               </label>
             </form>
           </div>

@@ -20,7 +20,9 @@ class RestaurantsController < ApplicationController
     # if params[:search][:present_position_lat].present? && params[:search][:present_position_lng].present?
     #   @restaurants = Restaurant.includes(:posts).search(@search_params).by_distance(:origin => [params[:search][:present_position_lat].to_f, params[:search][:present_position_lng].to_f]).page(params[:page]).per(4)
     # else
-      @restaurants = Restaurant.includes(:posts).search(@search_params).order('point desc NULLS LAST').page(params[:page]).per(4)
+    #   @restaurants = Restaurant.includes(:posts).search(@search_params).order('point desc NULLS LAST').page(params[:page]).per(?4)
+
+    @restaurants = Restaurant.includes(:posts).search(@search_params).page(params[:page]).per(4)
 
 
       # puts params[:present_position_lat]
@@ -36,12 +38,13 @@ class RestaurantsController < ApplicationController
     # @restaurants.order_location_by(@search_params[:present_position_lat], @search_params[:present_position_lng]) unless @search_params[:present_position_lat].present? && @search_params[:present_position_lng].present?
     # @restaurants.order_location_by(search[:present_position_lat], search[:present_position_lng]) if search[:present_position_lat].present? && search[:present_position_lng].present?
     # @restaurants.order_location_by(32.7286784,129.892352)
-    session[:return_to] == nil
+    # session[:return_to].clear
+    session.delete(:return_to)
   end
 
   def show
     # index情報保存
-    session[:return_to] = request.referer if session[:return_to].nil?
+    session[:return_to] = request.referer if session[:return_to].blank?
 
     @restaurant = Restaurant.find(params[:id])
     flash.now[:notice] = "閉店している可能性があります。" if @restaurant.closed
@@ -50,6 +53,8 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    # index情報保存
+    session[:return_to] = request.referer if session[:return_to].blank?
     @restaurant = Restaurant.new
     # @areas = Area.all
     # @restauranttypes = RestaurantType.all

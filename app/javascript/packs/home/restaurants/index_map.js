@@ -87,32 +87,32 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
 // 現在地取得後hidden_fieldへセット
 function set_present_position_hidden_field() {
 
-        // テスト時に作動すると現在地が所得出来ないのでデプロイ時にコメントを外す
+    // テスト時に作動すると現在地が所得出来ないのでデプロイ時にコメントを外す
 
-        // if (order_near.checked === true) {
-        //     present_position_lat.value = null;
-        //     present_position_lng.value = null;
-        //     if (!navigator.geolocation) {
-        //         alert('GoogleのGeolocationサービスが使用できません。');
-        //         order_near.checked = false;
-        //         order_evaluation.checked = true;
-        //         document.getElementById("order_near_label").classList.remove("active");
-        //         document.getElementById("order_evaluation_label").classList.add("active");
-        //         return;
-        //     }
-        //     navigator.geolocation.getCurrentPosition(
-        //         function (position) {
-        //             present_position_lat.value = position.coords.latitude;
-        //             present_position_lng.value = position.coords.longitude;
-        //         },
-        //         function () {
-        //             alert('現在地が取得できませんでした。');
-        //             order_near.checked = false;
-        //             order_evaluation.checked = true;
-        //             document.getElementById("order_near_label").classList.remove("active");
-        //             document.getElementById("order_evaluation_label").classList.add("active");
-        //         });
-        // }
+    if (order_near.checked === true) {
+        present_position_lat.value = null;
+        present_position_lng.value = null;
+        if (!navigator.geolocation) {
+            alert('GoogleのGeolocationサービスが使用できません。');
+            order_near.checked = false;
+            order_evaluation.checked = true;
+            document.getElementById("order_near_label").classList.remove("active");
+            document.getElementById("order_evaluation_label").classList.add("active");
+            return;
+        }
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                present_position_lat.value = position.coords.latitude;
+                present_position_lng.value = position.coords.longitude;
+            },
+            function () {
+                alert('現在地が取得できませんでした。');
+                order_near.checked = false;
+                order_evaluation.checked = true;
+                document.getElementById("order_near_label").classList.remove("active");
+                document.getElementById("order_evaluation_label").classList.add("active");
+            });
+    }
 }
 
 
