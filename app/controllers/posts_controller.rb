@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   def show
     # binding.pry
     @post = Post.find(params[:post_id])
+    # @my_post = Post.find_by(id: params[:post_id], user_id: current_user.id)
+    # @post = Post.find_by(id: params[:post_id]).where.not(user_id: current_user.id)
   end
 
   def new

@@ -2,18 +2,6 @@
 <h4 class="display-4 text-light text-center">コメント編集</h4>
 
 <%= form_with(model: @post, local: true ) do |f| %>
-  
-  <label class="likes">
-    <%= f.check_box :likes %><i class="material-icons good">thumb_up_alt</i>
-    <div class="like_ripple"></div>
-    <div class="description">お店が気に入ったらクリック</div>
-  </label>
-  
-  <label class="dislikes">
-    <%= f.check_box :dislikes %><i class="material-icons bad">thumb_down_alt</i>
-    <div class="dislike_ripple"></div>
-    <div class="description">お店が気に入らなかったらクリック</div>
-  </label>
 
   <div class="container-fluid bg-white rounded  pd-20 mb-10">
     <div class="row">
@@ -91,6 +79,20 @@
     <div class="row">
       <%= render 'shared/error_messages', object: f.object %>
       <div class="col-lg-6 col-xs-6 ">
+
+        <div class="d-flex justify-content-start">
+          <%= f.label :likes, 'お気に入り', class: "align-self-center" %>
+          <label class="likes">
+            <%= f.check_box :likes %><i class="material-icons good">thumb_up_alt</i>
+            <div class="like_ripple"></div>
+          </label>
+          <%= f.label :dislikes, 'イマイチ', class: "align-self-center" %>
+          <label class="dislikes">
+            <%= f.check_box :dislikes %><i class="material-icons bad">thumb_down_alt</i>
+            <div class="dislike_ripple"></div>
+          </label>
+        </div>
+
         <div class="field range">
           <%= f.label :delicious %>　　
           <%= f.range_field :delicious, in: 1..5, id: :delicious %>

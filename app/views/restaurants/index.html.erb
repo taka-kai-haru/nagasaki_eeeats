@@ -105,12 +105,29 @@
                   <% end %>
                   <%= image_tag "no_photo.png", class: 'card-img-top' unless image_exist %>
                   <div class="card-body">
-                    <% if restaurant.posts.count > 0 %>
-                      <h5><span class="badge badge-success">評価：<%= restaurant.point %>  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
-                    <% else %>
-                      <h5><span class="badge badge-success">評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
-                    <% end %>
-                    <%= image_tag "red#{@restaurants_number + 1}.png" %>
+                    <div class="flexContainer">
+                      <% if restaurant.posts.count > 0 %>
+                        <h5><span class="badge badge-success">評価：<%= restaurant.point %>  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
+                      <% else %>
+                        <h5><span class="badge badge-success">評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
+                      <% end %>
+                      <% if @restaurants_number < 10 %>
+                        <%= image_tag "red#{@restaurants_number + 1}.png" %>
+                      <% end %>
+                    </div>
+                    <div class="flexContainer">
+                      <% restaurant.posts.each do |post| %>
+                        <% if post.user_id == current_user.id %>
+                          <h5><span class="badge badge-info">マイデータあり</span></h5>
+                          <% if post.likes %>
+                            <i class="material-icons good color-on">thumb_up_alt</i>
+                          <% end %>
+                          <% if post.dislikes %>
+                            <i class="material-icons bad color-on">thumb_down_alt</i>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </div>
                     <p class="card-text"><%= restaurant.restaurant_type.name %></p>
                     <small class="text-muted"><%= restaurant.area.areas_name %></small>
                     <p class="card-text" id="address<%= @restaurants_number%>"><%= restaurant.address %></p>
