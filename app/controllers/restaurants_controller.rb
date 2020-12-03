@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
     # else
     #   @restaurants = Restaurant.includes(:posts).search(@search_params).order('point desc NULLS LAST').page(params[:page]).per(?4)
 
-    @restaurants = Restaurant.includes(:posts).search(@search_params).page(params[:page]).per(4)
+    @restaurants = Restaurant.includes(:posts).search(@search_params).page(params[:page]).per(10)
 
 
       # puts params[:present_position_lat]

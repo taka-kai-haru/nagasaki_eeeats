@@ -149,16 +149,20 @@
     <input type="hidden" value="<%= Restaurant::GMAP_DEF_LNG%>" id ="gmap_def_lng">
     <input type="hidden" value="<%= @restaurants.count %>"      id ="restaurants_count">
     <div class="col-xl-6 col-xs-12 mb-20 pd-0">
-      <div class="gmap-index gmap-target sticky">
-        <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
-          <i class="material-icons">gps_fixed</i>
-        </button>
-        <div id="map_canvas">
+      <div class="sticky">
+        <div class="gmap-index gmap-target">
+          <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
+            <i class="material-icons">gps_fixed</i>
+          </button>
+          <div id="map_canvas">
+          </div>
         </div>
       </div>
       <%= javascript_pack_tag 'home/restaurants/index_map' %>
     </div>
   </div>
+
+
 
   <div class="row">
     <div class="col-lg-12 col-xs-12">

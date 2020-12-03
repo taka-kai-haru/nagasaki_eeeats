@@ -33,7 +33,13 @@ $nav-color: rgba(0, 0, 0, 0.5);
 .navbar {
   background: $nav-color;
   //margin: 0;
-  position : fixed;
+  //position : fixed;
+
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+
   //height: $header-size;
 }
 //@media screen and (max-width:$max-width) {
@@ -266,7 +272,10 @@ label.custom-control-label {
 
 
 .sticky {
-  position: -webkit-sticky; /* Safari */
+  position: -webkit-sticky;
+  //position: -moz-sticky;
+  //position: -ms-sticky;
+  //position: -o-sticky;
   position: sticky;
   //top: $header-size;
   top: 0;
@@ -589,23 +598,29 @@ html body {
 //   width: 100%;
 // }
 
+
+
 /*ページネーション自体のデザイン*/
-// .pagination>li>a {
-// border: none;     /*枠線をなくす*/
-// color: #696969;   /*文字の色を変える*/
-// border-radius: 20px;    /*角を丸くする*/
-// }
+ .pagination>li>a {
+ border: none;     /*枠線をなくす*/
+ color: #696969;   /*文字の色を変える*/
+
+ //border-radius: 15px;    /*角を丸くする*/
+ }
+
 
 /* 表示しているページ番号のデザイン */
-// .pagination>.active>a {
-//   background: #93c9ff;     /*背景の色を変える*/
-// border-radius: 20px;     /*角を丸くする*/
-// }
+ .pagination>.active>a {
+   background: $info !important;     /*背景の色を変える*/
+ //border-radius: 15px;     /*角を丸くする*/
+ }
 
 /*ホバー時のデザイン*/
-// .pagination>li>a:hover {
-//   border-radius: 20px;    /*角を丸くする*/
-// }
+ .pagination>li>a:hover {
+   //border-radius: 15px;    /*角を丸くする*/
+   color: white;   /*文字の色を変える*/
+   background: $info;     /*背景の色を変える*/
+ }
 
 /* miscellaneous */
 
