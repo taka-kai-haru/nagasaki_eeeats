@@ -34,6 +34,7 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
         RadioButtonChanged();
     });
     present_ocation.addEventListener('touchend', (event) => {
+        console.log("touched start")
         RadioButtonChanged();
     });
     google_map.addEventListener('touchend', (event) => {
@@ -49,6 +50,7 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
         RadioButtonChanged();
     });
     present_ocation.addEventListener('click', (event) => {
+        console.log("click start")
         RadioButtonChanged();
     });
     google_map.addEventListener('click', (event) => {
@@ -80,12 +82,14 @@ function RadioButtonChanged() {
     if (present_ocation.checked) {
         // textinput.checked = false;
         // google_map = false;
+
         if (!navigator.geolocation) {
             alert('GoogleのGeolocationサービスが使用できません。');
             // textinput.checked = true;
             return;
         }
         address.readonly = true;
+        console.log("現在地取得start")
         getPresentOcation(); //現在地を取得
     }
 
@@ -125,7 +129,7 @@ function show_current_location(e) {
             latitudelongitudeSet(e.latLng.lat(), e.latLng.lng()); // 緯度経度セット
 
         } else {
-            arert("マップが見つかりませんでした。");
+            alert("マップが見つかりませんでした。");
             document.getElementById('map_canvas').innerText = "地図情報が取得できません。2";
             return;
         }
@@ -152,6 +156,8 @@ function getPresentOcation() {
         restaurantmap.setCenter(center_position);
         merkerSet(latlng, restaurantmap, "");
 
+        console.log("住所取得 start")
+
 // 住所をセット
         geocoder.geocode({
             location: {
@@ -165,6 +171,8 @@ function getPresentOcation() {
                 return;
             }
 
+            console.log("住所セット start")
+
             if (results[0]) {
                 // 住所を整形
                 let address_format = results[0].formatted_address;
@@ -174,7 +182,7 @@ function getPresentOcation() {
                 // 住所セット
                 address.value = address_format;
             } else {
-                arert("マップが見つかりませんでした。");
+                alert("マップが見つかりませんでした。");
                 document.getElementById('map_canvas').innerText = "地図情報が取得できません。2";
                 return;
             }
@@ -218,7 +226,7 @@ function getAddressToMove() {
                 latitudelongitudeSet(lat, lng); // 緯度経度セット
                 merkerSet(latlng, restaurantmap, address.value);
             } else {
-                arert("マップが見つかりませんでした。");
+                alert("マップが見つかりませんでした。");
                 document.getElementById('map_canvas').innerText = "地図情報が取得できません。4";
                 return;
             }
