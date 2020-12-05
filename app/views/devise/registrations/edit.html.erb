@@ -1,68 +1,67 @@
 <% provide(:title, "ユーザー情報変更") %>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10 rounded-center">
-      <h2 class="h2">ユーザー情報変更</h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          <%= f.label :name %>
-          <em>  <%= User::NAME_MAXMUM %>文字以下</em>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
-          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :name} %>
-        </div>
+<div class="row">
+  <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10 rounded-center">
+    <h2 class="display-4 text-center page_title">ユーザー情報変更</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          <%= f.label :email %><i>（変更した場合、確認メールが送信されます）</i><br />
-          <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
-          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :email} %>
-        </div>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>現在メールの確認待ちです : <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <div class="field">
-          <%= f.label :password %> 
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %>文字以上)</em>
-          <% end %>
-          <br />
-          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
-          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
-          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :password_confirmation} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :release %>
-          <div class="switchArea">
-            <%= f.check_box :release, autocomplete: "release", id: 'switch1' %>
-            <label for="switch1"><span></span></label>
-            <div id="swImg"></div>
-          </div>
-          <%= render 'devise/shared/error_message_detail',{object: f.object, target: :release} %>
-        </div>
-        <div class="actions text-center mt-20">
-          <%= f.submit "ユーザー情報更新", class: "btn btn-info w-75" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <br />
-  <div class="row">
-    <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
-      <h2 class='h2'>ユーザー情報削除</h2>
-
-      <p>ユーザー情報を削除する場合はこちら</p>
-      <div class="text-center">
-        <%= button_to "ユーザー情報削除", registration_path(resource_name), data: { confirm: "ユーザー情報と登録した全てのデータを削除しますか?" }, method: :delete , class: "btn btn-danger text-center w-75"%>
+      <div class="field">
+        <%= f.label :name %>
+        <em>  <%= User::NAME_MAXMUM %>文字以下</em>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+        <%= render 'devise/shared/error_message_detail', {object: f.object, target: :name} %>
       </div>
+
+      <div class="field">
+        <%= f.label :email %><i>（変更した場合、確認メールが送信されます）</i><br/>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+        <%= render 'devise/shared/error_message_detail', {object: f.object, target: :email} %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>現在メールの確認待ちです : <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
+        <% end %>
+        <br/>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <%= render 'devise/shared/error_message_detail', {object: f.object, target: :password} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br/>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        <%= render 'devise/shared/error_message_detail', {object: f.object, target: :password_confirmation} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :release %>
+        <div class="switchArea">
+          <%= f.check_box :release, autocomplete: "release", id: 'switch1' %>
+          <label for="switch1"><span></span></label>
+          <div id="swImg"></div>
+        </div>
+        <%= render 'devise/shared/error_message_detail', {object: f.object, target: :release} %>
+      </div>
+      <div class="actions text-center mt-20">
+        <%= f.submit "ユーザー情報更新", class: "btn btn-info w-75" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
+    <h2 class='h2'>ユーザー情報削除</h2>
+
+    <p>ユーザー情報を削除する場合はこちら</p>
+    <div class="text-center">
+      <%= button_to "ユーザー情報削除", registration_path(resource_name), data: {confirm: "ユーザー情報と登録した全てのデータを削除しますか?"}, method: :delete, class: "btn btn-danger text-center w-75" %>
     </div>
   </div>
 </div>

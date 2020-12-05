@@ -1,69 +1,90 @@
 <% provide(:title, "お店の情報") %>
 
-<h4 class="display-4 text-light text-center">お店の情報</h4>
-<p class="text-right">更新日：<%= @restaurant.updatetime.strftime("%Y年%m月%d日")%></p>
+<div class="row">
+  <div class="col-lg-12 col-xs-12 bg-white rounded pd-20">
 
-<% if user_signed_in? %>
-  <%= link_to "お店情報変更", edit_restaurant_path, class: "btn  btn-info" %>
-  <%= link_to "お店情報削除", restaurant_path(restaurant_id: @restaurant.id), data: { confirm: "お店の情報を削除していいですか?" }, method: :delete, class: "btn  btn-danger" %>
-<% end %>
+    <h4 class="display-4 text-center page_title">お店の情報</h4>
+    <p class="text-right">更新日：<%= @restaurant.updatetime.strftime("%Y年%m月%d日") %></p>
 
-<div class="container-fluid">
-  <div class="row mt-20">
-    <div class="col-lg-6 col-xs-12">
-      <div class="bg-white rounded pd-20 mb-20">
-        <h3 class="h3">お店の名前</h3>
-        <p id="restaurant_name"><%= @restaurant.name%></p>
-        <h3 class="h3">ジャンル</h3>
-        <p><%= @restaurant.restaurant_type.name%></p>
-        <h3 class="h3">電話番号</h3>
-        <p><%= @restaurant.tel%></p>
-        <h3 class="h3">URL</h3>
-        <%= link_to @restaurant.url, @restaurant.url, target: :_blank, rel: "noopener noreferrer" %>
-        <h3 class="h3">地域</h3>
-        <p><%= @restaurant.area.areas_name%></p>
-        <h3 class="h3">住所</h3>
-        <p id="address"><%= @restaurant.address%></p>
+    <%= link_to "お店情報変更", edit_restaurant_path, class: "btn  btn-info" %>
+    <%= link_to "お店情報削除", restaurant_path(restaurant_id: @restaurant.id), data: {confirm: "お店の情報を削除していいですか?"}, method: :delete, class: "btn  btn-danger" %>
+    <div class="row">
+      <div class="col-lg-5 col-xs-12">
+        <div class=" pd-20 mb-20">
+          <h3 class="h5 show_item">お店の名前</h3>
+          <p id="restaurant_name"><%= @restaurant.name %></p>
+          <h3 class="h5 show_item">ジャンル</h3>
+          <p><%= @restaurant.restaurant_type.name %></p>
+          <h3 class="h5 show_item">電話番号</h3>
+          <p><%= @restaurant.tel %></p>
+          <h3 class="h5 show_item">URL</h3>
+          <%= link_to @restaurant.url, @restaurant.url, target: :_blank, rel: "noopener noreferrer" %>
+          <h3 class="h5 show_item">地域</h3>
+          <p><%= @restaurant.area.areas_name %></p>
+          <h3 class="h5 show_item">住所</h3>
+          <p id="address"><%= @restaurant.address %></p>
+        </div>
       </div>
-    </div>
-    <div class="col-lg-6 col-xs-12">
-      <div class="bg-white rounded pd-20 mb-20">
+      <div class="col-lg-7 col-xs-12">
+        <div class="pd-20 mb-20">
 
-        <% index = 0 %>
-        <% @restaurant.posts.each_with_index do |post| %>
-          <% next if post.user.release = false%>
-          <% if post.images.count > 0 %>
-            <% if index == 0 %>
-              <div id="carouselExampleFade" class="carousel slide carousel-fade w-75 mx-auto" data-ride="carousel">
-                <div class="carousel-inner">
-            <% end%>
-            <% post.images.each do |image|%>
-              <% if index == 0%>
-                <div class="carousel-item active">
-              <% else %>
-                <div class="carousel-item">
-              <% end %>
-              <%= image_tag image , class: "d-block w-100", alt: "#{index} slide" %>
-              <% index += 1%>
-                </div>
+          <% index = 0 %>
+          <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="false">
+          <% @restaurant.posts.each_with_index do |post| %>
+            <% next if post.user.id != current_user.id && !post.user.release %>
+            <% post.images.each do || %>
+              <% if index == 0 %>
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to=<%= index %> 'class=active'>></li>
+                <% else %>
+                    <li data-target="#carouselExampleIndicators" data-slide-to=<%= index %> %>></li>
+                <% end %>
+              <% index +=1 %>
+            <% end %>
+            <% if index != 0 %>
+                  </ol>
             <% end %>
           <% end %>
-        <% end %>
-        <% if index != 0 %>
+                  <% index = 0 %>
+                  <% @restaurant.posts.each do |post| %>
+                    <% next if post.user.id != current_user.id && !post.user.release %>
+                    <% post.images.each do |image| %>
+                      <% if index == 0 %>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                      <% else %>
+                          <div class="carousel-item">
+                      <% end %>
+                      <%= image_tag image, class: "d-block w-100", alt: "#{index} slide" %>
+                      <% index += 1 %>
+                          </div>
+                    <% end %>
+                  <% end %>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+              <% if index == 0 %>
+                <%= image_tag "no_photo.png", class: "d-block w-100", alt: "no photo"%>
+              <% else %>
+                          </div>
+              <% end %>
           </div>
-          </div>
-        <% else %>
-          <%= image_tag "no_photo.png", class: "d-block w-100", alt: "no photo" %>
-        <% end %>
 
-
+        </div>
       </div>
     </div>
-  </div>
-  <input type="hidden" value="<%= @restaurant.latitude%>" id ="latitude">
-  <input type="hidden" value="<%= @restaurant.longitude%>" id ="longitude">
-  <div class="row mt-20">
-    <div class="col-xl-12">
+
+
+      <input type="hidden" value="<%= @restaurant.latitude %>" id="latitude">
+      <input type="hidden" value="<%= @restaurant.longitude %>" id="longitude">
+
+
+      <div class="col-lg-12 col-xs-12 mb-20">
         <div class="gmap gmap-target">
           <button type="button" id="gps_fixed" class="btn btn-light gps_fixed">
             <i class="material-icons">gps_fixed</i>
@@ -73,62 +94,69 @@
         </div>
         <%= javascript_pack_tag 'home/restaurants/show_map' %>
 
+      </div>
+
+
+      <div id="mapinfo" class="mt-20 display-none">
+        <div class="col-lg-12 col-xs-12">
+          <div class="bg-white rounded pd-10 mb-20">
+            <div class="flexContainer">
+              <div class="stick-work"></div>
+              <p>　徒歩のルート　</p>
+              <p id="distance-work"></p>
+              <p id="duration-work"></p>
+            </div>
+            <div class="flexContainer">
+              <div class="stick-drive"></div>
+              <p>　車のルート　　</p>
+              <p id="distance"></p>
+              <p id="duration"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <% if !@restaurant.posts.exists?(user_id: current_user.id) %>
+        <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info button-wide rounded-center mb-20" %>
+      <% end %>
+
+      <% @restaurant.posts.each do |post| %>
+        <% if current_user.id == post.user_id %>
+          <div class="row mt-20">
+            <div class="col-lg-12 col-xs-12">
+              <div class="bg-light rounded pd-20 mb-5">
+                <%= link_to post.user.name, post_path(post_id: post.id) %>
+                <h5>
+                  <span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span>
+                </h5>
+                <p><%=strip_tags(post.comment.to_s).gsub(/[\n]/,"").strip.truncate(100, omission: '...')%></p>
+                <%= link_to "コメントの編集", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
+                <%= link_to "コメントの削除", post_path(post_id: post.id), method: :delete,
+                            data: {confirm: "コメントの削除をしてよいですか？"}, class: "btn  btn-info" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <% @restaurant.posts.each do |post| %>
+        <% if post.user.release && current_user.id != post.user_id %>
+          <div class="row mt-20">
+            <div class="col-lg-12 col-xs-12">
+              <div class="bg-light rounded pd-20 mb-5">
+                <%= link_to post.user.name, post_path(post_id: post.id) %>
+                <h5>
+                  <span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span>
+                </h5>
+                <p><%=strip_tags(post.comment.to_s).gsub(/[\n]/,"").strip.truncate(100, omission: '...')%></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
+
+    <%= link_to "戻る", restaurants_return_path, class: 'text-light' %>
   </div>
-    <div id="mapinfo" class="row mt-20 display-none">
-      <div class="col-xl-12">
-        <div class="bg-white rounded pd-10 mb-20">
-          <div class="flexContainer">
-            <div class="stick-work"></div>
-            <p>　徒歩のルート　</p>
-            <p id="distance-work"></p>
-            <p id="duration-work"></p>
-          </div>
-          <div class="flexContainer">
-            <div class="stick-drive"></div>
-            <p>　車のルート　　</p>
-            <p id="distance"></p>
-            <p id="duration"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-  <% if !@restaurant.posts.exists?(user_id: current_user.id) %>
-      <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info" %>
-  <% end %>
-
-  <% @restaurant.posts.each do |post| %>
-    <% if current_user.id == post.user_id %>
-      <div class="row mt-20">
-        <div class="col-xl-12">
-          <div class="bg-white rounded pd-20 mb-5">
-            <%= link_to post.user.name, post_path(post_id: post.id)%>
-            <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-<!--              <p><%#=post.comment.truncate(100, omission: '...')%></p>-->
-            <%= link_to "コメントの編集", edit_post_path(post_id: post.id), class: "btn  btn-info" %>
-            <%= link_to "コメントの削除", post_path(post_id: post.id), method: :delete,
-                                          data: { confirm: "コメントの削除をしてよいですか？" }, class: "btn  btn-info" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-  <% @restaurant.posts.each do |post| %>
-    <% if post.user.release && current_user.id != post.user_id %>
-      <div class="row mt-20">
-        <div class="col-xl-12">
-          <div class="bg-white rounded pd-20 mb-5">
-            <%= link_to post.user.name, post_path(post_id: post.id)%>
-            <h5><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious)%></span></h5>
-<!--              <p><%#=post.comment.truncate(100, omission: '...')%></p>-->
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-  <%= link_to "戻る", restaurants_return_path, class: 'text-light' %>
 </div>

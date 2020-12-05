@@ -50,24 +50,7 @@ class Restaurant < ApplicationRecord
   scope :order_evaluation, -> (order) { order('point desc NULLS LAST') if order == '0'}
   scope :order_near, -> (order,latitude,longitude) { by_distance(:origin => [latitude.to_f, longitude.to_f]) if order == '1' }
   scope :my_post_select_is, -> (my_post_select,user_id) { where(posts: {user_id: user_id}) if my_post_select == '1'}
-  # scope :order_location_by, ->(latitude, longitude) {
-  #   sort_by_near(latitude, longitude)  if latitude.present? && longitude.present?}
-  # scope :order_location_by, -> (latitude, longitude) {sort_by_near(latitude, longitude)}
-  # scope :present_position, ->(lat_lag) { within(5, origin: [lat_lag[:lat].to_i,lat_lag[:lag].to_i]) if lat_lag[:lat].present? && lat_lag[:lag].present? }
-  # scope :present_position, ->(lat_lag) { within(5, origin: [32.7286784,129.892352]) }
 
-  private
-  def self.sort_by_near(latitude, longitude)
-    # 6371=地球の半径
-    select("*, (
-        6371 * acos(
-            cos(radians(#{latitude}))
-            * cos(radians(latitude))
-            * cos(radians(longitude) - radians(#{longitude}))
-            + sin(radians(#{latitude}))
-            * sin(radians(latitude))
-        )
-        ) AS distance").order(:distance)
-  end
+
 
 end

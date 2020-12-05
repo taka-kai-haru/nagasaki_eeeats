@@ -1,21 +1,20 @@
 <% provide(:title, "ホーム") %>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-1">
+
+<div class="row">
+  <div class="col-lg-1">
+  </div>
+  <div class="col-lg-5 col-xs-12 align-self-start">
+    <%# <h1 class="display-1 text-light text-center">Nagasaki</h1>
+    <h1 class="display-1 text-light text-center">Eeeats</h1> %>
+    <div class="text-center">
+      <%= image_tag "Nagasaki_Eeeats.png", class: "title" %>
     </div>
-    <div class="col-lg-5 col-xs-12 align-self-start">
-      <%# <h1 class="display-1 text-light text-center">Nagasaki</h1>
-      <h1 class="display-1 text-light text-center">Eeeats</h1> %>
-      <div class="text-center">
-        <%= image_tag "Nagasaki_Eeeats.png", class: "title" %>
-      </div>
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" %>
-      <%# <%= link_to "ログインせずに見る", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light title-button" %> 
-      <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide" %>
-      <%# <%= link_to "長崎県すべて" , restaurants_path, class: "p-3 text-light" %> 
-      <%# <% @areas.each do |area| %> 
-      <%# <%= link_to area.areas_name, restaurants_path(area_id: area.id), class: "p-3 text-light" %> 
-      <%# <% end %> 
-    </div>
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" %>
+    <%# <%= link_to "ログインせずに見る", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light title-button" %>
+    <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide" %>
+    <%# <%= link_to "長崎県すべて" , restaurants_path, class: "p-3 text-light" %>
+    <%# <% @areas.each do |area| %>
+    <%# <%= link_to area.areas_name, restaurants_path(area_id: area.id), class: "p-3 text-light" %>
+    <%# <% end %>
   </div>
 </div>

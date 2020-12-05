@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Language" content="ja">
-    <meta name="google" content="notranslate" />
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCi_3RzETS7tHokVtKrb2wpoHC7ovon2IE" async defer></script>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Language" content="ja">
+  <meta name="google" content="notranslate"/>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCi_3RzETS7tHokVtKrb2wpoHC7ovon2IE" async defer></script>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
-  </head>
-  <body class="jumbotron font-family-sans-serif">
-    <div class="max-width">
-      <%= render 'layouts/header' %>
-        <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %> alert-<%= bootstrap_alert(message_type) %>"><%= message %></div>
-        <% end %>
-        <%= yield %>
-        <%# <%= debug(params) if Rails.env.development? %>
-    </div>
-  </body>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+  </script>
+  <![endif]-->
+</head>
+<body class="jumbotron font-family-sans-serif">
+<div class="container">
+  <%= render 'layouts/header' %>
+  <div class="mt-30">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %> alert-<%= bootstrap_alert(message_type) %>">
+        <%= message %>
+      </div>
+    <% end %>
+    <%= yield %>
+    <%# <%= debug(params) if Rails.env.development? %>
+  </div>
+</div>
+</body>
 </html>
