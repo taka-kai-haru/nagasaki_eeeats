@@ -16,6 +16,7 @@ let present_position_lng = document.getElementById('present_position_lng');
 let area = document.getElementById('area');
 let order_near = document.getElementById('order_near');
 let order_evaluation = document.getElementById('order_evaluation');
+let order_my_evaluation = document.getElementById('order_my_evaluation');
 
 if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
     gps_fixed.addEventListener('touchend', function() {
@@ -96,8 +97,10 @@ function set_present_position_hidden_field() {
             alert('GoogleのGeolocationサービスが使用できません。');
             order_near.checked = false;
             order_evaluation.checked = true;
+            order_my_evaluation.checked = false;
             document.getElementById("order_near_label").classList.remove("active");
             document.getElementById("order_evaluation_label").classList.add("active");
+            document.getElementById("order_my_evaluation_label").classList.remove("active");
             return;
         }
         navigator.geolocation.getCurrentPosition(
@@ -109,8 +112,10 @@ function set_present_position_hidden_field() {
                 alert('現在地が取得できませんでした。');
                 order_near.checked = false;
                 order_evaluation.checked = true;
+                order_my_evaluation.checked = false;
                 document.getElementById("order_near_label").classList.remove("active");
                 document.getElementById("order_evaluation_label").classList.add("active");
+                document.getElementById("order_my_evaluation_label").classList.remove("active");
             });
     }
 }

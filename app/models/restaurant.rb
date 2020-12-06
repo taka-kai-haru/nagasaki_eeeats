@@ -34,6 +34,7 @@ class Restaurant < ApplicationRecord
         .likes(search_params[:likes])
         .dislikes(search_params[:dislikes])
         .order_evaluation(search_params[:order])
+        .order_my_evaluation(search_params[:order])
         .order_near(search_params[:order],search_params[:present_position_lat],search_params[:present_position_lng])
         .my_post_select_is(search_params[:my_post_select],search_params[:user_id])
         # .present_position([lat: search_params[:present_position_lat], lag: search_params[:present_position_lng]])
@@ -48,7 +49,8 @@ class Restaurant < ApplicationRecord
   scope :likes, -> (likes) { where(posts: {likes: true}) if likes == '1'}
   scope :dislikes, -> (dislikes) { where(posts: {dislikes: true}) if dislikes == '1'}
   scope :order_evaluation, -> (order) { order('point desc NULLS LAST') if order == '0'}
-  scope :order_near, -> (order,latitude,longitude) { by_distance(:origin => [latitude.to_f, longitude.to_f]) if order == '1' }
+  scope :order_my_evaluation, -> (order) { order('(posts.atmosphere + posts.accessibility + posts.cost_performance + posts.assortment + posts.service + posts.delicious) desc NULLS LAST') if order == '1'}
+  scope :order_near, -> (order,latitude,longitude) { by_distance(:origin => [latitude.to_f, longitude.to_f]) if order == '2' }
   scope :my_post_select_is, -> (my_post_select,user_id) { where(posts: {user_id: user_id}) if my_post_select == '1'}
 
 

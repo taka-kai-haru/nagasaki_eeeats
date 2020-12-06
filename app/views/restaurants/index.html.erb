@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-lg-12 col-xs-12 bg-white rounded pd-20  mb-20 mt-10">
-    <h4 class="display-4  text-center page_title">お店一覧</h4>
+    <h1 class="text-center page_title">お店一覧</h1>
     <%= link_to "+お店の登録", new_restaurant_path, class: "btn  btn-info button-wide rounded-center mt-20 mb-20" %>
     <%= form_with(scope: :search, url: restaurants_path, method: :get, local: true) do |f| %>
       <div class="col-lg-8 col-xs-12">
@@ -25,14 +25,14 @@
         </div>
         <%= f.label :my_post_select, '検索範囲' %>
         <div class="field">
-          <div class="col-sm-10 btn-group btn-group-toggle  mb-10" data-toggle="buttons">
+          <div class="col-sm-12 btn-group btn-group-toggle  mb-10 pd-0" data-toggle="buttons">
             <label class="btn btn-outline-secondary active" style="width:30%" id="my_post_none_label">
               <%= f.radio_button :my_post_select, 0, {checked: @search_params[:my_post_select] == '0' ? true : false, id: "my_post_none"} %>
               すべて
             </label>
             <label class="btn btn-outline-secondary" style="width:30%" id="my_post_only_label">
               <%= f.radio_button :my_post_select, 1, {checked: @search_params[:my_post_select] == '1' ? true : false, id: "my_post_only"} %>
-              自分の登録分
+              自分の評価分
             </label>
           </div>
           <div id="likes_condition" class="display-none">
@@ -54,13 +54,17 @@
         </div>
         <%= f.label :order, '並び順' %>
         <div class="field">
-          <div class="col-sm-10 btn-group btn-group-toggle  mb-10" data-toggle="buttons">
+          <div class="col-sm-12 btn-group btn-group-toggle  mb-10 pd-0" data-toggle="buttons">
             <label class="btn btn-outline-secondary active" style="width:30%" id="order_evaluation_label">
               <%= f.radio_button :order, 0, {checked: @search_params[:order] == '0' ? true : false, id: "order_evaluation"} %>
-              評価順
+              全体評価
             </label>
-            <label class="btn btn-outline-secondary" style="width:30%" id="order_near_label">
-              <%= f.radio_button :order, 1, {checked: @search_params[:order] == '1' ? true : false, id: "order_near"} %>
+            <label class="btn btn-outline-secondary " style="width:30%" id="order_my_evaluation_label">
+              <%= f.radio_button :order, 1, {checked: @search_params[:order] == '1' ? true : false, id: "order_my_evaluation"} %>
+              自分評価
+            </label>
+            <label class="btn btn-outline-secondary " style="width:30%" id="order_near_label">
+              <%= f.radio_button :order, 2, {checked: @search_params[:order] == '2' ? true : false, id: "order_near"} %>
               近い順
             </label>
           </div>
@@ -116,11 +120,11 @@
                     <div class="card-body">
                       <div class="flexContainer">
                         <% if restaurant.posts.count > 0 %>
-                          <h5><span class="badge badge-success">評価：<%= restaurant.point %>
+                          <h5><span class="badge badge-success">全体評価：<%= restaurant.point %>
                             <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
                         <% else %>
                           <h5>
-                            <span class="badge badge-success">評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span>
+                            <span class="badge badge-success">全体評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span>
                           </h5>
                         <% end %>
                         <% if @restaurants_number < 10 %>
@@ -130,7 +134,7 @@
                       <div class="flexContainer">
                         <% restaurant.posts.each do |post| %>
                           <% if post.user_id == current_user.id %>
-                            <h5><span class="badge badge-info">マイデータあり</span></h5>
+                            <h5><span class="badge badge-info">自分評価：<%=  ((post.atmosphere.to_f + post.accessibility.to_f + post.cost_performance.to_f + post.assortment.to_f + post.service.to_f + post.delicious.to_f) / 6).round(1).to_f %></span></h5>
                             <% if post.likes %>
                               <i class="material-icons good color-on">thumb_up_alt</i>
                             <% end %>
