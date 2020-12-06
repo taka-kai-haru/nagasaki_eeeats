@@ -29,42 +29,36 @@ if (address.value !== "") {
 }
 
 // イベント
-if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-    textinput.addEventListener('touchend', (event) => {
-        RadioButtonChanged();
-    });
-    present_ocation.addEventListener('touchend', (event) => {
-        console.log("touched start")
-        RadioButtonChanged();
-    });
-    google_map.addEventListener('touchend', (event) => {
-        RadioButtonChanged();
-    });
-    restaurantmap.addListener('touchend', function (e) {
-        if (google_map.checked) {
-            show_current_location(e);
-        }
-    });
-} else {
-    textinput.addEventListener('click', (event) => {
-        RadioButtonChanged();
-    });
-    present_ocation.addEventListener('click', (event) => {
-        console.log("click start")
-        RadioButtonChanged();
-    });
-    google_map.addEventListener('click', (event) => {
-        RadioButtonChanged();
-    });
-    restaurantmap.addListener('click', function (e) {
-        if (google_map.checked) {
-            show_current_location(e);
-        }
-    });
-}
+// if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+//
+//     restaurantmap.addListener('touchend', function (e) {
+//         if (google_map.checked) {
+//             show_current_location(e);
+//         }
+//     });
+// } else {
+
+
+// }
+
+textinput.addEventListener('click', (event) => {
+    RadioButtonChanged();
+});
+present_ocation.addEventListener('click', (event) => {
+    console.log("click start")
+    RadioButtonChanged();
+});
+google_map.addEventListener('click', (event) => {
+    RadioButtonChanged();
+});
 address.addEventListener('focusout', (event) => {
     if (address.value !== "") {
         getAddressToMove(); //入力された住所へ移動
+    }
+});
+restaurantmap.addListener('click', function (e) {
+    if (google_map.checked) {
+        show_current_location(e);
     }
 });
 

@@ -134,7 +134,9 @@
                       <div class="flexContainer">
                         <% restaurant.posts.each do |post| %>
                           <% if post.user_id == current_user.id %>
-                            <h5><span class="badge badge-info">自分評価：<%=  ((post.atmosphere.to_f + post.accessibility.to_f + post.cost_performance.to_f + post.assortment.to_f + post.service.to_f + post.delicious.to_f) / 6).round(1).to_f %></span></h5>
+                            <h5>
+                              <span class="badge badge-info">自分評価：<%= ((post.atmosphere.to_f + post.accessibility.to_f + post.cost_performance.to_f + post.assortment.to_f + post.service.to_f + post.delicious.to_f) / 6).round(1).to_f %></span>
+                            </h5>
                             <% if post.likes %>
                               <i class="material-icons good color-on">thumb_up_alt</i>
                             <% end %>
