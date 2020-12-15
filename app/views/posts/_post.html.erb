@@ -128,7 +128,7 @@
           <%= f.label :comment %>
           <%#= f.rich_text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
           <%= f.rich_text_area :comment %>
-          <%= render 'shared/error_message_detail', {object: f.object, target: :comment} %>
+          <%= render 'shared/error_message_detail', { object: f.object, target: :comment } %>
         </div>
         <div class="actions text-center">
           <% if request.path_info == new_post_path %>
