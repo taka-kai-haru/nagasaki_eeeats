@@ -64,9 +64,9 @@ ja:
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
-              confirmation: "が内容とあっていません。"
+              confirmation: "が内容と合っていません。"
             password_confirmation:
-              confirmation: "がパスワードとあっていません。"
+              confirmation: "がパスワードと合っていません。"
             name:
               blank: "が入力されていません。"
               too_long: "は%{count}文字以下に設定して下さい。"
@@ -86,11 +86,15 @@ ja:
               taken: "はすでに存在します。"
             address:
               blank: "が入力されていません。"
-              inclusion: "に長崎県以外が設定されています。"
+              invalid: "に長崎県以外が設定されています。"
             latitude:
               greater_than: "が取得できませんでした。"
             longitude:
               greater_than: "が取得できませんでした。"
+        post:
+          attributes:
+            user_id:
+              taken: "レコードが重複しています。"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

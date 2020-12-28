@@ -16,6 +16,13 @@ module NagasakiEeeats
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.generators do |g|
+      g.test_framework :rspec,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false
+    end
+
     #デフォルトの表示を日本語
     config.i18n.default_locale = :ja
     #時間を日本時間とする

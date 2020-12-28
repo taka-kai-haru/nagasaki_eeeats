@@ -1,6 +1,0 @@
-michael:
-  name: "michael"
-  release: false
-  email: "michael@example.com"
-  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-  confirmed_at: <%= Time.now - 100 %>

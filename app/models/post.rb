@@ -16,6 +16,7 @@ class Post < ApplicationRecord
                                                 message: "5MBより小さくしてください。" }
   validate :validate_comment_attachment_byte_size
   validate :validate_comment_attachments_count
+  validates :user_id , uniqueness: true
 
   IMAGE_MAX_SAVE = 3
   ONE_KILOBYTE = 1024
