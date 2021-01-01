@@ -57,7 +57,7 @@ group :development, :test do
   # gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'debase'
+  gem 'debase', '~> 0.2.4.1'
   gem 'debase-ruby_core_source',  '0.10.11'
   gem 'ruby-debug-ide'
   # gem 'aws-partitions',           '1.386.0'
@@ -87,6 +87,7 @@ group :test do
   # gem 'minitest',                 '5.14.1'
   # gem 'minitest-reporters',       '1.3.8'
   gem 'rails-controller-testing', '1.0.4'
+
 end
 
 group :production do
