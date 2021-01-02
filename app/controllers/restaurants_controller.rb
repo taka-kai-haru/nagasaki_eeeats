@@ -64,10 +64,11 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:post_id])
+    @restaurant = Restaurant.find(params[:id])
     # 一般ユーザーはほかの人の投稿がある場合削除させない。
     if !current_user.admin && @restaurant.posts.where.not(user_id: current_user.id).exists?
-      flash[:warn] = "他の人の登録データがある為、削除できません。管理者に問合せください。"
+      flash.now[:danger] = "他の人のコメントがある為、削除できません。管理者に問合せください。"
+      render :show
     else
       @restaurant.destroy
       flash[:info] = "お店の情報の削除をしました。"

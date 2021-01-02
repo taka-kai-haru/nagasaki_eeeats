@@ -155,45 +155,41 @@ RSpec.describe Restaurant, type: :model do
     end
 
     describe "お気に入りのテスト" do
-      before do
-        @restaurant1 = create(:restaurant)
-        post1 = create(:post, restaurant: @restaurant1, likes: true)
-        @restaurant2 = create(:restaurant)
-        post2 = create(:post, restaurant: @restaurant2, likes: false)
-      end
+      let!(:restaurant1) { create(:restaurant) }
+      let!(:post1) { create(:post, restaurant: restaurant1, likes: true) }
+      let!(:restaurant2) { create(:restaurant) }
+      let!(:post2) { create(:post, restaurant: restaurant2, likes: false)}
 
       context "お気に入りのチェックがある場合" do
         it "お気に入りのデータのみ返すこと" do
-          expect(Restaurant.includes(:posts).search(likes: "1")).to include(@restaurant1)
-          expect(Restaurant.includes(:posts).search(likes: "1")).to_not include(@restaurant2)
+          expect(Restaurant.includes(:posts).search(likes: "1")).to include(restaurant1)
+          expect(Restaurant.includes(:posts).search(likes: "1")).to_not include(restaurant2)
         end
       end
 
       context "お気に入りのチェックがない場合" do
         it "全てのデータを返すこと" do
-          expect(Restaurant.includes(:posts).search(likes: "0")).to include(@restaurant1, @restaurant2)
+          expect(Restaurant.includes(:posts).search(likes: "0")).to include(restaurant1, restaurant2)
         end
       end
     end
 
     describe "イマイチのテスト" do
-      before do
-        @restaurant1 = create(:restaurant)
-        post1 = create(:post, restaurant: @restaurant1, dislikes: true)
-        @restaurant2 = create(:restaurant)
-        post2 = create(:post, restaurant: @restaurant2, dislikes: false)
-      end
+      let!(:restaurant1) { create(:restaurant) }
+      let!(:post1) { create(:post, restaurant: restaurant1, dislikes: true) }
+      let!(:restaurant2) { create(:restaurant) }
+      let!(:post2) { create(:post, restaurant: restaurant2, dislikes: false)}
 
       context "イマイチのチェックがある場合" do
         it "イマイチのデータのみ返すこと" do
-          expect(Restaurant.includes(:posts).search(dislikes: "1")).to include(@restaurant1)
-          expect(Restaurant.includes(:posts).search(dislikes: "1")).to_not include(@restaurant2)
+          expect(Restaurant.includes(:posts).search(dislikes: "1")).to include(restaurant1)
+          expect(Restaurant.includes(:posts).search(dislikes: "1")).to_not include(restaurant2)
         end
       end
 
       context "イマイチのデータがない場合" do
         it "全てのデータを返すこと" do
-          expect(Restaurant.includes(:posts).search(dislikes: "0")).to include(@restaurant1, @restaurant2)
+          expect(Restaurant.includes(:posts).search(dislikes: "0")).to include(restaurant1, restaurant2)
         end
       end
     end
