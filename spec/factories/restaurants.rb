@@ -3,7 +3,7 @@ FactoryBot.define do
     association :area
     association :restaurant_type
     sequence(:name) {|n| "TestShop#{n}"}
-    sequence(:tel) {|n| "090111111#{n}"}
+    sequence(:tel) {|n| "090#{format("%08d", n)}"}
     url {"https://www.example.com"}
     address {"長崎県長崎市"}
     closed {false}

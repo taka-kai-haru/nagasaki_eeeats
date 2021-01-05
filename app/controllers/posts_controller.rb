@@ -5,10 +5,7 @@ class PostsController < ApplicationController
   include PostsHelper
 
   def show
-    # binding.pry
-    @post = Post.find(params[:post_id])
-    # @my_post = Post.find_by(id: params[:post_id], user_id: current_user.id)
-    # @post = Post.find_by(id: params[:post_id]).where.not(user_id: current_user.id)
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -25,38 +22,49 @@ class PostsController < ApplicationController
     if @post.save
       @post.point_update @post.restaurant_id
       flash[:info] = "コメントの登録しました。"
-      redirect_to "/restaurants/#{@post.restaurant_id}"
+      # redirect_to "/restaurants/#{@post.restaurant_id}"
+      redirect_to restaurant_path @post.restaurant
     else
+      flash[:warning] = "コメントを更新することができませんでした。"
       render :new
     end
   end
   
 
   def edit
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    # binding.pry
     @post = Post.find(params[:id])
-    # binding.pry
-    # restaurant_id = @post.restaurant_id
-    # @post.images.detach #image紐づけ解除
-    if @post.update(post_params)
-      @post.point_update @post.restaurant_id
-      flash[:info] = "コメントの更新をしました。"
-      redirect_to "/restaurants/#{@post.restaurant_id}"
+    if @post.user_id == current_user.id && @post.restaurant_id == post_params[:restaurant_id].to_i
+      if @post.update(post_params)
+        @post.point_update @post.restaurant_id
+        flash[:info] = "コメントの更新をしました。"
+        # redirect_to "/restaurants/#{@post.restaurant_id}"
+        redirect_to restaurant_path @post.restaurant
+      else
+        flash[:warning] = "コメントを更新することができませんでした。"
+        render :edit
+      end
     else
+      flash[:warning] = "別のユーザーのコメントを更新することはできません。"
       render :edit
     end
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    # restaurant_id = @post.restaurant_id
-    @post.destroy
-    flash[:info] = "コメントの削除をしました。"
-    redirect_to "/restaurants/#{@post.restaurant_id}"
+    @post = Post.find(params[:id])
+    if @post.user_id = current_user.id
+      @post.destroy
+      flash[:info] = "コメントの削除をしました。"
+      # redirect_to "/restaurants/#{@post.restaurant_id}"
+      redirect_to restaurant_path @post.restaurant
+    else
+      flash[:warning] = "別のユーザーのコメントを削除することができません。"
+      # render "/restaurants/#{@post.restaurant_id}"
+      render restaurant_path @post.restaurant
+    end
   end
 
   private

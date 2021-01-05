@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Restaurant, type: :model do
 
   describe "バリデーションのテスト" do
-
     let(:area) { create(:area) }
     let(:restaurant_type) { create(:restaurant_type) }
 
