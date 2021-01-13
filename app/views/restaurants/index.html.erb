@@ -103,7 +103,7 @@
             <% @restaurants.each do |restaurant| %>
               <div class="col mb-4">
                 <div class="card h-100">
-                  <a href="/restaurants/<%= restaurant.id %>" class="text-dark no-decoration">
+                  <a href="/restaurants/<%= restaurant.id %>" class="text-dark no-decoration" id="restaurant_<%= restaurant.id %>">
                     <div class="card-header">
                       <h5 class="h5" id="restaurant_name<%= @restaurants_number %>"><%= restaurant.name %></h5>
                     </div>

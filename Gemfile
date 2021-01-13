@@ -81,13 +81,19 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'selenium-webdriver',       '3.142.7'
   gem 'webdrivers'
+  # gem 'capybara-screenshot'
   # tests gem
-  gem 'guard',                    '2.16.2'
+  gem 'launchy'
+  # gem 'guard',                    '2.16.2'
+  # gem 'turnip'
   # gem 'guard-minitest',           '2.4.6'
   # gem 'minitest',                 '5.14.1'
   # gem 'minitest-reporters',       '1.3.8'
   gem 'rails-controller-testing', '1.0.4'
-
+  gem 'headless'
+  # gem 'shoulda-matchers'
+  # gem 'vcr'
+  # gem 'webmock'
 end
 
 group :production do

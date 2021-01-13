@@ -211,7 +211,7 @@ RSpec.describe Post, type: :model do
           post1 = create(:post, restaurant: restaurant, user: user)
           post2 = build(:post, restaurant: restaurant, user: user)
           post2.valid?
-          expect(post2.errors[:user_id]).to include("レコードが重複しています。")
+          expect(post2.errors[:restaurant_id]).to include("レコードが重複しています。")
         end
       end
     end

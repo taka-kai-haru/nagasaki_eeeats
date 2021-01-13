@@ -93,6 +93,8 @@ ja:
               greater_than: "が取得できませんでした。"
         post:
           attributes:
+            restaurant_id:
+              taken: "レコードが重複しています。"
             user_id:
               taken: "レコードが重複しています。"
   devise:

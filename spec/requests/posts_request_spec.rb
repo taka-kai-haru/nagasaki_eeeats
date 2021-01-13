@@ -116,10 +116,6 @@ RSpec.describe "Posts", type: :request do
           user.confirm
           sign_in user
         end
-        it 'リクエストが成功すること' do
-          post posts_path, params: { post: invalid_post_params }
-          expect(response).to have_http_status(200)
-        end
         it 'コメントのデータが登録されないこと' do
           expect do
             post posts_path, params: { post: invalid_post_params }
@@ -127,7 +123,7 @@ RSpec.describe "Posts", type: :request do
         end
         it 'newテンプレートで表示されること' do
           post posts_path, params: { post: invalid_post_params }
-          expect(response).to render_template :new
+          expect(response).to redirect_to restaurant_path restaurant
         end
         it 'エラーが表示されること' do
           post posts_path, params: { post: invalid_post_params }
@@ -198,10 +194,6 @@ RSpec.describe "Posts", type: :request do
           user.confirm
           sign_in user
         end
-        it 'リクエストが成功すること' do
-          put post_path post, params: { post: invalid_post_update_params }
-          expect(response).to have_http_status(200)
-        end
         it 'コメントのデータが更新されないこと' do
           expect do
             put post_path post, params: { post: invalid_post_update_params }
@@ -209,7 +201,7 @@ RSpec.describe "Posts", type: :request do
         end
         it 'editテンプレートで表示されること' do
           put post_path post, params: { post: invalid_post_update_params }
-          expect(response).to render_template :edit
+          expect(response).to redirect_to restaurant_path post.restaurant
         end
         it 'エラーが表示されること' do
           put post_path post, params: { post: invalid_post_update_params }
@@ -241,7 +233,7 @@ RSpec.describe "Posts", type: :request do
         end
         it 'editテンプレートで表示されること' do
           put post_path post, params: { post: invalid_post_update_params }
-          expect(response).to render_template :edit
+          expect(response).to redirect_to restaurant_path post.restaurant
         end
       end
 
@@ -257,7 +249,7 @@ RSpec.describe "Posts", type: :request do
         end
         it 'editテンプレートで表示されること' do
           put post_path post, params: { post: invalid_restaurant_post_update_params }
-          expect(response).to render_template :edit
+          expect(response).to redirect_to restaurant_path post.restaurant
         end
       end
     end

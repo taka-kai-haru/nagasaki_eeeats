@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
     @search_params[:order] = '0' if @search_params[:order].nil?
     @search_params[:user_id] = current_user.id
 
-    @restaurants = Restaurant.includes(:posts).search(@search_params).page(params[:page]).per(10)
+    @restaurants = Restaurant.includes(:posts).search(@search_params).order(id: :asc).page(params[:page]).per(10)
 
     ## 一覧ページurl保存用セッション削除
     session.delete(:return_to)

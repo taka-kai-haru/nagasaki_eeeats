@@ -8,6 +8,8 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
 
+# require 'capybara-screenshot/rspec'
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -21,7 +23,7 @@ require 'capybara/rspec'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -76,12 +78,39 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # config.include RequestSpecHelper, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include ActionText::SystemTestHelper, type: :system
+
+  # config.include ActionText::SystemTestHelper, type: :system
 
   # Add support for Paperclip's Shoulda matchers
   # config.include Paperclip::Shoulda::Matchers
+
+  # テスト実行前に前回テストのscreenshotを削除する
+  # config.before(:all) do
+  #   FileUtils.rm_rf(Dir[Rails.root.join('tmp', 'screenshots', '*')], secure: true)
+  # end
+
+
 
   # Clean up file uploads when test suite is finished
   config.after(:suite) do
     FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_uploads/"])
   end
+
+  # config.after :each, type: :system do |example|
+  #   Capybara::Screenshot::RSpec.after_failed_example(example)
+  # end
+
+  # config.after(:each) do |example|
+  #   if example.exception
+  #     # Capybara::Screenshot::RSpec.after_failed_example(example)
+  #     # Do whatever you want to happen on failure
+  #     # Capybara.current_session.save_and_open_screenshot
+  #     # Capybara.current_session.save_screenshot
+  #     # Capybara.page.save_screenshot "#{Dir.pwd}/screenshots#{DateTime.now}.png"
+  #     # Capybara.screenshot_and_open_image
+  #   end
+  # end
 end
+
+

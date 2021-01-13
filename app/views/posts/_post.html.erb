@@ -132,9 +132,9 @@
         </div>
         <div class="actions text-center">
           <% if request.path_info == new_post_path %>
-            <%= f.submit "コメントの登録", class: "btn btn-info rounded-center button-wide mt-20" %>
+            <%= f.submit "コメントの登録", class: "btn btn-info rounded-center button-wide mt-20" , id: "submit"%>
           <% else %>
-            <%= f.submit "コメントの更新", class: "btn btn-info rounded-center button-wide mt-20" %>
+            <%= f.submit "コメントの更新", class: "btn btn-info rounded-center button-wide mt-20" , id: "submit" %>
           <% end %>
         </div>
       </div>

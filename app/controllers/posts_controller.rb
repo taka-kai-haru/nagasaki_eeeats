@@ -25,11 +25,10 @@ class PostsController < ApplicationController
       # redirect_to "/restaurants/#{@post.restaurant_id}"
       redirect_to restaurant_path @post.restaurant
     else
-      flash[:warning] = "コメントを更新することができませんでした。"
-      render :new
+      flash[:warning] = "コメントを登録することができませんでした。"
+      redirect_to restaurant_path @post.restaurant
     end
   end
-  
 
   def edit
     @post = Post.find(params[:id])
@@ -45,11 +44,11 @@ class PostsController < ApplicationController
         redirect_to restaurant_path @post.restaurant
       else
         flash[:warning] = "コメントを更新することができませんでした。"
-        render :edit
+        redirect_to restaurant_path @post.restaurant
       end
     else
       flash[:warning] = "別のユーザーのコメントを更新することはできません。"
-      render :edit
+      redirect_to restaurant_path @post.restaurant
     end
   end
 

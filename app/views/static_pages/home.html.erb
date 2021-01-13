@@ -9,12 +9,7 @@
     <div class="text-center">
       <%= image_tag "Nagasaki_Eeeats.png", class: "title" %>
     </div>
-    <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" %>
-    <%# <%= link_to "ログインせずに見る", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light title-button" %>
-    <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide" %>
-    <%# <%= link_to "長崎県すべて" , restaurants_path, class: "p-3 text-light" %>
-    <%# <% @areas.each do |area| %>
-    <%# <%= link_to area.areas_name, restaurants_path(area_id: area.id), class: "p-3 text-light" %>
-    <%# <% end %>
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
+    <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide", id:"signup" %>
   </div>
 </div>
