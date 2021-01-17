@@ -97,7 +97,7 @@ RSpec.describe "Restaurants", type: :system do
   end
 
   context "非公開ユーザーがコメント登録している場合" do
-    scenario "お店の一蘭で評価の表示がされないこと" do
+    scenario "お店の一蘭で評価の表示がされること" do
       private_user = create(:user, release: false)
       private_post = create(:post, user: private_user)
       user = create(:user)
@@ -106,7 +106,7 @@ RSpec.describe "Restaurants", type: :system do
       sign_in user
 
       visit restaurants_path
-      expect(page).to have_content "全体評価：なし"
+      expect(page).to_not have_content "全体評価：なし"
     end
   end
 

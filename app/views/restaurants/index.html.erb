@@ -40,7 +40,7 @@
               <%= f.label :likes, 'お気に入り', class: "align-self-center" %>
               <label class="likes">
                 <%= f.check_box :likes, {checked: @search_params[:likes] == '1' ? true : false, id: 'likes'} %>
-                <i class="material-icons good">thumb_up_alt</i>
+                <i class="material-icons good">star</i>
                 <div class="like_ripple"></div>
               </label>
               <%= f.label :dislikes, 'イマイチ', class: "align-self-center" %>
@@ -111,7 +111,8 @@
                     <% restaurant.posts.shuffle.each do |post| %>
                       <% next if post.user.id != current_user.id && !post.user.release %>
                       <% if post.images.count > 0 %>
-                        <%= image_tag post.images.sample, class: 'card-img-top' %>
+                        <%= image_tag post.images.sample.variant(resize_to_fill: [600, 600]), class: 'card-img-top' %>
+                        <%#= image_tag post.image_small, class: 'card-img-top' %>
                         <% image_exist = true %>
                         <% break %>
                       <% end %>
@@ -123,9 +124,7 @@
                           <h5><span class="badge badge-success">全体評価：<%= restaurant.point %>
                             <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
                         <% else %>
-                          <h5>
-                            <span class="badge badge-success">全体評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span>
-                          </h5>
+                          <h5><span class="badge badge-success">全体評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
                         <% end %>
                         <% if @restaurants_number < 10 %>
                           <%= image_tag "red#{@restaurants_number + 1}.png" %>
@@ -134,11 +133,9 @@
                       <div class="flexContainer">
                         <% restaurant.posts.each do |post| %>
                           <% if post.user_id == current_user.id %>
-                            <h5>
-                              <span class="badge badge-info">自分評価：<%= ((post.atmosphere.to_f + post.accessibility.to_f + post.cost_performance.to_f + post.assortment.to_f + post.service.to_f + post.delicious.to_f) / 6).round(1).to_f %></span>
-                            </h5>
+                            <h5><span class="badge badge-info">自分評価：<%= ((post.atmosphere.to_f + post.accessibility.to_f + post.cost_performance.to_f + post.assortment.to_f + post.service.to_f + post.delicious.to_f) / 6).round(1).to_f %></span></h5>
                             <% if post.likes %>
-                              <i class="material-icons good color-on">thumb_up_alt</i>
+                              <i class="material-icons good color-on">star</i>
                             <% end %>
                             <% if post.dislikes %>
                               <i class="material-icons bad color-on">thumb_down_alt</i>

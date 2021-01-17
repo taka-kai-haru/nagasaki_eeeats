@@ -1,130 +1,122 @@
-<% provide(:title, "コメント内容") %>
+<% provide(:title, "コメント") %>
 
 <div class="bg-white rounded pd-20 mb-10">
   <div class="row">
-    <div class="col-lg-12 col-xs-12 ">
-      <h1 class="text-center page_title">コメント内容</h1>
+    <div class="col-lg-12 col-xs-12 mb-20">
+      <h1 class="text-center page_title">コメント</h1>
+      <div class="col-lg-5 col-xs-12 pd-0">
+        <h6 class="h6 show_item">お店の名前</h6>
+      </div>
+      <p><%= Restaurant.find_by(id: @post.restaurant_id).name%></p>
 
-      <h5 class="h5">お店の名前</h5>
-      <%= Restaurant.find_by(id: @post.restaurant_id).name%>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white rounded pd-20 mb-10">
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-    <h5 class="h5">画像</h5>
       <% if @post.images.count > 0 %>
-          <div id="carouselExampleIndicators" class="carousel slide w-50 mx-auto" data-ride="false">
-            <ol class="carousel-indicators">
-              <% @post.images.count.times do |index|%>
-                <li data-target="#carouselExampleIndicators" data-slide-to=<%= index %> <%= 'class=active' if index == 0 %>></li>
+        <div class="col-lg-5 col-xs-12 pd-0 ">
+          <h6 class="h6 show_item">画像</h6>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide w-50 mx-auto" data-ride="false">
+          <ol class="carousel-indicators">
+            <% @post.images.count.times do |index|%>
+              <li data-target="#carouselExampleIndicators" data-slide-to=<%= index %> <%= 'class=active' if index == 0 %>></li>
+            <% end %>
+          </ol>
+          <div class="carousel-inner">
+            <% @post.images.each_with_index do |image, index|%>
+              <% if index == 0 %>
+                <div class="carousel-item active">
+              <% else %>
+                <div class="carousel-item">
               <% end %>
-            </ol>
-            <div class="carousel-inner">
-              <% @post.images.each_with_index do |image, index|%>
-                <% if index == 0 %>
-                  <div class="carousel-item active">
-                <% else %>
-                  <div class="carousel-item">
-                <% end %>
-                    <%= image_tag image , class: "d-block w-100", alt: "#{index} slide" %>
-                  </div>
-              <% end %>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+                  <%= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100", alt: "#{index} slide" %>
+                </div>
+            <% end %>
           </div>
-
-      <% else %>
-        <h5 class="h5 text-center">画像がありません。</h5>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       <% end %>
     </div>
   </div>
-</div>
-
-<div class="bg-white rounded pd-20">
 
   <%= form_with(model: @post, local: true ) do |f| %>
-
-  <div class="row">
-    <div class="col-lg-6 col-xs-6 ">
-
-      <div class="field range">
+    <div class="row">
+      <div class="col-lg-6 col-xs-6 ">
+        <div class="field range">
           <%= f.label :delicious %>　　
           <%= f.range_field :delicious, in: 1..5, id: :delicious, disabled: true %>
           <div class="alert alert-primary" role="alert">
             <span id="delicious_score" class="individual_score"></span>
           </div>
-      </div>
+        </div>
+        <div class="field range">
+          <%= f.label :atmosphere %>
+          <%= f.range_field :atmosphere, in: 1..5, id: :atmosphere, disabled: true %>
+          <div class="alert alert-primary" role="alert">
+            <span id="atmosphere_score" class="individual_score"></span>
+          </div>
+        </div>
 
-      <div class="field range">
-        <%= f.label :atmosphere %>
-        <%= f.range_field :atmosphere, in: 1..5, id: :atmosphere, disabled: true %>
-        <div class="alert alert-primary" role="alert">
-          <span id="atmosphere_score" class="individual_score"></span>
+        <div class="field range">
+          <%= f.label :accessibility %>
+          <%= f.range_field :accessibility, in: 1..5, id: :accessibility, disabled: true %>
+          <div class="alert alert-primary" role="alert">
+            <span id="accessibility_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :cost_performance %>
+          <%= f.range_field :cost_performance, in: 1..5, id: :cost_performance, disabled: true %>
+          <div class="alert alert-primary" role="alert">
+            <span id="cost_performance_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :assortment %>
+          <%= f.range_field :assortment, in: 1..5, id: :assortment, disabled: true %>
+          <div class="alert alert-primary" role="alert">
+            <span id="assortment_score" class="individual_score"></span>
+          </div>
+        </div>
+
+        <div class="field range">
+          <%= f.label :service %>　
+          <%= f.range_field :service, in: 1..5, id: :service, disabled: true %>
+          <div class="alert alert-primary" role="alert">
+            <span id="service_score" class="individual_score"></span>
+          </div>
         </div>
       </div>
 
-      <div class="field range">
-        <%= f.label :accessibility %>
-        <%= f.range_field :accessibility, in: 1..5, id: :accessibility, disabled: true %>
-        <div class="alert alert-primary" role="alert">
-          <span id="accessibility_score" class="individual_score"></span>
+      <div class="col-lg-6 col-xs-6 ">
+        <div class="alert alert-primary text-center" role="alert">
+          <span class="individual_score">評価：</span>
+          <span id="chart_score_ave" class="individual_score"></span>
         </div>
-      </div>
-
-      <div class="field range">
-        <%= f.label :cost_performance %>
-        <%= f.range_field :cost_performance, in: 1..5, id: :cost_performance, disabled: true %>
-        <div class="alert alert-primary" role="alert">
-          <span id="cost_performance_score" class="individual_score"></span>
-        </div>
-      </div>
-
-      <div class="field range">
-        <%= f.label :assortment %>
-        <%= f.range_field :assortment, in: 1..5, id: :assortment, disabled: true %>
-        <div class="alert alert-primary" role="alert">
-          <span id="assortment_score" class="individual_score"></span>
-        </div>
-      </div>
-
-      <div class="field range">
-        <%= f.label :service %>　
-        <%= f.range_field :service, in: 1..5, id: :service, disabled: true %>
-        <div class="alert alert-primary" role="alert">
-          <span id="service_score" class="individual_score"></span>
-        </div>
+        <canvas id="ScoreRaderChart" class="pd-20" width="100" height="100" maxheight="440"></canvas>
+        <%= javascript_pack_tag 'home/posts/chart' %>
       </div>
     </div>
 
-    <div class="col-lg-6 col-xs-6 ">
-      <div class="alert alert-primary text-center" role="alert">
-        <span class="individual_score">評価：</span>
-        <span id="chart_score_ave" class="individual_score"></span>
+    <div class="row">
+      <div class="col-lg-12 col-xs-12 ">
+        <div class="field">
+          <% if @post.comment.present? %>
+            <div class="col-lg-5 col-xs-12 pd-0 ">
+              <h6 class="h6 show_item">コメント</h6>
+            </div>
+          <% end %>
+          <p><%= @post.comment %></p>
+        </div>
       </div>
-      <canvas id="ScoreRaderChart" width="100" height="100" maxheight="440"></canvas>
-      <%= javascript_pack_tag 'home/posts/chart' %>
     </div>
+  <% end %>
+  <%= link_to "＜戻る", :back, class: 'btn btn-outline-info' %>
   </div>
-
-  <div class="row">
-  <div class="col-lg-12 col-xs-12 ">
-    <div class="field">
-      <%= f.label :comment %>
-      <p><%= @post.comment %></p>
-    </div>
-  </div>
-
 </div>
-<% end %>
-</div>
-<%= link_to "戻る", :back, class: 'text-light' %>

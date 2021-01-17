@@ -108,7 +108,7 @@ h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   letter-spacing: -2px;
   text-align: center;
 }
@@ -226,6 +226,13 @@ label.custom-control-label {
 //   //   margin-right: 20px;
 // }
 
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
 .mb-5 {
   margin-bottom: 5px;
 }
@@ -239,6 +246,12 @@ label.custom-control-label {
   margin-bottom: 30px;
 }
 
+.mt-1 {
+  margin-top: 1px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
 .mt-10 {
   margin-top: 10px;
 }
@@ -258,6 +271,10 @@ label.custom-control-label {
   padding: 0;
 }
 
+  .float_right {
+  float: right;
+}
+
 .title {
   width: 100%;
   max-width: 400px;
@@ -273,9 +290,14 @@ label.custom-control-label {
 }
 
 .show_item{
-  padding: .25em 0 .5em .75em;
-  border-left: 6px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  //padding: .25em 0 .5em .75em;
+  //border-left: 6px solid #ccc;
+  //border-bottom: 1px solid #ccc;
+  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: #f4f4f4;/*背景色*/
+  border-left: solid 5px #446689;/*左線*/
+  border-bottom: solid 3px #d7d7d7;/*下線*/
 }
 
 .button-wide {
@@ -297,7 +319,21 @@ label.custom-control-label {
   // bottom: 80vh;
 }
 
+.bg-light::after {
+  position: absolute;
+  top: .5em;
+  left: 1.4em;
+  content: '';
+  width: 6px;
+  height: -webkit-calc(100% - 1em);
+  height: calc(100% - 1em);
+  background-color: #7db4e6;
+  border-radius: 4px;
+}
 
+//#ScoreRaderChart{
+//  margin: 20px 20px 20px;
+//}
 
 .no-decoration:hover {
   text-decoration: none;
@@ -394,7 +430,7 @@ html body {
 }
 
 .gmap {
-  height: 50vh;
+  height: 75vh;
 }
 
 .gmap-index {
@@ -435,7 +471,7 @@ html body {
 
 .material-icons.good.color-on {
   font-size: 42px;
-  color: #0000ff;
+  color: #ffff3c;
   user-select: none;
 }
 
@@ -454,7 +490,7 @@ html body {
   }
   100% {
     transform: scale(1);
-    color: #0000ff;
+    color: #ffff3c;
   }
 }
 
@@ -462,7 +498,7 @@ html body {
   position: absolute;
   width: 85px;
   height: 85px;
-  background: #0000ff;
+  background: #ffff3c;
   border-radius: 50%;
   transform: scale(0);
 }
@@ -504,13 +540,13 @@ html body {
   color: #e4e4e4;
   user-select: none;
   .color-on {
-    color: red;
+    color: #ff443c;
   }
 }
 
 .material-icons.bad.color-on {
   font-size: 42px;
-  color: red;
+  color: #ff443c;
   user-select: none;
 }
 
@@ -529,7 +565,7 @@ html body {
   }
   100% {
     transform: scale(1);
-    color: red;
+    color: #ff443c;
   }
 }
 
@@ -537,7 +573,7 @@ html body {
   position: absolute;
   width: 85px;
   height: 85px;
-  background: red;
+  background: #ff443c;
   border-radius: 50%;
   transform: scale(0);
 }
@@ -581,6 +617,10 @@ html body {
 }
 
 .flexContainer {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
   display: flex;
   flex-wrap:wrap;
   align-items: center;

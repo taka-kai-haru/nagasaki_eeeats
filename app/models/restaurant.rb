@@ -23,8 +23,7 @@ class Restaurant < ApplicationRecord
   #検索用searchメソッド
   scope :search, -> (search_params) do  
     return if search_params.blank?
-    # lat_lag = Array.new
-    # lat_lag = [search_params[:present_position_lat], search_params[:present_position_lng]] if search_params[:present_position_lat].present? && search_params[:present_position_lng].present?
+    # release_user(search_params[:user_id])
     area_id_is(search_params[:area_id])
       .restaurant_type_id_is(search_params[:restaurant_type_id])
       .name_like(search_params[:name])
@@ -37,6 +36,7 @@ class Restaurant < ApplicationRecord
   end
 
   #検索用scope
+  # scope :release_user, -> (user_id) { where(users: {id: user_id}).or(users: {release: true})}
   scope :area_id_is, -> (area_id) { where(area_id: area_id) if area_id.present? } 
   scope :restaurant_type_id_is, -> (restaurant_type_id) { where(restaurant_type_id: restaurant_type_id) if restaurant_type_id.present? }
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }

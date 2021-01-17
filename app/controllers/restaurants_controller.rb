@@ -22,6 +22,8 @@ class RestaurantsController < ApplicationController
     session[:return_to] = request.referer if session[:return_to].blank?
 
     @restaurant = Restaurant.find(params[:id])
+    @my_posts = Post.where(restaurant_id: @restaurant.id).where(user_id: current_user.id)
+    @other_posts = Post.where(restaurant_id: @restaurant.id).where.not(user_id: current_user.id)
     # 閉店時フラッシュを出す
     flash.now[:notice] = "閉店している可能性があります。" if @restaurant.closed
 

@@ -1,67 +1,105 @@
 <%= form_with(model: @post, local: true) do |f| %>
 
   <div class="bg-white rounded  pd-20 mb-10">
-    <div class="row">
+    <div class="row mb-20">
       <div class="col-lg-12 col-xs-12 mb-10">
         <% if request.path_info == new_post_path %>
           <h1 class="text-center page_title">コメントの登録</h1>
         <% else %>
           <h1 class="text-center page_title">コメントの更新</h1>
         <% end %>
-        <h5 class="h5">お店の名前</h5>
-        <%= Restaurant.find_by(id: @post.restaurant_id).name %>
-
-
+        <div class="col-lg-5 col-xs-12 pd-0">
+          <h6 class="h6 show_item">お店の名前</h6>
+        </div>
+        <P><%= Restaurant.find_by(id: @post.restaurant_id).name %></P>
         <%= f.hidden_field :restaurant_id, value: @post.restaurant_id %>
-      </div>
-    </div>
-  </div>
 
-  <div class="bg-white rounded  pd-20 mb-10">
-    <div class="row">
-      <div class="col-lg-12 col-xs-12 mb-10">
-        <span class="image"></span>
-        <%= f.label :images %><em>(<%= Post::IMAGE_MAX_SAVE %> 枚以内)</em>
-      </div>
-    </div>
-    <div id="image-box-1">
-      <div class="row">
-        <div class="item-num-0" id="image-box__container">
+  <!--      <div class="col-lg-12 col-xs-12 mb-10">-->
+<!--          <span class="image"></span>-->
+  <!--        <%#= f.label :images %><em>(<%#= Post::IMAGE_MAX_SAVE %> 枚以内)</em>-->
+  <!--      </div>-->
+        <% if request.path_info != new_post_path && @post.images.count > 0 %>
+          <div class="col-lg-5 col-xs-12 pd-0">
+            <h6 class="h6 show_item">保存中画像</h6>
+          </div>
+          <div id="carouselExampleIndicators" class="carousel slide w-50 mx-auto mb-10" data-ride="false">
+            <ol class="carousel-indicators">
+              <% @post.images.count.times do |index|%>
+                <li data-target="#carouselExampleIndicators" data-slide-to=<%= index %> <%= 'class=active' if index == 0 %>></li>
+              <% end %>
+            </ol>
+            <div class="carousel-inner">
+              <% @post.images.each_with_index do |image, index|%>
+                <% if index == 0 %>
+                  <div class="carousel-item active">
+                    <%= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100", alt: "#{index} slide" %>
+                  </div>
+                <% else %>
+                  <div class="carousel-item">
+                    <%= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100", alt: "#{index} slide" %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        <% end %>
+
+        <div class="col-lg-5 col-xs-12 pd-0 mb-10">
+          <div class="h6 show_item">
+            <%= f.label :images , {class: 'mb-0'}%><em class="mb-0">(<%= Post::IMAGE_MAX_SAVE %> 枚以内)</em>
+          </div>
+        </div>
+
+
+
+        <div id="image-box-1">
+          <div class="row">
+            <div class="item-num-0" id="image-box__container">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-xs-12 " id="image_select">
+              <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file" %>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-12 col-xs-12 " id="image_select">
-          <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file" %>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <%= javascript_pack_tag 'home/posts/image' %>
+    <%= javascript_pack_tag 'home/posts/image' %>
 
-  <div class="bg-white rounded  pd-20">
+
     <div class="row">
       <div class="col-lg-12 col-xs-12">
         <%= render 'shared/error_messages', object: f.object %>
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-20">
 
       <div class="col-lg-6 col-xs-6 ">
 
         <div class="d-flex justify-content-start">
           <%= f.label :likes, 'お気に入り', class: "align-self-center" %>
           <label class="likes">
-            <%= f.check_box :likes %><i class="material-icons good">thumb_up_alt</i>
+            <%= f.check_box :likes, id: "likes" %><i class="material-icons good">star</i>
             <div class="like_ripple"></div>
           </label>
           <%= f.label :dislikes, 'イマイチ', class: "align-self-center" %>
           <label class="dislikes">
-            <%= f.check_box :dislikes %><i class="material-icons bad">thumb_down_alt</i>
+            <%= f.check_box :dislikes, id: "dislikes" %><i class="material-icons bad">thumb_down_alt</i>
             <div class="dislike_ripple"></div>
           </label>
         </div>
 
+        <%= javascript_pack_tag 'home/posts/new_edit' %>
 
         <div class="field range">
           <%= f.label :delicious %>　　
@@ -117,7 +155,7 @@
           <span class="individual_score">評価：</span>
           <span id="chart_score_ave" class="individual_score"></span>
         </div>
-        <canvas id="ScoreRaderChart" width="100" height="100" maxheight="440"></canvas>
+          <canvas id="ScoreRaderChart" class="pd-20" width="100" height="100"></canvas>
         <%= javascript_pack_tag 'home/posts/chart' %>
       </div>
     </div>
@@ -125,7 +163,11 @@
     <div class="row">
       <div class="col-lg-12 col-xs-12 ">
         <div class="field">
-          <%= f.label :comment %>
+          <div class="col-lg-5 col-xs-12 pd-0">
+            <div class="h6 show_item">
+              <%= f.label :comment , {class: 'mb-0'} %>
+            </div>
+          </div>
           <%#= f.rich_text_area :comment, autocomplete: "comment", rows: 15, class: 'form-control' %>
           <%= f.rich_text_area :comment %>
           <%= render 'shared/error_message_detail', { object: f.object, target: :comment } %>
@@ -138,8 +180,7 @@
           <% end %>
         </div>
       </div>
-
     </div>
+    <%= link_to "＜戻る", restaurant_path(id: @post.restaurant.id), class: 'btn btn-outline-info' %>
   </div>
 <% end %>
-<%= link_to "戻る", restaurant_path(id: @post.restaurant.id), class: 'text-light' %>

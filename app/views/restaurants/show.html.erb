@@ -6,8 +6,8 @@
     <h1 class="text-center page_title">お店の情報</h1>
     <p class="text-right">更新日：<%= @restaurant.updatetime.strftime("%Y年%m月%d日") %></p>
 
-    <%= link_to "お店の変更", edit_restaurant_path, class: "btn  btn-info" %>
-    <%= link_to "お店の削除", restaurant_path(restaurant_id: @restaurant.id), data: {confirm: "お店の情報を削除していいですか?"}, method: :delete, class: "btn  btn-danger" %>
+    <%= link_to "お店の変更", edit_restaurant_path, class: "btn  btn-info  mt-1" %>
+    <%= link_to "お店の削除", restaurant_path(restaurant_id: @restaurant.id), data: {confirm: "お店の情報を削除していいですか?"}, method: :delete, class: "btn  btn-danger mt-1 float_right" %>
     <div class="row">
       <div class="col-lg-5 col-xs-12">
         <div class=" pd-20 mb-20">
@@ -17,8 +17,10 @@
           <p><%= @restaurant.restaurant_type.name %></p>
           <h6 class="h6 show_item">電話番号</h6>
           <p><%= @restaurant.tel %></p>
+          <% if @restaurant.url.present? %>
           <h6 class="h6 show_item">URL</h6>
           <%= link_to @restaurant.url, @restaurant.url, target: :_blank, rel: "noopener noreferrer" %>
+          <% end %>
           <h6 class="h6 show_item">地域</h6>
           <p><%= @restaurant.area.areas_name %></p>
           <h6 class="h6 show_item">住所</h6>
@@ -55,7 +57,7 @@
                 <% else %>
                   <div class="carousel-item">
                 <% end %>
-                <%= image_tag image, class: "d-block w-100", alt: "#{index} slide" %>
+                <%= image_tag image.variant(resize_to_fill: [800, 800]), class: "d-block w-100", alt: "#{index} slide" %>
                 <% index += 1 %>
                 </div>
               <% end %>
@@ -97,7 +99,7 @@
       </div>
 
 
-      <div id="mapinfo" class="mt-20 display-none">
+      <div id="mapinfo" class="mb-20 display-none">
         <div class="col-lg-12 col-xs-12">
           <div class="bg-white rounded pd-10 mb-20">
             <div class="flexContainer">
@@ -122,41 +124,57 @@
         <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info button-wide rounded-center mb-20" %>
       <% end %>
 
-      <% @restaurant.posts.each do |post| %>
-        <% if current_user.id == post.user_id %>
-          <div class="row mt-20">
+      <% @my_posts.each do |post| %>
+        <div class="row">
+          <div class="col-lg-5 col-xs-12">
+            <h6 class="h6 show_item">自分のコメント</h6>
+          </div>
+        </div>
+          <div class="row mb-20">
             <div class="col-lg-12 col-xs-12">
-              <div class="bg-light rounded pd-20 mb-5">
-                <%= link_to post.user.name, post_path(post.id) %>
-                <h5>
-                  <span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span>
-                </h5>
+              <div class="bg-light rounded pd-20 mb-0">
+                <div class="flexContainer">
+                  <%= link_to post.user.name, post_path(post.id) %>
+                  <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
+                </div>
                 <p><%= strip_tags(post.comment.to_s).gsub(/[\n]/, "").strip.truncate(100, omission: '...') %></p>
-                <%= link_to "コメントの編集", edit_post_path(post.id), class: "btn  btn-info" %>
+                <%= link_to "コメントの編集", edit_post_path(post.id), class: "btn  btn-info mt-1" %>
                 <%= link_to "コメントの削除", post_path(post.id), method: :delete,
-                            data: {confirm: "コメントの削除をしてよいですか？"}, class: "btn  btn-info" %>
+                            data: {confirm: "コメントの削除をしてよいですか？"}, class: "btn  btn-danger mt-1" %>
               </div>
             </div>
           </div>
-        <% end %>
       <% end %>
-      <% @restaurant.posts.each do |post| %>
-        <% if post.user.release && current_user.id != post.user_id %>
-          <div class="row mt-20">
+      <% @other_posts.each_with_index do |post, post_index| %>
+        <% if post_index == 0 %>
+          <div class="row">
+            <div class="col-lg-5 col-xs-12">
+              <h6 class="h6 show_item">他の人のコメント</h6>
+            </div>
+          </div>
+        <% end %>
+          <div class="row mb-20">
             <div class="col-lg-12 col-xs-12">
-              <div class="bg-light rounded pd-20 mb-5">
-                <%= link_to post.user.name, post_path(post.id) %>
-                <h5>
-                  <span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span>
-                </h5>
+              <% if post.user.release %>
+              <div class="bg-light rounded pd-20 mb-0">
+                <div class="flexContainer">
+                  <%= link_to post.user.name, post_path(post.id) %>
+                  <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
+                </div>
                 <p><%= strip_tags(post.comment.to_s).gsub(/[\n]/, "").strip.truncate(100, omission: '...') %></p>
               </div>
+              <% else %>
+                <div class="bg-light rounded pd-20 mb-0 flexContainer">
+                  <p>非公開ユーザ</p>
+                  <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
+                </div>
+              <% end %>
             </div>
           </div>
-        <% end %>
       <% end %>
+      <%= link_to "＜戻る", restaurants_return_path, class: 'btn btn-outline-info' %>
     </div>
 
-    <%= link_to "戻る", restaurants_return_path, class: 'text-light' %>
+
   </div>
 </div>

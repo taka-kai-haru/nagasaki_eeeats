@@ -31,8 +31,6 @@ class Post < ApplicationRecord
     post_count = 0
 
     Post.where(restaurant_id: restaurant_id).find_each do |post|
-      # 非公開の人のポイントはカウントしない
-      next unless post.user.release
       point += ((post.atmosphere.to_f + post.accessibility.to_f + post.cost_performance.to_f + post.assortment.to_f + post.service.to_f + post.delicious.to_f) / 6).round(1).to_f
       post_count += 1
     end
@@ -69,6 +67,10 @@ class Post < ApplicationRecord
           max_comment_attachments_count: MAX_COMMENT_ATTACHMENTS_COUNT
       )
     end
+  end
+
+  def image_small
+    self.images.sample.variant(resize: '200x200').processed
   end
 
 end
