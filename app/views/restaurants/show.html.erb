@@ -123,54 +123,57 @@
       <% if !@restaurant.posts.exists?(user_id: current_user.id) %>
         <%= link_to "+コメントの新規登録", new_post_path(restaurant_id: @restaurant.id), class: "btn  btn-info button-wide rounded-center mb-20" %>
       <% end %>
-
-      <% @my_posts.each do |post| %>
-        <div class="row">
-          <div class="col-lg-5 col-xs-12">
-            <h6 class="h6 show_item">自分のコメント</h6>
-          </div>
-        </div>
-          <div class="row mb-20">
-            <div class="col-lg-12 col-xs-12">
-              <div class="bg-light rounded pd-20 mb-0">
-                <div class="flexContainer">
-                  <%= link_to post.user.name, post_path(post.id) %>
-                  <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
-                </div>
-                <p><%= strip_tags(post.comment.to_s).gsub(/[\n]/, "").strip.truncate(100, omission: '...') %></p>
-                <%= link_to "コメントの編集", edit_post_path(post.id), class: "btn  btn-info mt-1" %>
-                <%= link_to "コメントの削除", post_path(post.id), method: :delete,
-                            data: {confirm: "コメントの削除をしてよいですか？"}, class: "btn  btn-danger mt-1" %>
-              </div>
-            </div>
-          </div>
-      <% end %>
-      <% @other_posts.each_with_index do |post, post_index| %>
-        <% if post_index == 0 %>
+      <% if @my_posts.present? %>
+        <% @my_posts.each do |post| %>
           <div class="row">
             <div class="col-lg-5 col-xs-12">
-              <h6 class="h6 show_item">他の人のコメント</h6>
+              <h6 class="h6 show_item">自分のコメント</h6>
             </div>
           </div>
-        <% end %>
-          <div class="row mb-20">
-            <div class="col-lg-12 col-xs-12">
-              <% if post.user.release %>
-              <div class="bg-light rounded pd-20 mb-0">
-                <div class="flexContainer">
-                  <%= link_to post.user.name, post_path(post.id) %>
-                  <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
+            <div class="row mb-20">
+              <div class="col-lg-12 col-xs-12">
+                <div class="bg-light rounded pd-20 mb-0">
+                  <div class="flexContainer">
+                    <%= link_to post.user.name, post_path(post.id) %>
+                    <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
+                  </div>
+                  <p><%= strip_tags(post.comment.to_s).gsub(/[\n]/, "").strip.truncate(100, omission: '...') %></p>
+                  <%= link_to "コメントの編集", edit_post_path(post.id), class: "btn  btn-info mt-1" %>
+                  <%= link_to "コメントの削除", post_path(post.id), method: :delete,
+                              data: {confirm: "コメントの削除をしてよいですか？"}, class: "btn  btn-danger mt-1" %>
                 </div>
-                <p><%= strip_tags(post.comment.to_s).gsub(/[\n]/, "").strip.truncate(100, omission: '...') %></p>
               </div>
-              <% else %>
-                <div class="bg-light rounded pd-20 mb-0 flexContainer">
-                  <p>非公開ユーザ</p>
-                  <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
-                </div>
-              <% end %>
             </div>
-          </div>
+        <% end %>
+      <% end %>
+      <% if @other_posts.present?%>
+        <% @other_posts.each_with_index do |post, post_index| %>
+          <% if post_index == 0 %>
+            <div class="row">
+              <div class="col-lg-5 col-xs-12">
+                <h6 class="h6 show_item">他の人のコメント</h6>
+              </div>
+            </div>
+          <% end %>
+            <div class="row mb-20">
+              <div class="col-lg-12 col-xs-12">
+                <% if post.user.release %>
+                <div class="bg-light rounded pd-20 mb-0">
+                  <div class="flexContainer">
+                    <%= link_to post.user.name, post_path(post.id) %>
+                    <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
+                  </div>
+                  <p><%= strip_tags(post.comment.to_s).gsub(/[\n]/, "").strip.truncate(100, omission: '...') %></p>
+                </div>
+                <% else %>
+                  <div class="bg-light rounded pd-20 mb-0 flexContainer">
+                    <p>非公開ユーザ</p>
+                    <h5 class="mb-0 ml-10"><span class="badge badge-success">評価：<%= score_average(post.atmosphere, post.accessibility, post.cost_performance, post.assortment, post.service, post.delicious) %></span></h5>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
       <% end %>
       <%= link_to "＜戻る", restaurants_return_path, class: 'btn btn-outline-info' %>
     </div>
