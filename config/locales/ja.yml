@@ -37,6 +37,7 @@ ja:
         closed: 閉店
         latitude: 緯度
         longitude: 経度
+        payment_method: 決済方法
       post:
         images: 画像
         delicious: 味

@@ -5,13 +5,21 @@ class RestaurantsController < ApplicationController
 
     # 検索条件パラメーターセット
     @search_params = restaurant_search_params
-
+    payment_method_set
     # 検索用パラーメーターデフォルト値セット
     @search_params[:my_post_select] = '0' if @search_params[:my_post_select].nil?
     @search_params[:order] = '0' if @search_params[:order].nil?
     @search_params[:user_id] = current_user.id
 
-    @restaurants = Restaurant.includes(:posts).search(@search_params).order(id: :asc).page(params[:page]).per(10)
+    @restaurants = Restaurant.includes(:posts, :pay_relationships).search(@search_params).order(id: :asc).page(params[:page]).per(10)
+
+    # 支払い方法をハッシュ化する
+    # @hash_payment_method = Hash.new
+    # payment_methods = PaymentMethod.all
+    # payment_methods.each do |payment_method|
+    #   @hash_payment_method[payment_method.id] = payment_method.save_location
+    # end
+
 
     ## 一覧ページurl保存用セッション削除
     session.delete(:return_to)
@@ -24,6 +32,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @my_posts = Post.where(restaurant_id: @restaurant.id).where(user_id: current_user.id)
     @other_posts = Post.where(restaurant_id: @restaurant.id).where.not(user_id: current_user.id)
+    payment_method_set
     # 閉店時フラッシュを出す
     flash.now[:notice] = "閉店している可能性があります。" if @restaurant.closed
 
@@ -34,6 +43,7 @@ class RestaurantsController < ApplicationController
     session[:return_to] = request.referer if session[:return_to].blank?
 
     @restaurant = Restaurant.new
+    # @payment_methods = PaymentMethod.all
 
   end
 
@@ -94,12 +104,20 @@ class RestaurantsController < ApplicationController
 
   # String Parameter
   def restaurant_params
-    params.require(:restaurant).permit(:name, :restaurant_type_id, :area_id, :tel, :url, :address, :closed, :latitude, :longitude)
+    params.require(:restaurant).permit(:name, :restaurant_type_id, :area_id, :tel, :url, :address, :closed, :latitude, :longitude, payment_method_ids: [])
   end
 
   # 検索条件セット
   def restaurant_search_params
-    params.fetch(:search, {}).permit(:area_id, :restaurant_type_id, :name, :likes, :dislikes, :my_post_select, :order, :present_position_lat, :present_position_lng, :user_id)
+    params.fetch(:search, {}).permit(:area_id, :restaurant_type_id, :name, :likes, :dislikes, :my_post_select, :order, :present_position_lat, :present_position_lng, :user_id, payment_method_ids: [])
+  end
+
+  def payment_method_set
+    @hash_payment_method = Hash.new
+    payment_methods = PaymentMethod.all
+    payment_methods.each do |payment_method|
+      @hash_payment_method[payment_method.id] = payment_method.save_location
+    end
   end
 
 end

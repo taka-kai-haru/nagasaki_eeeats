@@ -52,6 +52,17 @@
             </div>
           </div>
         </div>
+
+        <%= f.label :payment_method_ids, '決済方法' %>
+        <div class="flexContainer mb-10">
+            <%= f.collection_check_boxes(:payment_method_ids, PaymentMethod.all, :id, :save_location, checked: @search_params[:payment_method_ids]) do |payment_method| %>
+            <div class="flexContainer payment_method_big">
+              <%= image_tag payment_method.text, class: "payment_method_big" %>
+              <%= payment_method.check_box %>
+            </div>
+          <% end %>
+        </div>
+
         <%= f.label :order, '並び順' %>
         <div class="field">
           <div class="col-sm-12 btn-group btn-group-toggle  mb-10 pd-0" data-toggle="buttons">
@@ -99,13 +110,13 @@
       <div class="col-xl-6 col-xs-12 mb-20 pd-10">
         <% if @restaurants.count > 0 %>
           <div class="row row-cols-1 row-cols-md-2">
-            <% @restaurants_number = 0 %>
+            <% restaurants_number = 0 %>
             <% @restaurants.each do |restaurant| %>
               <div class="col mb-4">
                 <div class="card h-100">
                   <a href="/restaurants/<%= restaurant.id %>" class="text-dark no-decoration" id="restaurant_<%= restaurant.id %>">
                     <div class="card-header">
-                      <h5 class="h5" id="restaurant_name<%= @restaurants_number %>"><%= restaurant.name %></h5>
+                      <h5 class="h5" id="restaurant_name<%= restaurants_number %>"><%= restaurant.name %></h5>
                     </div>
                     <% image_exist = false %>
                     <% restaurant.posts.shuffle.each do |post| %>
@@ -126,8 +137,8 @@
                         <% else %>
                           <h5><span class="badge badge-success">全体評価：なし  <span class="badge badge-pill badge-light"><%= restaurant.posts.count %></span></span></h5>
                         <% end %>
-                        <% if @restaurants_number < 10 %>
-                          <%= image_tag "red#{@restaurants_number + 1}.png" %>
+                        <% if restaurants_number < 10 %>
+                          <%= image_tag "red#{restaurants_number + 1}.png" %>
                         <% end %>
                       </div>
                       <div class="flexContainer">
@@ -145,10 +156,16 @@
                       </div>
                       <p class="card-text"><%= restaurant.restaurant_type.name %></p>
                       <small class="text-muted"><%= restaurant.area.areas_name %></small>
-                      <p class="card-text" id="address<%= @restaurants_number %>"><%= restaurant.address %></p>
-                      <input type="hidden" value="<%= restaurant.latitude %>" id="latitude<%= @restaurants_number %>">
-                      <input type="hidden" value="<%= restaurant.longitude %>" id="longitude<%= @restaurants_number %>">
-                      <% @restaurants_number += 1 %>
+                      <p class="card-text" id="address<%= restaurants_number %>"><%= restaurant.address %></p>
+                      <div class="flexContainer">
+                        <% pay_relationships = PayRelationship.where(restaurant_id: restaurant.id)%>
+                        <% pay_relationships.each do |pay_relationship| %>
+                          <%= image_tag @hash_payment_method[pay_relationship.payment_method_id],class: "payment_method_small" %>
+                        <% end %>
+                      </div>
+                      <input type="hidden" value="<%= restaurant.latitude %>" id="latitude<%= restaurants_number %>">
+                      <input type="hidden" value="<%= restaurant.longitude %>" id="longitude<%= restaurants_number %>">
+                      <% restaurants_number += 1 %>
                     </div>
                   </a>
                 </div>

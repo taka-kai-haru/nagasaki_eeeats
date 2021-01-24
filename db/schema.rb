@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_20_214206) do
+ActiveRecord::Schema.define(version: 2021_01_11_172957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,22 @@ ActiveRecord::Schema.define(version: 2020_11_20_214206) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["prefecture_id"], name: "index_areas_on_prefecture_id"
+  end
+
+  create_table "pay_relationships", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.bigint "payment_method_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["payment_method_id"], name: "index_pay_relationships_on_payment_method_id"
+    t.index ["restaurant_id"], name: "index_pay_relationships_on_restaurant_id"
+  end
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.string "name"
+    t.string "save_location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -130,6 +146,8 @@ ActiveRecord::Schema.define(version: 2020_11_20_214206) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "areas", "prefectures"
+  add_foreign_key "pay_relationships", "payment_methods"
+  add_foreign_key "pay_relationships", "restaurants"
   add_foreign_key "posts", "restaurants"
   add_foreign_key "posts", "users"
   add_foreign_key "restaurants", "areas"

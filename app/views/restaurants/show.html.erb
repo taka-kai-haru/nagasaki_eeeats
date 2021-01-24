@@ -15,6 +15,12 @@
           <p id="restaurant_name"><%= @restaurant.name %></p>
           <h6 class="h6 show_item">ジャンル</h6>
           <p><%= @restaurant.restaurant_type.name %></p>
+          <h6 class="h6 show_item">決済方法</h6>
+          <div class="flexContainer">
+            <% @restaurant.pay_relationships.each do |pay_relationship| %>
+              <%= image_tag @hash_payment_method[pay_relationship.payment_method_id],class: "payment_method_small" %>
+            <% end %>
+          </div>
           <h6 class="h6 show_item">電話番号</h6>
           <p><%= @restaurant.tel %></p>
           <% if @restaurant.url.present? %>

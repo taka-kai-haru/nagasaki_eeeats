@@ -2,6 +2,9 @@ class Restaurant < ApplicationRecord
   belongs_to :area
   belongs_to :restaurant_type
   has_many :posts, dependent: :destroy
+  has_many :pay_relationships, dependent: :destroy
+  has_many :payment_methods, through: :pay_relationships
+  accepts_nested_attributes_for :pay_relationships, allow_destroy: true
   acts_as_mappable :default_units => :kms,
                    :default_formula => :sphere,
                    :distance_field_name => :distance,
@@ -23,7 +26,6 @@ class Restaurant < ApplicationRecord
   #検索用searchメソッド
   scope :search, -> (search_params) do  
     return if search_params.blank?
-    # release_user(search_params[:user_id])
     area_id_is(search_params[:area_id])
       .restaurant_type_id_is(search_params[:restaurant_type_id])
       .name_like(search_params[:name])
@@ -33,11 +35,11 @@ class Restaurant < ApplicationRecord
       .order_my_evaluation(search_params[:order])
       .order_near(search_params[:order],search_params[:present_position_lat],search_params[:present_position_lng])
       .my_post_select_is(search_params[:my_post_select],search_params[:user_id])
+      .payment_method_is(search_params[:payment_method_ids])
   end
 
   #検索用scope
-  # scope :release_user, -> (user_id) { where(users: {id: user_id}).or(users: {release: true})}
-  scope :area_id_is, -> (area_id) { where(area_id: area_id) if area_id.present? } 
+  scope :area_id_is, -> (area_id) { where(area_id: area_id) if area_id.present? }
   scope :restaurant_type_id_is, -> (restaurant_type_id) { where(restaurant_type_id: restaurant_type_id) if restaurant_type_id.present? }
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
   scope :likes, -> (likes) { where(posts: {likes: true}) if likes == '1'}
@@ -46,5 +48,7 @@ class Restaurant < ApplicationRecord
   scope :order_my_evaluation, -> (order) { order('(posts.atmosphere + posts.accessibility + posts.cost_performance + posts.assortment + posts.service + posts.delicious) desc NULLS LAST') if order == '1'}
   scope :order_near, -> (order,latitude,longitude) { by_distance(:origin => [latitude.to_f, longitude.to_f]) if order == '2' }
   scope :my_post_select_is, -> (my_post_select,user_id) { where(posts: {user_id: user_id}) if my_post_select == '1'}
+  scope :payment_method_is, -> (payment_method_ids) { where(pay_relationships: {payment_method_id: payment_method_ids}) if payment_method_ids.present? && payment_method_ids.size > 1 }
+
 
 end
