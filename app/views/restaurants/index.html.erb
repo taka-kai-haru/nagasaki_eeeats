@@ -57,7 +57,7 @@
         <div class="flexContainer mb-10">
             <%= f.collection_check_boxes(:payment_method_ids, PaymentMethod.all, :id, :save_location, checked: @search_params[:payment_method_ids]) do |payment_method| %>
             <div class="flexContainer payment_method_big">
-              <%= image_tag payment_method.text, class: "payment_method_big" %>
+              <%= image_tag payment_method.text, class: "payment_method_big pd-10" %>
               <%= payment_method.check_box %>
             </div>
           <% end %>
