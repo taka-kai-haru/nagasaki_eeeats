@@ -30,7 +30,7 @@
         <div class="flexContainer">
           <%= f.collection_check_boxes(:payment_method_ids, PaymentMethod.all, :id, :save_location) do |payment_method| %>
             <div class="flexContainer payment_method_normal">
-              <%= image_tag payment_method.text,class: "payment_method_normal pd-10" %>
+              <%= image_tag payment_method.text,class: "payment_method_normal pd-5" %>
               <div class="switchArea-pay-method">
                 <%= payment_method.check_box id: "#{payment_method.text}" %>
                 <label for=<%= payment_method.text%>><span></span></label>
