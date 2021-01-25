@@ -44,4 +44,4 @@ yarn-debug.log*
 !.idea/gradle.xml
 !.idea/misc.xml
 localhost.pem
-localhost-key.pem
+localhost-key.pemsendgrid.env
