@@ -123,7 +123,6 @@
                       <% next if post.user.id != current_user.id && !post.user.release %>
                       <% if post.images.count > 0 %>
                         <%= image_tag post.images.sample.variant(resize_to_fill: [600, 600]), class: 'card-img-top' %>
-                        <%#= image_tag post.image_small, class: 'card-img-top' %>
                         <% image_exist = true %>
                         <% break %>
                       <% end %>

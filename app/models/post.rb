@@ -14,8 +14,8 @@ class Post < ApplicationRecord
                                                 message: "jpeg,gif,pngの拡張子にしてください。" },
                                                 size:         { less_than: 5.megabytes,
                                                 message: "5MBより小さくしてください。" }
-  validate :validate_comment_attachment_byte_size
   validate :validate_comment_attachments_count
+  validate :validate_comment_attachment_byte_size
   validates :restaurant_id , uniqueness: { scope: :user_id }
 
   IMAGE_MAX_SAVE = 3
@@ -49,7 +49,7 @@ class Post < ApplicationRecord
     comment.body.attachables.grep(ActiveStorage::Blob).each do |attachabl|
       if attachabl.byte_size > MAX_COMMENT_ATTACHMENT_BYTE_SIZE
         errors.add(
-            :base,
+            :comment,
             :comment_attachement_byte_size_is_too_big,
             max_comment_attachement_mega_byte_size: MEGA_BYTES,
             bytes: attachabl.byte_size,
@@ -62,15 +62,12 @@ class Post < ApplicationRecord
   def validate_comment_attachments_count
     if comment.body.attachables.grep(ActiveStorage::Blob).count > MAX_COMMENT_ATTACHMENTS_COUNT
       errors.add(
-          :content,
+          :comment,
           :attachments_count_is_too_big,
           max_comment_attachments_count: MAX_COMMENT_ATTACHMENTS_COUNT
       )
     end
   end
 
-  def image_small
-    self.images.sample.variant(resize: '200x200').processed
-  end
 
 end

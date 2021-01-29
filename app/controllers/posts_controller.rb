@@ -25,8 +25,9 @@ class PostsController < ApplicationController
       # redirect_to "/restaurants/#{@post.restaurant_id}"
       redirect_to restaurant_path @post.restaurant
     else
-      flash[:warning] = "コメントを登録することができませんでした。"
-      redirect_to restaurant_path @post.restaurant
+      # flash[:warning] = "コメントを登録することができませんでした。"
+      # redirect_to restaurant_path @post.restaurant
+      render :new
     end
   end
 

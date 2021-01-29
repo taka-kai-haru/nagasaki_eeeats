@@ -98,6 +98,9 @@ ja:
               taken: "レコードが重複しています。"
             user_id:
               taken: "レコードが重複しています。"
+            comment:
+              attachments_count_is_too_big: "の添付ファイルは%{max_comment_attachments_count}枚以下にしてください。"
+              comment_attachement_byte_size_is_too_big: "の添付ファイルは%{max_comment_attachement_mega_byte_size}MB以下にしてください[%{bytes}/%{max_bytes}]"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

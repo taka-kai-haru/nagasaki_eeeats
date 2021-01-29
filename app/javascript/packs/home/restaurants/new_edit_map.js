@@ -5,6 +5,10 @@ let textinput = document.getElementById("textinput");
 let present_ocation = document.getElementById("present_ocation");
 let google_map = document.getElementById("google_map");
 let address = document.getElementById("address");
+let submit_id = document.getElementById("submit_id");
+let form_id = document.getElementById("form_id");
+let submit_timer
+let submit_timer_count = 0;
 let googlemaker = null;
 let restaurantmap;
 const my_reg = /日本、〒\s?\d{3}(-|ー)\d{4}/;
@@ -25,7 +29,7 @@ restaurantmap = new google.maps.Map(map_canvas, {
 
 // 住所があればGoogleMap表示
 if (address.value !== "") {
-    getAddressToMove();
+    getAddressToMove(false);
 }
 
 // イベント
@@ -51,16 +55,157 @@ present_ocation.addEventListener('click', (event) => {
 google_map.addEventListener('click', (event) => {
     RadioButtonChanged();
 });
-address.addEventListener('focusout', (event) => {
-    if (address.value !== "") {
-        getAddressToMove(); //入力された住所へ移動
-    }
-});
+// address.addEventListener('focusout', (event) => {
+//     if (address.value !== "") {
+//         getAddressToMove(); //入力された住所へ移動
+//     }
+// });
+
+
+// submit_id.addEventListener('onclick', (event)  => {
+//     event.preventDefault();
+//     if (address.value !== "") {
+//         getAddressToMove(); //入力された住所へ移動
+//     }
+//     form_id.submit();
+// });
+
 restaurantmap.addListener('click', function (e) {
     if (google_map.checked) {
         show_current_location(e);
     }
 });
+
+address.addEventListener('onchange', (event)  => {
+    if (address.value !== "") {
+        getAddressToMove(false); //入力された住所へ移動
+    }
+});
+
+
+// $('#form_id').submit(function() {
+//     console.log("submit");
+//     if (address.value !== "") {
+//         getAddressToMove(); //入力された住所へ移動
+//     }
+//     $('#form').submit();
+// });
+
+// $(function(){
+//     $('#submit_id').on('click', function(){
+//         //
+//         // バリデーションチェックや、データの加工を行う。
+//         //
+//         console.log("submit");
+//         if (address.value !== "") {
+//             getAddressToMove(); //入力された住所へ移動
+//         }
+//         $('#form_id').submit();
+//     });
+// })
+
+// $(function(){
+//     $(document).on('click','#submit_id', function(){
+//         //
+//         // バリデーションチェックや、データの加工を行う。
+//         //
+//         console.log("submit");
+//         let result = new Promise(function(){
+//             if (address.value !== "") {
+//                 console.log("address set");
+//                 getAddressToMove(); //入力された住所へ移動
+//             }
+//         })
+//         // result.then(() => $('#form_id').submit());
+//
+//         result.then(function (){
+//             $('#form_id').submit();
+//         });
+//
+//         return false;
+//     });
+// })
+
+// $(function(){
+//     $(document).on('click','#submit_id', function(){
+//
+//         console.log("submit");
+//         let defer = new $.Deferred().resolve();
+//         defer.promise()
+//             .then(function (){
+//                 if (address.value !== "") {
+//                     console.log("address set");
+//                     return getAddressToMove(); //入力された住所へ移動
+//                 }
+//             })
+//             .then(function (){
+//                 $('#form_id').submit();
+//             });
+//
+//         return false;
+//     });
+// })
+
+// $(function(){
+//     $(document).on('click','#submit_id', function(){
+//
+//         $.when(getAddressToMove()).done(do_submit);
+//
+//         return false;
+//     });
+// })
+
+// $(function(){
+//     $(document).on('click','#submit_id', function(){
+//
+//         if (address.value === "") {
+//             // submitさせる
+//             $('#form_id').submit();
+//         } else {
+//             console.log("address set");
+//             getAddressToMove(); //入力された住所へ移動
+//             submit_timer = setInterval(do_submit,500);
+//         }
+//
+//         return false;
+//     });
+// })
+//
+//
+// function do_submit() {
+//
+//     if (submit_timer_count > 5) {
+//         // 3秒後は強制的にsubmitさせる
+//         submit_timer_count = 0;
+//         clearInterval(submit_timer);
+//         $('#form_id').submit();
+//         return;
+//     }
+//
+//     submit_timer_count += 1;
+//
+//     if (document.getElementById('latitude').value !== "0.0") {
+//         submit_timer_count = 0;
+//         clearInterval(submit_timer);
+//         $('#form_id').submit();
+//     }
+//
+// }
+
+$(function(){
+    $(document).on('click','#submit_id', function(){
+
+        if (address.value === "") {
+            // submitさせる
+            $('#form_id').submit();
+        } else {
+            console.log("address set");
+            getAddressToMove(true); //入力された住所へ移動
+        }
+
+        return false;
+    });
+})
 
 
 //RadioButtonChangeイベント
@@ -93,7 +238,7 @@ function RadioButtonChanged() {
         // present_ocation.checked = false;
         address.readonly = true;
         if (address.value !== "") {
-            getAddressToMove(); //入力された住所へ移動
+            getAddressToMove(false); //入力された住所へ移動
         }
 
     }
@@ -194,7 +339,7 @@ function getPresentOcation() {
 };
 
 // 住所からGoogoleMap更新
-function getAddressToMove() {
+function getAddressToMove(submit_flg) {
 // const target_address = document.getElementById("address");
     geocoder.geocode(
         {
@@ -219,6 +364,9 @@ function getAddressToMove() {
                 restaurantmap.setCenter(center_position);
                 latitudelongitudeSet(lat, lng); // 緯度経度セット
                 merkerSet(latlng, restaurantmap, address.value);
+                if (submit_flg) {
+                    $('#form_id').submit();
+                }
             } else {
                 alert("マップが見つかりませんでした。");
                 document.getElementById('map_canvas').innerText = "地図情報が取得できません。4";

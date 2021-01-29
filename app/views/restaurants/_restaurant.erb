@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-lg-12 col-xs-12 bg-white rounded pd-20 mb-10">
-    <% if request.path_info == new_restaurant_path %>
+    <% if request.path_info == new_restaurant_path || request.path_info == restaurants_path %>
       <h1 class="text-center page_title">お店の登録</h1>
     <% else %>
       <h1 class="text-center page_title">お店の編集</h1>
     <% end %>
-    <%= form_with(model: @restaurant, local: true) do |f| %>
+    <%= form_with(model: @restaurant, local: true, id: "form_id") do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="field">
         <%= f.label :name %><span class="badge badge-danger">必須</span>
@@ -84,9 +84,9 @@
 
 
 
-      <% if request.path_info == new_restaurant_path %>
+      <% if request.path_info == new_restaurant_path || request.path_info == restaurants_path %>
         <div class="actions text-center mt-20 mb-10">
-          <%= f.submit "お店の情報登録", class: "btn btn-info button-wide rounded-center" %>
+          <%= f.submit "お店の情報登録", class: "btn btn-info button-wide rounded-center", id: "submit_id" %>
         </div>
         <%= link_to "＜戻る", restaurants_return_path, class: 'btn btn-outline-info' %>
       <% else %>
@@ -99,9 +99,9 @@
           </div>
         </div>
         <div class="actions text-center">
-          <%= f.submit "お店情報の更新", class: "btn btn-info button-wide rounded-center" %>
+          <%= f.submit "お店情報の更新", class: "btn btn-info button-wide rounded-center", id: "submit_id" %>
         </div>
-        <%= link_to "＜戻る", restaurant_path, class: 'btn btn-outline-info' %>
+        <%= link_to "＜戻る", :back, class: 'btn btn-outline-info' %>
       <% end %>
     <% end %>
   </div>
