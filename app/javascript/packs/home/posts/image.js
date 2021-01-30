@@ -10,8 +10,8 @@ $(function(){
 
     var size_in_megabytes = files.size/1024/1024;
 
-    if (size_in_megabytes > 1) {
-      alert("登録できる画像サイズは最大5MBです。ファイルサイズが少ない画像を選択してください。");
+    if (size_in_megabytes > 3) {
+      alert("登録できる画像サイズは最大3MBです。ファイルサイズが少ない画像を選択してください。");
       $("#img-file").val(null);
       return;
       };
@@ -44,7 +44,7 @@ $(function(){
                         </div>
                       </div>
                       <div class='item-image__operetion'>
-                        <div class='item-image__operetion--delete btn btn-outline-info w-100'>削除</div>
+                        <div class='item-image__operetion--delete btn btn-outline-danger w-100'>削除</div>
                       </div>
                   </div>`
         //image_box__container要素の前にhtmlを差し込む
@@ -65,7 +65,6 @@ $(document).on("click", '.item-image__operetion--delete', function(){
     //inputタグに入ったファイルを削除
     $('input[type=file]').val(null)
     dataBox.clearData();
-    console.log(dataBox)
   }else{
     //プレビューが複数の場合
     $.each(file_field.files, function(i,input){
@@ -77,6 +76,7 @@ $(document).on("click", '.item-image__operetion--delete', function(){
     //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に再度代入
     file_field.files = dataBox.files
   }
+  console.log(dataBox);
   //プレビューを削除
   target_image.remove()
   //image-box__containerクラスをもつdivタグのクラスを削除のたびに変更

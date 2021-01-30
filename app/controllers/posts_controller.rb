@@ -67,6 +67,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def img_destroy
+    @post = Post.find(params[:id])
+    if @post.images.purge
+      redirect_to edit_post_path(@post)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def params_check

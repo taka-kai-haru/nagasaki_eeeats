@@ -50,7 +50,9 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+          <%= link_to "画像全削除", post_img_destroy_path(@post), method: :delete, "data-confirm" => "削除してもよろしいでしょうか？", class: "btn btn-outline-danger button-wide rounded-center" %>
         <% end %>
+
 
         <div class="col-lg-5 col-xs-12 pd-0 mb-10">
           <div class="h6 show_item">
@@ -60,13 +62,33 @@
 
         <div id="image-box-1">
           <div class="row">
+            <%# @post.images.each_with_index do |image, index|%>
+<!--              <div class='item-image col-lg-4 col-xs-12' data-image="<%#= image %>">-->
+<!--                <div class=' item-image__content'>-->
+<!--                  <div class='item-image__content--icon'>-->
+                    <%#= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100 img-fluid", alt: "#{index} slide" %>
+<!--                    <img src=${src} width="auto" height="auto" class='img-fluid' >-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class='item-image__operetion'>-->
+<!--                  <div class='item-image__operetion--delete btn btn-outline-info w-100'>削除</div>-->
+<!--                </div>-->
+<!--              </div>-->
+            <%# end %>
             <div class="item-num-0" id="image-box__container">
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12 col-xs-12 " id="image_select">
-              <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file" %>
-            </div>
+            <%# if @post.images.count == 3 %>
+<!--              <div class="col-lg-12 col-xs-12 " id="image_select" class="display-none">-->
+                <%#= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file", value: @post.images %>
+<!--              </div>-->
+            <%# else %>
+              <div class="col-lg-12 col-xs-12 " id="image_select">
+                <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file"%>
+                <%#= f.hidden_field :images, value: @post.images %>
+              </div>
+            <%# end %>
           </div>
         </div>
       </div>
