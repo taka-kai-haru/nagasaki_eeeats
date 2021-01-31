@@ -26,11 +26,11 @@
         <%= f.label :my_post_select, '検索範囲' %>
         <div class="field">
           <div class="col-sm-12 btn-group btn-group-toggle  mb-10 pd-0" data-toggle="buttons">
-            <label class="btn btn-outline-secondary active" style="width:30%" id="my_post_none_label">
+            <label class="btn btn-outline-secondary <%="active" if @search_params[:my_post_select] == "0" %>" style="width:30%" id="my_post_none_label">
               <%= f.radio_button :my_post_select, 0, {checked: @search_params[:my_post_select] == '0' ? true : false, id: "my_post_none"} %>
               すべて
             </label>
-            <label class="btn btn-outline-secondary" style="width:30%" id="my_post_only_label">
+            <label class="btn btn-outline-secondary <%="active" if @search_params[:my_post_select] == "1" %>" style="width:30%" id="my_post_only_label">
               <%= f.radio_button :my_post_select, 1, {checked: @search_params[:my_post_select] == '1' ? true : false, id: "my_post_only"} %>
               自分の評価分
             </label>
@@ -66,15 +66,15 @@
         <%= f.label :order, '並び順' %>
         <div class="field">
           <div class="col-sm-12 btn-group btn-group-toggle  mb-10 pd-0" data-toggle="buttons">
-            <label class="btn btn-outline-secondary active" style="width:30%" id="order_evaluation_label">
+            <label class="btn btn-outline-secondary <%="active" if @search_params[:order] == "0" %>" style="width:30%" id="order_evaluation_label">
               <%= f.radio_button :order, 0, {checked: @search_params[:order] == '0' ? true : false, id: "order_evaluation"} %>
               全体評価
             </label>
-            <label class="btn btn-outline-secondary " style="width:30%" id="order_my_evaluation_label">
+            <label class="btn btn-outline-secondary <%="active" if @search_params[:order] == "1" %>" style="width:30%" id="order_my_evaluation_label">
               <%= f.radio_button :order, 1, {checked: @search_params[:order] == '1' ? true : false, id: "order_my_evaluation"} %>
               自分評価
             </label>
-            <label class="btn btn-outline-secondary " style="width:30%" id="order_near_label">
+            <label class="btn btn-outline-secondary <%="active" if @search_params[:order] == "2" %>" style="width:30%" id="order_near_label">
               <%= f.radio_button :order, 2, {checked: @search_params[:order] == '2' ? true : false, id: "order_near"} %>
               近い順
             </label>

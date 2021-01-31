@@ -363,10 +363,11 @@ function getAddressToMove(submit_flg) {
 
                 restaurantmap.setCenter(center_position);
                 latitudelongitudeSet(lat, lng); // 緯度経度セット
-                merkerSet(latlng, restaurantmap, address.value);
                 if (submit_flg) {
                     $('#form_id').submit();
+                    return;
                 }
+                merkerSet(latlng, restaurantmap, address.value);
             } else {
                 alert("マップが見つかりませんでした。");
                 document.getElementById('map_canvas').innerText = "地図情報が取得できません。4";

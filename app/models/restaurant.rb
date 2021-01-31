@@ -45,7 +45,7 @@ class Restaurant < ApplicationRecord
   scope :likes, -> (likes) { where(posts: {likes: true}) if likes == '1'}
   scope :dislikes, -> (dislikes) { where(posts: {dislikes: true}) if dislikes == '1'}
   scope :order_evaluation, -> (order) { order('point desc NULLS LAST') if order == '0'}
-  scope :order_my_evaluation, -> (order) { order('(posts.atmosphere + posts.accessibility + posts.cost_performance + posts.assortment + posts.service + posts.delicious) desc NULLS LAST') if order == '1'}
+  scope :order_my_evaluation, -> (order) { order(Arel.sql('(posts.atmosphere + posts.accessibility + posts.cost_performance + posts.assortment + posts.service + posts.delicious) desc NULLS LAST')) if order == '1'}
   scope :order_near, -> (order,latitude,longitude) { by_distance(:origin => [latitude.to_f, longitude.to_f]) if order == '2' }
   scope :my_post_select_is, -> (my_post_select,user_id) { where(posts: {user_id: user_id}) if my_post_select == '1'}
   scope :payment_method_is, -> (payment_method_ids) { where(pay_relationships: {payment_method_id: payment_method_ids}) if payment_method_ids.present? && payment_method_ids.size > 1 }
