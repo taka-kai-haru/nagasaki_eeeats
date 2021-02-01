@@ -141,7 +141,7 @@ function show_current_location() {
                 new google.maps.Size(17, 17) // scaled size (required for Retina display icon)
             );
             map.setCenter(center_position);
-            AutoMapZoom();
+            // AutoMapZoom();
 
             // アイコンクリア
             if (gps_marker !== null) {
