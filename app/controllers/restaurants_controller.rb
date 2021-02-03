@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
     @search_params[:order] = '0' if @search_params[:order].nil?
     @search_params[:user_id] = current_user.id
 
-    @restaurants = Restaurant.includes(:posts, :pay_relationships).search(@search_params).order(id: :asc).page(params[:page]).per(4)
+    @restaurants = Restaurant.includes(:posts, :pay_relationships).search(@search_params).order(id: :asc).page(params[:page]).per(10)
 
     # 支払い方法をハッシュ化する
     # @hash_payment_method = Hash.new
