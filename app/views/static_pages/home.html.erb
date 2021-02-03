@@ -9,7 +9,11 @@
     <div class="text-center">
       <%= image_tag "Nagasaki_Eeeats.png", class: "title" %>
     </div>
-    <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
+    <% if user_signed_in? %>
+      <%= link_to "お店の一覧", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
+    <% end %>
     <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide", id:"signup" %>
   </div>
 </div>

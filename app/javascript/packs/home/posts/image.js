@@ -10,8 +10,8 @@ $(function(){
 
     var size_in_megabytes = files.size/1024/1024;
 
-    if (size_in_megabytes > 3) {
-      alert("登録できる画像サイズは最大3MBです。ファイルサイズが少ない画像を選択してください。");
+    if (size_in_megabytes > 5) {
+      alert("登録できる画像サイズは最大5MBです。ファイルサイズが少ない画像を選択してください。");
       $("#img-file").val(null);
       return;
       };
