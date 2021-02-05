@@ -22,33 +22,33 @@
           <div class="col-lg-5 col-xs-12 pd-0">
             <h6 class="h6 show_item">保存画像</h6>
           </div>
-          <div id="carouselExampleIndicators" class="carousel slide w-50 mx-auto mb-10" data-ride="false">
-            <ol class="carousel-indicators">
-              <% @post.images.count.times do |index|%>
-                <li data-target="#carouselExampleIndicators" data-slide-to=<%= index %> <%= 'class=active' if index == 0 %>></li>
-              <% end %>
-            </ol>
-            <div class="carousel-inner">
-              <% @post.images.each_with_index do |image, index|%>
-                <% if index == 0 %>
-                  <div class="carousel-item active">
-                    <%= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100", alt: "#{index} slide" %>
-                  </div>
-                <% else %>
-                  <div class="carousel-item">
-                    <%= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100", alt: "#{index} slide" %>
-                  </div>
-                <% end %>
-              <% end %>
+          <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 col-xs-12">
+              <div id="carouselExampleIndicators" class="carousel slide mx-auto mb-10" data-ride="false">
+                <ol class="carousel-indicators">
+                  <% @post.images.count.times do |index|%>
+                    <li data-target="#carouselExampleIndicators" data-slide-to=<%= index %> <%= 'class=active' if index == 0 %>></li>
+                  <% end %>
+                </ol>
+                <div class="carousel-inner">
+                  <% @post.images.each_with_index do |image, index|%>
+                    <div class="carousel-item <%= "active" if index == 0 %>">
+                      <%= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100", alt: "#{index} slide" %>
+                    </div>
+                  <% end %>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+            <div class="col-lg-3"></div>
           </div>
           <%= link_to "画像全削除", post_img_destroy_path(@post), method: :delete, "data-confirm" => "削除してもよろしいでしょうか？", class: "btn btn-outline-danger button-wide rounded-center" %>
         <% end %>
@@ -62,33 +62,13 @@
 
         <div id="image-box-1">
           <div class="row">
-            <%# @post.images.each_with_index do |image, index|%>
-<!--              <div class='item-image col-lg-4 col-xs-12' data-image="<%#= image %>">-->
-<!--                <div class=' item-image__content'>-->
-<!--                  <div class='item-image__content--icon'>-->
-                    <%#= image_tag image.variant(resize_to_fill: [600, 600]) , class: "d-block w-100 img-fluid", alt: "#{index} slide" %>
-<!--                    <img src=${src} width="auto" height="auto" class='img-fluid' >-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class='item-image__operetion'>-->
-<!--                  <div class='item-image__operetion--delete btn btn-outline-info w-100'>削除</div>-->
-<!--                </div>-->
-<!--              </div>-->
-            <%# end %>
             <div class="item-num-0" id="image-box__container">
             </div>
           </div>
           <div class="row">
-            <%# if @post.images.count == 3 %>
-<!--              <div class="col-lg-12 col-xs-12 " id="image_select" class="display-none">-->
-                <%#= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file", value: @post.images %>
-<!--              </div>-->
-            <%# else %>
               <div class="col-lg-12 col-xs-12 " id="image_select">
                 <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png", multiple: true, id: "img-file"%>
-                <%#= f.hidden_field :images, value: @post.images %>
               </div>
-            <%# end %>
           </div>
         </div>
       </div>

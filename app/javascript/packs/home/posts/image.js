@@ -39,8 +39,8 @@ $(function(){
         var src = fileReader.result
         var html= `<div class='item-image col-lg-4 col-xs-12' data-image="${file.name}">
                       <div class=' item-image__content'>
-                        <div class='item-image__content--icon'>
-                          <img src=${src} width="auto" height="auto" class='img-fluid' >
+                        <div class='item-image__content--icon square_blank'>
+                          <img src=${src} class='img-fluid img_square'>
                         </div>
                       </div>
                       <div class='item-image__operetion'>

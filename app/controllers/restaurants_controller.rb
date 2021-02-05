@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
     # 検索用パラーメーターデフォルト値セット
     @search_params[:my_post_select] = '0' if @search_params[:my_post_select].nil?
     @search_params[:order] = '0' if @search_params[:order].nil?
+    @search_params[:payment_method_display] = '0' if @search_params[:payment_method_display].nil?
     @search_params[:user_id] = current_user.id
 
     @restaurants = Restaurant.includes(:posts, :pay_relationships).search(@search_params).order(id: :asc).page(params[:page]).per(10)
@@ -109,7 +110,7 @@ class RestaurantsController < ApplicationController
 
   # 検索条件セット
   def restaurant_search_params
-    params.fetch(:search, {}).permit(:area_id, :restaurant_type_id, :name, :likes, :dislikes, :my_post_select, :order, :present_position_lat, :present_position_lng, :user_id, payment_method_ids: [])
+    params.fetch(:search, {}).permit(:area_id, :restaurant_type_id, :name, :likes, :dislikes, :my_post_select, :order, :present_position_lat, :present_position_lng, :user_id, :payment_method_display, payment_method_ids: [])
   end
 
   def payment_method_set
