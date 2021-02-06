@@ -22,15 +22,16 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
     gps_fixed.addEventListener('touchend', function () {
         show_current_location();
     });
-
-
 } else {
     gps_fixed.addEventListener('click', function () {
         show_current_location();
     });
-
-
 }
+
+if (order_near.checked === true) {
+    set_present_position_hidden_field();
+}
+
 
 order_near.addEventListener('click', function () {
     set_present_position_hidden_field();

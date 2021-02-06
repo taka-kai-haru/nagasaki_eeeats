@@ -39,7 +39,7 @@ ja:
         longitude: 経度
         payment_method: 決済方法
       post:
-        images: 画像アップロード
+        images: 画像アップロード(上書き)
         delicious: 味
         atmosphere: 雰囲気
         accessibility: 利便性
