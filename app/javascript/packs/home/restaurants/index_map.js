@@ -141,8 +141,10 @@ function show_current_location() {
                 new google.maps.Point(8, 8), // anchor (move to center of marker)
                 new google.maps.Size(17, 17) // scaled size (required for Retina display icon)
             );
-            map.setCenter(center_position);
-            // AutoMapZoom();
+            // map.setCenter(center_position);
+            let present_position = {name: '現在地',lat: lat,lng: lng};
+            data.push(present_position)
+            AutoMapZoom();
 
             // アイコンクリア
             if (gps_marker !== null) {
