@@ -1,16 +1,153 @@
-<% provide(:title, "NAGASAKI Eeeatsについて") %>
+<% provide(:title, "Nagasaki Eeeatsについて") %>
 
 <div class="row">
-  <div class="col-lg-12">
-    <div class="align-self-start">
-      <h1 class="text-light text-center page_title">NAGASAKI Eeeeetsについて</h1>
+  <div class="col-lg-12 col-xs-12 bg-white rounded pd-20  mb-20 mt-10">
+    <h1 class="text-center page_title mb-20">Nagasaki Eeeatsについて</h1>
+    <div class="col-lg-6 col-xs-12">
+      <h6 class="h6 show_item">Nagasaki Eeeatsとは</h6>
     </div>
-    <div class="text-light">
-      <p>NAGASAKI Eeeatsとは自分が長崎県の行った飲食店の情報を記録させるサイトです。</p>
-      <p>ユーザー登録を行うとお店の登録、評価、コメントを記録させることができます。</p>
-      <p>現在、ポートフォリオとしてサイト制作中の為、登録されているデータは仮想データとなります。</p>
-      <p>その為、サイト制作完了までデータを削除する可能性があります。</p>
+    <div class="pd-20">
+      <p>食事とはとても大切なイベントです。<br>
+        どこで食べるか、何を食べるかによってその1日の命運が左右されると言っても過言ではありません。<br>
+        Nagasaki Eeeatsは、長崎の食について記憶ではなく、記録に残すサイトです。<br>
+        一度訪れたお店を記録し、次回のお店選びで活用して長崎の食を楽しみましょう。</p>
+    </div>
+    <div class="col-lg-6 col-xs-12">
+      <h6 class="h6 show_item">Nagasaki Eeeatsの４つの主な特徴</h6>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 mb-20 pd-20">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col mb-4">
+            <div class="card h-100">
+              <div class="card-header">
+                <h5 class="h5">《特徴１》　お店までのルートがわかる</h5>
+              </div>
+              <div class="text-center">
+                <%= image_tag "1_map.png", class: 'card-img-top pd-20 about_image' %>
+              </div>
+              <div class="card-body">
+                <p class="card-text">端末のGPS機能をONにすれば、現在地からお店までのルートを表示することができます。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <div class="card-header">
+                <h5 class="h5">《特徴２》　写真をアップロードできる</h5>
+              </div>
+              <div class="text-center">
+                <%= image_tag "2_image.png", class: 'card-img-top pd-20 about_image' %>
+              </div>
+              <div class="card-body">
+                <p class="card-text">１件のお店で最大<%= Post::IMAGE_MAX_SAVE + Post::MAX_COMMENT_ATTACHMENTS_COUNT%>枚写真をアップロードできます。</p>
+                <p class="card-text">※コメント登録画面の画像アップロードでアップロードした写真は、お店の一覧画面にランダムで表示されます。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <div class="card-header">
+                <h5 class="h5">《特徴３》　パソコン・スマホ・タブレットで利用できる</h5>
+              </div>
+              <%= image_tag "3_responsive.png", class: 'card-img-top' %>
+              <div class="card-body">
+                <p class="card-text">インターネットが繋がる環境であればどこでも利用できるので、行ったお店でそのまま登録することもできます。<br>
+                スマホ・タブレットは下のQRコードからアクセスできます。</p>
+                <div class="text-center">
+                  <%= image_tag "QR_Code.png", class: 'QR_Code' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card h-100">
+              <div class="card-header">
+                <h5 class="h5">《特徴４》　自分のコメントを公開/非公開にできる</h5>
+              </div>
+              <%= image_tag "4_release.png", class: 'card-img-top' %>
+              <div class="card-body">
+                <p class="card-text">ユーザー登録時に、自分のコメントを公開か非公開か選択するとができます。</p>
+                <p class="card-text">非公開の場合、お店の評価の点数だけ表示されますが、ユーザーの名前や、コメント、画像等は表示されません。(後で変更もできます。)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-xs-12">
+      <h6 class="h6 show_item">Nagasaki Eeeatsの登録までの流れ</h6>
+    </div>
+
+    <div class="use-flow">
+      <ul class="flow">
+        <li>
+          <span class="icon">STEP.01</span>
+          <dl>
+            <dt>サインイン</dt>
+            <dd>ユーザー情報を入力してください。(仮登録)</dd>
+          </dl>
+        </li>
+
+        <li>
+          <span class="icon">STEP.02</span>
+          <dl>
+            <dt>メール受信</dt>
+            <dd>メールが届きますので、メール本文の【ユーザー登録へ】を選択してください。(本登録)</dd>
+          </dl>
+        </li>
+
+        <li>
+          <span class="icon">STEP.03</span>
+          <dl>
+            <dt>ログイン</dt>
+            <dd>メールアドレス・パスワードを入力しログインしてください。</dd>
+          </dl>
+        </li>
+
+      </ul>
+    </div>
+    <div class="col-lg-6 col-xs-12">
+      <h6 class="h6 show_item">Nagasaki Eeeatsについてのお問合せ</h6>
+    </div>
+    <div class="flexContainer pd-20">
+      <p>お問合せはこちら</p><a href="mailto:erie.orchid.dev@gmail.com?subject=[問合せ]Nagasaki Eeeatsについて">erie.orchid.dev@gmail.com</a><p>まで</p>
+    </div>
+    <%= link_to "＜戻る", :back, class: 'btn btn-outline-info mb-20 mt-10' %>
+    <div class="pd-20 mt-30 text-center">
+      <h4 class="h4">Technology Used</h4>
+      <a href="https://www.ruby-lang.org/ja/" style="text-decoration: none;">
+        <%= image_tag "Ruby.png", class: "service_img" %>
+      </a>
+      <a href="https://rubyonrails.org/" style="text-decoration: none;">
+      <%= image_tag "Rails.png", class: "service_img" %>
+      </a>
+      <a href="https://sass-lang.com/" style="text-decoration: none;">
+      <%= image_tag "Sass.png", class: "service_img" %>
+      </a>
+      <a href="https://aws.amazon.com/" style="text-decoration: none;">
+      <%= image_tag "Aws.png", class: "service_img" %>
+      </a>
+      <a href="https://www.postgresql.org/" style="text-decoration: none;">
+        <%= image_tag "Postgresql.png", class: "service_img" %>
+      </a>
+      <a href="https://jquery.com/" style="text-decoration: none;">
+      <%= image_tag "Jquery.png", class: "service_img" %>
+      </a>
+      <a href="https://www.chartjs.org/" style="text-decoration: none;">
+      <%= image_tag "Chart_js.svg", class: "service_img" %>
+      </a>
+      <a href="https://cloud.google.com/maps-platform?hl=ja" style="text-decoration: none;">
+      <%= image_tag "Google_Cloud.svg", class: "service_img" %>
+      <%= image_tag "Google_maps.png", class: "service_img" %>
+      <%= image_tag "Maps_JavaScript_API.png", class: "service_img" %>
+      <%= image_tag "Geocoding_API.png", class: "service_img" %>
+      <%= image_tag "Distance_Matrix_API.png", class: "service_img" %>
+      <%= image_tag "Directions_API.png", class: "service_img" %>
+      </a>
     </div>
   </div>
 </div>
-<%= link_to "戻る", :back, class: 'text-light' %>
+

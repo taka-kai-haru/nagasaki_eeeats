@@ -17,16 +17,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # @post.images.attach(params[:post][:images])
-    # binding.pry
     if @post.save
       @post.point_update @post.restaurant_id
       flash[:info] = "コメントの登録しました。"
-      # redirect_to "/restaurants/#{@post.restaurant_id}"
       redirect_to restaurant_path @post.restaurant
     else
-      # flash[:warning] = "コメントを登録することができませんでした。"
-      # redirect_to restaurant_path @post.restaurant
       render :new
     end
   end

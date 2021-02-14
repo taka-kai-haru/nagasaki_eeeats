@@ -52,18 +52,15 @@
         <%= f.submit "ユーザー情報更新", class: "btn btn-info w-75" %>
       </div>
     <% end %>
-  </div>
-</div>
-<br/>
-<div class="row">
-  <div class="col-lg-6 col-xs-12 bg-white rounded pd-20 mb-10">
-    <h2 class='h2'>ユーザー情報削除</h2>
-
-    <p>ユーザー情報を削除する場合はこちら</p>
-    <div class="text-center">
-      <%= button_to "ユーザー情報削除", registration_path(resource_name), data: {confirm: "ユーザー情報と登録した全てのデータを削除しますか?"}, method: :delete, class: "btn btn-danger text-center w-75" %>
+    <div class="mt-30 mb-30">
+      <h1 class="text-center page_title">ユーザー情報削除</h1>
+      <p>ユーザー情報を削除する場合はこちら</p>
+      <div class="text-center">
+        <%= button_to "ユーザー情報削除", registration_path(resource_name), data: {confirm: "ユーザー情報と登録した全てのデータを削除しますか?"}, method: :delete, class: "btn btn-danger text-center w-75" %>
+      </div>
     </div>
+    <%= link_to "＜戻る", :back, class: 'btn btn-outline-info' %>
   </div>
 </div>
 
-<%= link_to "戻る", :back, class: 'text-light' %>
+

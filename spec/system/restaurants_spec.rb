@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "Restaurants", type: :system do
 
   scenario "お店の情報登録" do
+    restaurant_type = create(:restaurant_type)
+    aria = create(:area)
     user = create(:user)
     user.confirm
     sign_in user
@@ -124,9 +126,4 @@ RSpec.describe "Restaurants", type: :system do
     end
   end
 
-
-
-  
-  
-  
 end

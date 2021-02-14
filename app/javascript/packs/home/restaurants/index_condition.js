@@ -23,71 +23,42 @@ if (my_post_only.checked) {
     my_post_only_clicked();
 }
 
-// // クリックイベント
-// if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-//     console.log("スマホイベントセット");
-//     // 自分の投稿データのみを選択した場合
-//     my_post_only.addEventListener('touchend', function () {
-//         console.log("自分の評価分セット");
-//         my_post_only_clicked();
-//     });
-//
-//     // すべてを選んだ場合
-//     my_post_none.addEventListener('touchend', function () {
-//         my_post_none_clicked();
-//     });
-//
-//     // お気に入り選択時、イマイチのチェックボックスを外す
-//     likes.addEventListener('touchend',function (){
-//         if (likes.checked){
-//             dislikes.checked = false;
-//         }
-//     });
-//
-//     // イマイチ選択時、お気に入りのチェックボックスを外す
-//     dislikes.addEventListener('touchend',function (){
-//         if (dislikes.checked){
-//             likes.checked = false;
-//         }
-//     });
-//
-// } else {
 
-    // 自分の投稿データのみを選択した場合
-    my_post_only.addEventListener('click', function () {
-        my_post_only_clicked();
-    });
+// 自分の投稿データのみを選択した場合
+my_post_only.addEventListener('click', function () {
+    my_post_only_clicked();
+});
 
-    // すべてを選んだ場合
-    my_post_none.addEventListener('click', function () {
-        my_post_none_clicked();
-    });
+// すべてを選んだ場合
+my_post_none.addEventListener('click', function () {
+    my_post_none_clicked();
+});
 
-    // お気に入り選択時、イマイチのチェックボックスを外す
-    likes.addEventListener('click',function (){
-        if (likes.checked){
-            dislikes.checked = false;
-        }
-    });
+// お気に入り選択時、イマイチのチェックボックスを外す
+likes.addEventListener('click',function (){
+    if (likes.checked){
+        dislikes.checked = false;
+    }
+});
 
-    // イマイチ選択時、お気に入りのチェックボックスを外す
-    dislikes.addEventListener('click',function (){
-        if (dislikes.checked){
-            likes.checked = false;
-        }
-    });
+// イマイチ選択時、お気に入りのチェックボックスを外す
+dislikes.addEventListener('click',function (){
+    if (dislikes.checked){
+        likes.checked = false;
+    }
+});
 
-    // 決済方法非表示の時
-    payment_method_not_display.addEventListener('click',function (){
-        payment_method_not_display_clicked();
-    });
+// 決済方法非表示の時
+payment_method_not_display.addEventListener('click',function (){
+    payment_method_not_display_clicked();
+});
 
-    // 決済方法表示の時
-    payment_method_display.addEventListener('click',function (){
-        payment_method_display_clicked();
-    });
+// 決済方法表示の時
+payment_method_display.addEventListener('click',function (){
+    payment_method_display_clicked();
+});
 
-// }
+
 
 // すべて選択時
 function my_post_none_clicked() {

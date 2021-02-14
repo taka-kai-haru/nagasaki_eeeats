@@ -56,8 +56,6 @@ map = new google.maps.Map(map_canvas, {
     mapTypeControl: false,
     zoomControl: true,
     streetViewControl: false,
-    // disableDefaultUI: true,
-    // zoomControl: true,
 });
 
 for (let i = 0; i < data.length; i++) {
@@ -149,11 +147,7 @@ function show_current_location() {
             // アイコンクリア
             if (gps_marker !== null) {
                 gps_marker.setMap(null);
-                // divnone('inside');//◆watchPosition gif表示
-                // document.getElementById('inside').style.display = 'none';
             }
-            // divblock('inside');//◆watchPosition gif表示
-            // document.getElementById('inside').style.display = 'block';
             gps_marker = new google.maps.Marker({
                 flat: true,//・・・・・・アイコンにtrueで影を付けない
                 icon: image,
@@ -171,19 +165,6 @@ function show_current_location() {
     );
 }
 
-//div表示の切換え
-// function divblock(id)
-// {
-//     let ele = document.getElementById(id);
-//     ele.display = 'block';
-// }
-//
-// //div非表示の切換え
-// function divnone(id)
-// {
-//     let ele = document.getElementById(id);
-//     ele.display = 'none';
-// }
 
 function AutoMapZoom() {
     map.fitBounds(

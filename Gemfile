@@ -48,6 +48,7 @@ gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.4'
 gem 'zeitwerk', '~> 2.4', '>= 2.4.2'
 gem 'rake', '~> 13.0', '>= 13.0.3'
 gem 'sendgrid-ruby'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

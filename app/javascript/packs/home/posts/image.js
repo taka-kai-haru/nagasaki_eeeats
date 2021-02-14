@@ -16,9 +16,6 @@ $(function(){
       return;
       };
 
-      console.log(file_field.files.length)
-
-
     $.each(this.files, function(i, file){
       //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
       var fileReader = new FileReader();
@@ -76,7 +73,6 @@ $(document).on("click", '.item-image__operetion--delete', function(){
     //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に再度代入
     file_field.files = dataBox.files
   }
-  console.log(dataBox);
   //プレビューを削除
   target_image.remove()
   //image-box__containerクラスをもつdivタグのクラスを削除のたびに変更

@@ -29,7 +29,6 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
   });
 }
 
-  console.log(point);
   map = new google.maps.Map(map_canvas, {
     center: point,
     zoom: 17,
@@ -50,13 +49,10 @@ if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
 
 // イベント
 function show_current_location(){
-
-  console.log('clickイベント');
   if (!navigator.geolocation) {
       alert('GoogleのGeolocationサービスが使用できません。');
       return;
   };
-  console.log('clickイベント２');
   navigator.geolocation.getCurrentPosition(function(position) {
     let lat = position.coords.latitude;
     let lng =  position.coords.longitude;
@@ -69,7 +65,6 @@ function show_current_location(){
             new google.maps.Point( 8, 8 ), // anchor (move to center of marker)
             new google.maps.Size( 17, 17 ) // scaled size (required for Retina display icon)
         );
-    console.log(latlng);
 
     map.setCenter(center_position)
     // アイコンクリア
@@ -148,10 +143,6 @@ function getDestance(gpslat,gpslng){
     unitSystem: google.maps.UnitSystem.METRIC,
     avoidHighways: true,
     avoidTolls: false
-    // drivingOptions: { // 車モードの時のみ有効
-    //   departureTime: new Date('2017/5/5 10:00:00'), // 2017年5月5日
-    //   trafficModel: google.maps.TrafficModel.BEST_GUESS // 最適な検索
-    // }
   }, function(response, status) {
     if (status == google.maps.DistanceMatrixStatus.OK) {
 
@@ -166,11 +157,8 @@ function getDestance(gpslat,gpslng){
 
         // 到着地点でループ
         for (var j = 0; j<results.length; j++) {
-          // var from = origins[i]; // 出発地点の住所
-          // var to = destinations[j]; // 到着地点の住所
           document.getElementById("distance").innerText = '距離：' + results[j].distance.text + '　'; // 距離
           document.getElementById("duration").innerText = '時間：' + results[j].duration.text; // 時間
-          // console.log("{},{},{},{}", from,  to, duration, distance);
         }
       }
     }
@@ -196,10 +184,6 @@ function getDestanceWork(gpslat,gpslng){
     unitSystem: google.maps.UnitSystem.METRIC,
     avoidHighways: false,
     avoidTolls: false
-    // drivingOptions: { // 車モードの時のみ有効
-    //   departureTime: new Date('2017/5/5 10:00:00'), // 2017年5月5日
-    //   trafficModel: google.maps.TrafficModel.BEST_GUESS // 最適な検索
-    // }
   }, function(response, status) {
     if (status == google.maps.DistanceMatrixStatus.OK) {
 
@@ -214,11 +198,8 @@ function getDestanceWork(gpslat,gpslng){
 
         // 到着地点でループ
         for (var j = 0; j<results.length; j++) {
-          // var from = origins[i]; // 出発地点の住所
-          // var to = destinations[j]; // 到着地点の住所
           document.getElementById("distance-work").innerText = '距離：' + results[j].distance.text + '　'; // 距離
           document.getElementById("duration-work").innerText = '時間：' + results[j].duration.text; // 時間
-          // console.log("{},{},{},{}", from,  to, duration, distance);
         }
       }
     }

@@ -14,14 +14,6 @@ class RestaurantsController < ApplicationController
 
     @restaurants = Restaurant.includes(:posts, :pay_relationships).search(@search_params).order(id: :asc).page(params[:page]).per(10)
 
-    # 支払い方法をハッシュ化する
-    # @hash_payment_method = Hash.new
-    # payment_methods = PaymentMethod.all
-    # payment_methods.each do |payment_method|
-    #   @hash_payment_method[payment_method.id] = payment_method.save_location
-    # end
-
-
     ## 一覧ページurl保存用セッション削除
     session.delete(:return_to)
   end
@@ -44,7 +36,6 @@ class RestaurantsController < ApplicationController
     session[:return_to] = request.referer if session[:return_to].blank?
 
     @restaurant = Restaurant.new
-    # @payment_methods = PaymentMethod.all
 
   end
 

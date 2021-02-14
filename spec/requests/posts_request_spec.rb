@@ -123,7 +123,7 @@ RSpec.describe "Posts", type: :request do
         end
         it 'newテンプレートで表示されること' do
           post posts_path, params: { post: invalid_post_params }
-          expect(response).to redirect_to restaurant_path restaurant
+          expect(response).to render_template :new
         end
         it 'エラーが表示されること' do
           post posts_path, params: { post: invalid_post_params }
