@@ -57,3 +57,6 @@ PaymentMethod.create!(name: "Ali Pay", save_location: "ali_pay.png", order: 16)
 PaymentMethod.create!(name: "Apple Pay", save_location: "apple_pay.png", order: 17)
 PaymentMethod.create!(name: "ID", save_location: "id.png", order: 18)
 PaymentMethod.create!(name: "Wechat pay", save_location: "wechat_pay.png", order: 19)
+
+# 試用ユーザー追加
+User.create(email: 'testuser@example.com',   password: 'testuser', name: 'testuser', release: true)

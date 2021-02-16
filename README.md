@@ -5,7 +5,7 @@
 
 
 
----
+
 ## 📱 Screen Shot
 <p align="center">
 <img src="https://user-images.githubusercontent.com/67408336/107865572-1e322d80-6eab-11eb-8dfb-b5fb60245860.png" height="500px" width=auto >
@@ -16,12 +16,10 @@
 <img src="https://user-images.githubusercontent.com/67408336/107865653-263e9d00-6eac-11eb-90a3-c9b277227fe5.png" height="500px" width=auto>
 </p>
 
----
 ## 🌐 App URL
 ### **https://nagasaki-eeeats.herokuapp.com/**
 <img src="https://user-images.githubusercontent.com/67408336/107842884-f3dc6380-6e09-11eb-9453-6d8651d66902.png" height="65px;" style="max-width:100%;">
 
----
 ## 💬 About
 Nagasaki Eeeatsは、長崎の食について記録として残すシステムです。
 
@@ -33,7 +31,6 @@ Nagasaki Eeeatsは、長崎の食について記録として残すシステム�
 詳細はこちら⏬
 ### **https://nagasaki-eeeats.herokuapp.com/about**
 
----
 ## 💻 Technology Used
 
 ### Coding Languages and API
@@ -82,5 +79,4 @@ Nagasaki Eeeatsは、長崎の食について記録として残すシステム�
 
 ## 🎫 License
 
----
 - MT

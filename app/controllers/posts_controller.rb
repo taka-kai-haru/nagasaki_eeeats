@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.restaurant_id    = params[:restaurant_id]
+    @post.restaurant_id = params[:restaurant_id]
     default_score_set
   end
 

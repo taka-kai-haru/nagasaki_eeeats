@@ -15,5 +15,8 @@
       <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
     <% end %>
     <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide", id:"signup" %>
+    <% if !user_signed_in? %>
+      <%= link_to "試用ユーザでログイン", new_user_session_path("user[email]" => "testuser@example.com"), class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
+    <% end %>
   </div>
 </div>
