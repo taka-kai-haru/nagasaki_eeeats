@@ -11,11 +11,10 @@
     </div>
     <% if user_signed_in? %>
       <%= link_to "お店の一覧", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-lg w-100 btn-outline-light button-wide" %>
     <% else %>
       <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
-    <% end %>
-    <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide", id:"signup" %>
-    <% if !user_signed_in? %>
+      <%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg w-100 btn-outline-light button-wide", id:"signup" %>
       <%= link_to "試用ユーザでログイン", new_user_session_path("user[email]" => "testuser@example.com"), class: "btn btn-lg w-100 btn-outline-light button-wide" ,id:"login" %>
     <% end %>
   </div>

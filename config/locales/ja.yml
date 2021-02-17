@@ -26,7 +26,7 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
         name: 名前(ニックネーム)
-        release: 一般公開
+        release: 公開/非公開
       restaurant:
         name: お店の名前
         restaurant_type_id: ジャンル

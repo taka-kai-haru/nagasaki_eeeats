@@ -31,7 +31,8 @@ gem 'bootsnap',   '1.4.5', require: false
 gem 'devise'
 
 # active storage validation
-gem 'active_storage_validations', '0.8.2'
+# gem 'active_storage_validations', '0.8.2'
+gem 'active_storage_validations', '~> 0.9.2'
 # image size control
 gem 'image_processing',           '1.9.3'
 gem 'kaminari'

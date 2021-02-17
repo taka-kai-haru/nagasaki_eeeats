@@ -40,11 +40,21 @@
       <div class="field">
         <%= f.label :release %>
         <div class="switchArea">
-          <%= f.check_box :release, autocomplete: "release", id: 'switch1' %>
+          <%= f.check_box :release, checked: true, autocomplete: "release", id: 'switch1' %>
           <label for="switch1"><span></span></label>
           <div id="swImg"></div>
         </div>
       </div>
+
+      <div class="release_description_box" id="official_no_release">
+        <p>非公開の場合、他のユーザーにお店の評価のみ公開され、ユーザー名及び、お店の写真、コメントは公開されません。</p>
+      </div>
+
+      <div class="release_description_box" id="official_released">
+        <p>公開の場合、他のユーザーにお店の評価及び、写真、コメントを公開できます。</p>
+      </div>
+
+      <%= javascript_pack_tag 'home/users/registration' %>
 
       <div class="actions text-center mt-10 mb-20">
         <%= f.submit "ユーザー登録", class: "btn btn-info w-75", id:"signup" %>

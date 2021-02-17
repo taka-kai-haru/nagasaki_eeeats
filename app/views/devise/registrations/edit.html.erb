@@ -48,6 +48,17 @@
         </div>
         <%= render 'devise/shared/error_message_detail', {object: f.object, target: :release} %>
       </div>
+
+      <div class="release_description_box" id="official_no_release">
+        <p>非公開の場合、他のユーザーにお店の評価のみ公開され、ユーザー名及び、お店の写真、コメントは公開されません。</p>
+      </div>
+
+      <div class="release_description_box" id="official_released">
+        <p>公開の場合、他のユーザーにお店の評価及び、写真、コメントを公開できます。</p>
+      </div>
+
+      <%= javascript_pack_tag 'home/users/registration' %>
+
       <div class="actions text-center mt-20">
         <%= f.submit "ユーザー情報更新", class: "btn btn-info w-75" %>
       </div>
