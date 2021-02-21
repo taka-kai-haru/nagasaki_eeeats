@@ -56,6 +56,9 @@ Nagasaki Eeeatsは、長崎の食について記録として残すシステム�
 ### Development OS
 - CentOS 8.3.2011
 
+### Development Use Tools
+- Figma
+- GIMP
 
 <h2 align="center">Nagasaki Eeeats</h2>
 <p align="center">
@@ -75,6 +78,8 @@ Nagasaki Eeeatsは、長崎の食について記録として残すシステム�
     <img src="https://user-images.githubusercontent.com/67408336/107834285-2457d980-6dd9-11eb-8d80-a7a86079b7e1.png" height="65px;" style="max-width:100%;">
     <img src="https://user-images.githubusercontent.com/67408336/107834351-42bdd500-6dd9-11eb-8d59-c9af28b46e84.png" height="65px;" style="max-width:100%;">
   </a>
+  <a href="https://www.figma.com/" rel="nofollow"><img src="https://user-images.githubusercontent.com/67408336/108613122-606ee800-7432-11eb-87a7-281bb897d9ca.png" height="65px;" style="max-width:100%;"></a>
+  <a href="https://www.gimp.org/" rel="nofollow"><img src="https://user-images.githubusercontent.com/67408336/108613146-98762b00-7432-11eb-8cd9-dce4a6a7d990.png" height="65px;" style="max-width:100%;"></a>
 </p>
 
 ## 🎫 License
