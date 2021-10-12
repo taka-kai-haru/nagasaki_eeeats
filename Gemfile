@@ -7,7 +7,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rails',      '6.0.3'
 
 # Use Puma as the app server
-gem 'puma',       '4.3.4'
+gem 'puma',       '4.3.9'
 # Use SCSS for stylesheets
 gem 'sass-rails', '6.0.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
