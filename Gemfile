@@ -34,7 +34,7 @@ gem 'devise'
 # gem 'active_storage_validations', '0.8.2'
 gem 'active_storage_validations', '~> 0.9.2'
 # image size control
-gem 'image_processing',           '1.9.3'
+gem 'image_processing',           '1.12.2'
 gem 'kaminari'
 gem 'mini_magick', '4.9.5'
 
