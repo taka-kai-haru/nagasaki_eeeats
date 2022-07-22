@@ -44,7 +44,7 @@ gem 'geokit-rails',               '2.3.1'
 
 gem 'pg', '1.2.3'
 
-gem 'tzinfo', '~> 1.2', '>= 1.2.8'
+gem 'tzinfo', '~> 1.2'
 gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.4'
 gem 'zeitwerk', '~> 2.4', '>= 2.4.2'
 gem 'rake', '~> 13.0', '>= 13.0.3'
